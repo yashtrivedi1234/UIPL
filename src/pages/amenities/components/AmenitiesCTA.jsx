@@ -1,0 +1,35 @@
+export default function AmenitiesCTA() {
+  return (
+    <section className="py-28 relative px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="relative overflow-hidden rounded-[2rem] p-12 md:p-20 text-center">
+          {/* Gradient background */}
+          <div
+            className="absolute inset-0 z-0 opacity-90"
+            style={{ background: 'linear-gradient(120deg, #0B3C5D 0%, #1E6FB8 40%, #2E7D32 75%, #F7931E 100%)' }}
+          />
+          {/* Subtle texture overlay */}
+          <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
+
+          <div className="relative z-10">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+              Elevate Your Lifestyle
+            </h2>
+            <p className="text-white/80 text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+              Join the league of elite homeowners. Schedule a private tour of our facilities
+              today and witness the UIPL difference.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <button className="bg-white text-[#00263f] px-10 py-4 rounded-xl font-black text-base hover:scale-105 transition-transform shadow-2xl">
+                Contact Us
+              </button>
+              <button className="bg-[#00263f] text-white border border-white/20 px-10 py-4 rounded-xl font-black text-base hover:bg-[#00263f]/80 transition-all">
+                Download Floorplans
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
