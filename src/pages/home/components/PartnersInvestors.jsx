@@ -79,14 +79,14 @@ export default function PartnersInvestors() {
         </div>
 
         {/* Marquee Partners */}
-        <div className="mb-12 sm:mb-16 overflow-hidden">
+        <div className="overflow-hidden">
           <div className="marquee-container flex gap-6 sm:gap-8 lg:gap-10">
             {duplicatedPartners.map((partner, index) => (
               <div
                 key={index}
                 className="bg-white border border-slate-200 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center hover:shadow-lg hover:border-orange-300 transition-all group cursor-pointer min-h-[120px] sm:min-h-[140px] flex-shrink-0 w-[140px] sm:w-[160px] lg:w-[180px]"
               >
-                <div className="w-20 sm:w-24 lg:w-28 h-10 sm:h-12 mb-2 sm:mb-3 flex items-center justify-center bg-slate-100 rounded group-hover:bg-slate-200 transition-colors">
+                <div className="w-20 sm:w-24 lg:w-28 h-10 sm:h-12 flex items-center justify-center bg-slate-100 rounded group-hover:bg-slate-200 transition-colors">
                   <img
                     src={partner.logo}
                     alt={partner.name}
