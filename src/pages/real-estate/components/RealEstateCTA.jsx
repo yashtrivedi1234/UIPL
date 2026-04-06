@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function RealEstateCTA() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-28 relative flex justify-center items-center px-6">
       <div className="absolute inset-0 bg-[#f8f9ff]" />
@@ -12,10 +16,16 @@ export default function RealEstateCTA() {
             our latest developments.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-[#00263f] text-white px-10 py-5 rounded-2xl text-base font-black shadow-xl hover:scale-105 transition-all">
+            <button
+              onClick={() => navigate('/projects')}
+              className="bg-[#00263f] text-white px-10 py-5 rounded-2xl text-base font-black shadow-xl hover:scale-105 transition-all"
+            >
               Browse Properties
             </button>
-            <button className="bg-white text-[#00263f] border border-[#00263f]/10 px-10 py-5 rounded-2xl text-base font-black shadow-md hover:bg-[#eff4ff] transition-colors">
+            <button
+              onClick={() => navigate('/contact')}
+              className="bg-white text-[#00263f] border border-[#00263f]/10 px-10 py-5 rounded-2xl text-base font-black shadow-md hover:bg-[#eff4ff] transition-colors"
+            >
               Contact Expert Advisor
             </button>
           </div>

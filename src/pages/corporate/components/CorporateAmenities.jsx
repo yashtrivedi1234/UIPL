@@ -1,4 +1,5 @@
 import { Shield, Waves, Dumbbell, TreePine } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const items = [
   { icon: Shield,   title: '24/7 Security',  desc: 'AI-monitored surveillance and elite guard patrols.',              color: 'text-[#0b3c5d]', offset: '' },
@@ -8,6 +9,8 @@ const items = [
 ]
 
 export default function CorporateAmenities() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-24 bg-[#f8f9ff]">
       <div className="max-w-7xl mx-auto px-6">
@@ -40,7 +43,10 @@ export default function CorporateAmenities() {
               feature cutting-edge amenities that prioritize your physical safety and mental
               well-being.
             </p>
-            <button className="bg-[#00263f] text-white px-10 py-4 rounded-xl font-black shadow-xl hover:-translate-y-1 transition-transform">
+            <button
+              onClick={() => navigate('/amenities')}
+              className="bg-[#00263f] text-white px-10 py-4 rounded-xl font-black shadow-xl hover:-translate-y-1 transition-transform"
+            >
               Download Lifestyle Brochure
             </button>
           </div>

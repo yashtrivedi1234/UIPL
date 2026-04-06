@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 const sectors = [
   {
     tag: 'Academic Excellence',
@@ -23,6 +25,13 @@ const sectors = [
 ]
 
 export default function CorporateSectors() {
+  const navigate = useNavigate()
+  const sectorRouteMap = {
+    Education: '/education',
+    Healthcare: '/sectors',
+    'Real Estate': '/real-estate',
+  }
+
   return (
     <section className="py-24 bg-[#f8f9ff]">
       <div className="max-w-7xl mx-auto px-6">
@@ -31,7 +40,10 @@ export default function CorporateSectors() {
             <h2 className="text-4xl font-black text-[#00263f]">Sectors of Excellence</h2>
             <p className="text-slate-500 mt-2 text-sm">Delivering specialized infrastructure solutions.</p>
           </div>
-          <button className="text-[#00263f] font-black border-b-2 border-[#00263f] pb-0.5 hover:border-[#fe9824] hover:text-[#fe9824] transition-colors text-sm">
+          <button
+            onClick={() => navigate('/sectors')}
+            className="text-[#00263f] font-black border-b-2 border-[#00263f] pb-0.5 hover:border-[#fe9824] hover:text-[#fe9824] transition-colors text-sm"
+          >
             View All Sectors →
           </button>
         </div>
@@ -55,7 +67,10 @@ export default function CorporateSectors() {
               <div className="p-8">
                 <h3 className="text-2xl font-black text-[#00263f] mb-4">{title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6">{desc}</p>
-                <button className="w-full py-3 rounded-xl border-2 border-[#0b3c5d] text-[#0b3c5d] font-black hover:bg-[#0b3c5d] hover:text-white transition-all duration-300 text-sm">
+                <button
+                  onClick={() => navigate(sectorRouteMap[title] || '/sectors')}
+                  className="w-full py-3 rounded-xl border-2 border-[#0b3c5d] text-[#0b3c5d] font-black hover:bg-[#0b3c5d] hover:text-white transition-all duration-300 text-sm"
+                >
                   {cta}
                 </button>
               </div>

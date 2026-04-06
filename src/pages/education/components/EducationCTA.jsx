@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function EducationCTA() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-24 relative overflow-hidden bg-[#00263f]">
       {/* Gradient overlay */}
@@ -18,10 +22,16 @@ export default function EducationCTA() {
             that goes beyond textbooks.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-[#0b3c5d] text-white px-10 py-5 rounded-xl font-black text-xl shadow-2xl hover:scale-105 transition-transform">
+            <button
+              onClick={() => navigate('/contact')}
+              className="bg-[#0b3c5d] text-white px-10 py-5 rounded-xl font-black text-xl shadow-2xl hover:scale-105 transition-transform"
+            >
               Contact Us
             </button>
-            <button className="border-2 border-[#00263f]/20 text-[#00263f] px-10 py-5 rounded-xl font-black text-xl hover:bg-[#00263f]/5 transition-all">
+            <button
+              onClick={() => navigate('/projects')}
+              className="border-2 border-[#00263f]/20 text-[#00263f] px-10 py-5 rounded-xl font-black text-xl hover:bg-[#00263f]/5 transition-all"
+            >
               Download Brochure
             </button>
           </div>

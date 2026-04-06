@@ -22,7 +22,11 @@ const details = [
   },
 ]
 
-const socials = [Globe, Share2, AtSign]
+const socials = [
+  { icon: Globe, href: '/', label: 'Website' },
+  { icon: Share2, href: '/contact', label: 'Share' },
+  { icon: AtSign, href: 'mailto:contact@uipl.com', label: 'Email' },
+]
 
 export default function ContactInfo() {
   return (
@@ -59,10 +63,11 @@ export default function ContactInfo() {
         </div>
 
         <div className="pt-8 border-t border-slate-200/60 flex gap-4">
-          {socials.map((Icon, i) => (
+          {socials.map(({ icon: Icon, href, label }) => (
             <a
-              key={i}
-              href="#"
+              key={label}
+              href={href}
+              target={href.startsWith('mailto:') ? undefined : '_self'}
               className="w-10 h-10 rounded-full bg-[#0b3c5d] text-white flex items-center justify-center hover:scale-110 transition-transform"
             >
               <Icon size={16} />

@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function CorporateCTA() {
+  const navigate = useNavigate()
+
   return (
     <section
       className="py-24 relative overflow-hidden"
@@ -13,10 +17,16 @@ export default function CorporateCTA() {
           nation-building, UIPL is your trusted partner.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-[#fe9824] text-white px-10 py-5 rounded-xl font-black text-lg hover:scale-105 transition-transform shadow-lg">
+          <button
+            onClick={() => navigate('/contact')}
+            className="bg-[#fe9824] text-white px-10 py-5 rounded-xl font-black text-lg hover:scale-105 transition-transform shadow-lg"
+          >
             Inquire Now
           </button>
-          <button className="border-2 border-white/30 text-white px-10 py-5 rounded-xl font-black hover:bg-white/10 transition-colors">
+          <button
+            onClick={() => navigate('/projects')}
+            className="border-2 border-white/30 text-white px-10 py-5 rounded-xl font-black hover:bg-white/10 transition-colors"
+          >
             Download App
           </button>
         </div>

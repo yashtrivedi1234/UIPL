@@ -1,10 +1,26 @@
 import { Globe, Mail, Share2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo/Logo.jpeg'
 
 const footerLinks = {
-  Company: ['About Us', 'Our Leadership', 'Careers', 'Sustainability'],
-  Sectors: ['Residential', 'Educational Institutions', 'Commercial Plazas', 'Healthcare Facilities'],
-  Resources: ['Project Brochure', 'Privacy Policy', 'Terms of Service', 'Help Center'],
+  Company: [
+    { label: 'About Us', to: '/about' },
+    { label: 'Our Leadership', to: '/about' },
+    { label: 'Careers', to: '/contact' },
+    { label: 'Sustainability', to: '/about' },
+  ],
+  Sectors: [
+    { label: 'Residential', to: '/real-estate' },
+    { label: 'Educational Institutions', to: '/education' },
+    { label: 'Commercial Plazas', to: '/corporate' },
+    { label: 'Healthcare Facilities', to: '/sectors' },
+  ],
+  Resources: [
+    { label: 'Project Brochure', to: '/projects' },
+    { label: 'Privacy Policy', to: '/contact' },
+    { label: 'Terms of Service', to: '/contact' },
+    { label: 'Help Center', to: '/contact' },
+  ],
 }
 
 export default function Footer() {
@@ -30,10 +46,14 @@ export default function Footer() {
               ecosystems that define the next generation of urban development.
             </p>
             <div className="flex gap-3">
-              {[Globe, Mail, Share2].map((Icon, i) => (
+              {[
+                { icon: Globe, href: '/' },
+                { icon: Mail, href: 'mailto:contact@uipl.com' },
+                { icon: Share2, href: '/contact' },
+              ].map(({ icon: Icon, href }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={href}
+                  href={href}
                   className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#fe9824] transition-colors"
                 >
                   <Icon size={15} className="sm:w-4 sm:h-4" />
@@ -43,20 +63,20 @@ export default function Footer() {
           </div>
 
           {/* Link columns — each takes 1 col, wraps naturally on mobile into 2-col grid */}
-          {Object.entries(footerLinks).map(([heading, links]) => (
+              {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading} className="col-span-1">
               <h4 className="text-sm sm:text-base font-black mb-3 sm:mb-5 text-orange-400">
                 {heading}
               </h4>
               <ul className="space-y-2 sm:space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      to={link.to}
                       className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors hover:translate-x-1 inline-block leading-snug"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -71,7 +91,13 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm text-slate-500">
             {['Lucknow', 'Noida', 'Delhi'].map((city) => (
-              <a key={city} href="#" className="hover:text-white transition-colors">
+              <a
+                key={city}
+                href="https://www.google.com/maps/place/Gomti+Nagar,+Lucknow"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-white transition-colors"
+              >
                 {city}
               </a>
             ))}

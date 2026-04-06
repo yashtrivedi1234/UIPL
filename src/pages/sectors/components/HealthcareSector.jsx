@@ -1,4 +1,5 @@
 import { HeartPulse, Zap, FlaskConical, Trees, ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const tags = [
   { icon: Zap,         label: 'Level 1 Trauma Units' },
@@ -7,6 +8,8 @@ const tags = [
 ]
 
 export default function HealthcareSector() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-24 px-6 bg-[#f8f9ff] overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
@@ -58,7 +61,10 @@ export default function HealthcareSector() {
               ))}
             </div>
 
-            <button className="group flex items-center gap-3 bg-[#00263f] text-white px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg font-black">
+            <button
+              onClick={() => navigate('/sectors')}
+              className="group flex items-center gap-3 bg-[#00263f] text-white px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg font-black"
+            >
               View Healthcare Centers
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>

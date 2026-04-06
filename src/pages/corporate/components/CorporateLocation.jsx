@@ -1,6 +1,9 @@
 import { MapPin, Phone } from 'lucide-react'
 
 export default function CorporateLocation() {
+  const mapsDirectionsUrl =
+    'https://www.google.com/maps/dir/?api=1&destination=Gomti+Nagar+Lucknow+Uttar+Pradesh'
+
   return (
     <section className="relative h-[600px] w-full bg-slate-200 overflow-hidden">
       <img
@@ -28,7 +31,10 @@ export default function CorporateLocation() {
               <p className="text-sm font-medium text-slate-700">+91 522 456 7890</p>
             </div>
           </div>
-          <button className="mt-7 w-full py-3.5 bg-[#00263f] text-white rounded-xl font-black hover:bg-[#0b3c5d] transition-colors">
+          <button
+            onClick={() => window.open(mapsDirectionsUrl, '_blank', 'noopener,noreferrer')}
+            className="mt-7 w-full py-3.5 bg-[#00263f] text-white rounded-xl font-black hover:bg-[#0b3c5d] transition-colors"
+          >
             Get Directions
           </button>
         </div>

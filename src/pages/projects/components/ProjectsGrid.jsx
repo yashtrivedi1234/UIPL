@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { MapPin, ArrowUpRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const ALL_PROJECTS = [
   {
@@ -59,10 +60,15 @@ const STATUS_COLORS = {
 
 export default function ProjectsGrid() {
   const [active, setActive] = useState('All')
+  const [visibleCount, setVisibleCount] = useState(3)
+  const navigate = useNavigate()
 
   const filtered = active === 'All'
     ? ALL_PROJECTS
     : ALL_PROJECTS.filter((p) => p.sector === active)
+
+  const visibleProjects = filtered.slice(0, visibleCount)
+  const canLoadMore = visibleCount < filtered.length
 
   return (
     <section className="py-24 px-6 bg-[#f8f9ff]">
@@ -93,7 +99,7 @@ export default function ProjectsGrid() {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {filtered.map((project) => {
+          {visibleProjects.map((project) => {
             const isFeatured = project.size === 'featured'
             const isTall     = project.size === 'tall'
 
@@ -133,7 +139,10 @@ export default function ProjectsGrid() {
                           </div>
                         </div>
                         {isFeatured && (
-                          <button className="w-11 h-11 rounded-full bg-white/20 backdrop-blur flex items-center justify-center hover:bg-white hover:text-[#00263f] transition-all">
+                          <button
+                            onClick={() => navigate('/contact')}
+                            className="w-11 h-11 rounded-full bg-white/20 backdrop-blur flex items-center justify-center hover:bg-white hover:text-[#00263f] transition-all"
+                          >
                             <ArrowUpRight size={18} />
                           </button>
                         )}
@@ -160,9 +169,14 @@ export default function ProjectsGrid() {
 
         {/* Load More */}
         <div className="mt-16 text-center">
-          <button className="px-10 py-4 border-2 border-[#00263f] text-[#00263f] font-black rounded-xl hover:bg-[#00263f] hover:text-white transition-all">
-            Load More Projects
-          </button>
+          {canLoadMore && (
+            <button
+              onClick={() => setVisibleCount((prev) => Math.min(prev + 3, filtered.length))}
+              className="px-10 py-4 border-2 border-[#00263f] text-[#00263f] font-black rounded-xl hover:bg-[#00263f] hover:text-white transition-all"
+            >
+              Load More Projects
+            </button>
+          )}
         </div>
 
       </div>

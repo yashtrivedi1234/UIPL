@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function SectorsCTA() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-28 px-6 bg-[#f8f9ff] overflow-hidden relative">
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -10,10 +14,16 @@ export default function SectorsCTA() {
           infrastructure that lasts lifetimes.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-          <button className="w-full sm:w-auto bg-[#00263f] text-white px-10 py-4 rounded-xl font-black text-base hover:scale-105 transition-all shadow-xl">
+          <button
+            onClick={() => navigate('/contact')}
+            className="w-full sm:w-auto bg-[#00263f] text-white px-10 py-4 rounded-xl font-black text-base hover:scale-105 transition-all shadow-xl"
+          >
             Get in Touch
           </button>
-          <button className="w-full sm:w-auto border-2 border-[#00263f]/20 text-[#00263f] px-10 py-4 rounded-xl font-black text-base hover:bg-[#00263f] hover:text-white transition-all">
+          <button
+            onClick={() => navigate('/projects')}
+            className="w-full sm:w-auto border-2 border-[#00263f]/20 text-[#00263f] px-10 py-4 rounded-xl font-black text-base hover:bg-[#00263f] hover:text-white transition-all"
+          >
             Download Corporate Brochure
           </button>
         </div>

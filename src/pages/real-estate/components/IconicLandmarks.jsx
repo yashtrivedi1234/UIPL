@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const projects = [
   {
@@ -32,6 +33,8 @@ const projects = [
 ]
 
 export default function IconicLandmarks() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-24 bg-[#eff4ff]">
       <div className="max-w-7xl mx-auto px-6">
@@ -44,7 +47,10 @@ export default function IconicLandmarks() {
               most prestigious sectors.
             </p>
           </div>
-          <button className="text-[#8d4f00] font-black flex items-center gap-2 hover:translate-x-1 transition-transform text-sm">
+          <button
+            onClick={() => navigate('/projects')}
+            className="text-[#8d4f00] font-black flex items-center gap-2 hover:translate-x-1 transition-transform text-sm"
+          >
             View Portfolio <ArrowRight size={16} />
           </button>
         </div>

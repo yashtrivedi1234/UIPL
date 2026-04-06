@@ -1,6 +1,9 @@
 import { ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export default function CorporateHero() {
+  const navigate = useNavigate()
+
   return (
     <header className="relative pt-32 pb-24 overflow-hidden bg-[#eff4ff]">
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
@@ -25,10 +28,16 @@ export default function CorporateHero() {
             world-class Healthcare, and premium Real Estate into a singular, thriving ecosystem.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-[#00263f] px-8 py-4 rounded-xl text-white font-black hover:scale-105 transition-all shadow-lg flex items-center gap-2">
+            <button
+              onClick={() => navigate('/projects')}
+              className="bg-[#00263f] px-8 py-4 rounded-xl text-white font-black hover:scale-105 transition-all shadow-lg flex items-center gap-2"
+            >
               Explore Projects <ArrowRight size={18} />
             </button>
-            <button className="border-2 border-slate-200 px-8 py-4 rounded-xl text-[#00263f] font-black hover:bg-white transition-all">
+            <button
+              onClick={() => navigate('/sectors')}
+              className="border-2 border-slate-200 px-8 py-4 rounded-xl text-[#00263f] font-black hover:bg-white transition-all"
+            >
               View Our Sectors
             </button>
           </div>

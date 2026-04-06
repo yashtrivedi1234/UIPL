@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function RealEstateHero() {
+  const navigate = useNavigate()
+
   return (
     <header className="relative h-[921px] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -29,10 +33,16 @@ export default function RealEstateHero() {
             residential and strategic commercial developments across Lucknow's skyline.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <button className="bg-[#fe9824] text-[#663800] px-8 py-4 rounded-xl font-black hover:scale-105 transition-transform shadow-lg">
+            <button
+              onClick={() => navigate('/projects')}
+              className="bg-[#fe9824] text-[#663800] px-8 py-4 rounded-xl font-black hover:scale-105 transition-transform shadow-lg"
+            >
               Explore Properties
             </button>
-            <button className="bg-white/10 backdrop-blur text-white px-8 py-4 rounded-xl font-black border border-white/20 hover:bg-white/20 transition-colors">
+            <button
+              onClick={() => navigate('/about')}
+              className="bg-white/10 backdrop-blur text-white px-8 py-4 rounded-xl font-black border border-white/20 hover:bg-white/20 transition-colors"
+            >
               Our Vision
             </button>
           </div>

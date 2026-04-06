@@ -1,4 +1,5 @@
 import { MapPin, Users, ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const institutions = [
   {
@@ -28,6 +29,8 @@ const institutions = [
 ]
 
 export default function EducationInstitutions() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-24 bg-[#f8f9ff]" id="institutions">
       <div className="max-w-7xl mx-auto px-6">
@@ -40,7 +43,10 @@ export default function EducationInstitutions() {
               academic journeys.
             </p>
           </div>
-          <button className="flex items-center gap-2 font-black text-[#8d4f00] group hover:gap-4 transition-all text-sm">
+          <button
+            onClick={() => navigate('/education')}
+            className="flex items-center gap-2 font-black text-[#8d4f00] group hover:gap-4 transition-all text-sm"
+          >
             View All Branches <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

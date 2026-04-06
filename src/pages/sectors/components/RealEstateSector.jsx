@@ -1,4 +1,5 @@
 import { Building2, Gem, Briefcase, Mountain, Shield, ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const features = [
   { icon: Gem,       label: 'Luxury Penthouses'  },
@@ -8,6 +9,8 @@ const features = [
 ]
 
 export default function RealEstateSector() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-24 px-6 bg-[#00263f] text-white overflow-hidden relative">
 
@@ -52,7 +55,10 @@ export default function RealEstateSector() {
               ))}
             </div>
 
-            <button className="group flex items-center gap-3 bg-[#fe9824] text-[#00263f] px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-xl font-black">
+            <button
+              onClick={() => navigate('/real-estate')}
+              className="group flex items-center gap-3 bg-[#fe9824] text-[#00263f] px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-xl font-black"
+            >
               Browse Properties
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>

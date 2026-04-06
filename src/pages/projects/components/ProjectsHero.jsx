@@ -1,6 +1,9 @@
 import { ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export default function ProjectsHero() {
+  const navigate = useNavigate()
+
   return (
     <header className="relative pt-40 pb-32 px-6 overflow-hidden bg-[#eff4ff]">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -23,7 +26,10 @@ export default function ProjectsHero() {
             From luxury residential towers to state-of-the-art medical facilities, we are
             building the infrastructure that defines tomorrow's skyline.
           </p>
-          <button className="bg-[#0b3c5d] text-white px-8 py-4 rounded-xl font-black flex items-center gap-2 hover:scale-105 transition-all shadow-lg">
+          <button
+            onClick={() => navigate('/contact')}
+            className="bg-[#0b3c5d] text-white px-8 py-4 rounded-xl font-black flex items-center gap-2 hover:scale-105 transition-all shadow-lg"
+          >
             Explore Now <ArrowRight size={18} />
           </button>
         </div>

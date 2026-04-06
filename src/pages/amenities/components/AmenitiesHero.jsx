@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function AmenitiesHero() {
   return (
     <header className="relative h-[820px] flex items-center justify-center overflow-hidden pt-20">
@@ -32,12 +34,12 @@ export default function AmenitiesHero() {
           >
             Explore Amenities
           </a>
-          <a
-            href="#"
+          <Link
+            to="/contact"
             className="px-8 py-4 bg-white/10 backdrop-blur text-white border border-white/20 rounded-xl font-black hover:bg-white/20 transition-all"
           >
             Download Brochure
-          </a>
+          </Link>
         </div>
       </div>
 

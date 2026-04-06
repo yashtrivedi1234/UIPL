@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function AmenitiesCTA() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-28 relative px-6">
       <div className="max-w-5xl mx-auto">
@@ -20,10 +24,16 @@ export default function AmenitiesCTA() {
               today and witness the UIPL difference.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <button className="bg-white text-[#00263f] px-10 py-4 rounded-xl font-black text-base hover:scale-105 transition-transform shadow-2xl">
+              <button
+                onClick={() => navigate('/contact')}
+                className="bg-white text-[#00263f] px-10 py-4 rounded-xl font-black text-base hover:scale-105 transition-transform shadow-2xl"
+              >
                 Contact Us
               </button>
-              <button className="bg-[#00263f] text-white border border-white/20 px-10 py-4 rounded-xl font-black text-base hover:bg-[#00263f]/80 transition-all">
+              <button
+                onClick={() => navigate('/projects')}
+                className="bg-[#00263f] text-white border border-white/20 px-10 py-4 rounded-xl font-black text-base hover:bg-[#00263f]/80 transition-all"
+              >
                 Download Floorplans
               </button>
             </div>
