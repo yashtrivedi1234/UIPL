@@ -58,15 +58,15 @@ export default function HeroSection() {
           </div>
 
           {/* Stats bar */}
-          <div className="flex flex-row justify-center lg:justify-start gap-6 sm:gap-8 lg:gap-10 pt-4 border-t border-slate-200/60 flex-wrap">
+          <div className="flex flex-row justify-center lg:justify-start gap-3 sm:gap-6 lg:gap-10 pt-4 border-t border-slate-200/60 flex-nowrap overflow-x-auto lg:flex-wrap">
             {[
               { value: '25+', label: 'Years of Excellence' },
               { value: '10k+', label: 'Families Served' },
               { value: '50+', label: 'Active Projects' },
             ].map(({ value, label }) => (
-              <div key={label} className="text-center lg:text-left min-w-[70px]">
-                <div className="text-2xl sm:text-3xl font-black text-[#8d4f00]">{value}</div>
-                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wide mt-1">
+              <div key={label} className="text-center lg:text-left flex-shrink-0 min-w-max sm:min-w-[70px]">
+                <div className="text-lg sm:text-3xl font-black text-[#8d4f00]">{value}</div>
+                <div className="text-[8px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wide mt-0.5 sm:mt-1 whitespace-nowrap">
                   {label}
                 </div>
               </div>
