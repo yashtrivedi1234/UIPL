@@ -17,7 +17,7 @@ export default function EducationHero() {
           <span className="inline-block px-4 py-1.5 mb-6 text-xs font-black tracking-[0.2em] text-[#ffdcc0] bg-[#8d4f00]/20 rounded-full border border-[#8d4f00]/30 uppercase">
             Architecting Knowledge
           </span>
-          <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tighter mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tighter mb-8">
             Defining the{' '}
             <span
               className="bg-clip-text text-transparent"

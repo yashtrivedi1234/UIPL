@@ -19,8 +19,8 @@ export default function AmenitiesHero() {
         <span className="inline-block px-4 py-1.5 rounded-full bg-[#fe9824]/20 text-[#ffdcc0] border border-[#8d4f00]/30 backdrop-blur-md text-xs font-black tracking-widest uppercase mb-6">
           World-Class Excellence
         </span>
-        <h1 className="text-5xl md:text-7xl font-black text-white leading-none tracking-tight mb-8">
-          Luxury Lifestyle &amp; <br />
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-none tracking-tight mb-8">
+          Luxury Lifestyle &amp; {""}
           <span className="text-[#ffdcc0]">Secure Living</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl mx-auto mb-10">

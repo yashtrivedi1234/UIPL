@@ -13,7 +13,7 @@ export default function ProjectsHero() {
           <span className="inline-block px-4 py-1.5 mb-6 rounded-full bg-[#ffdcc0] text-[#2d1600] text-xs font-black tracking-widest uppercase">
             UIPL Portfolio
           </span>
-          <h1 className="text-5xl md:text-7xl font-black leading-[1.1] text-[#00263f] tracking-tight mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] text-[#00263f] tracking-tight mb-8">
             Our Projects: <br />
             <span
               className="bg-clip-text text-transparent"

@@ -13,7 +13,7 @@ export default function CorporateHero() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#ffdcc0] text-[#2d1600] text-xs uppercase tracking-widest font-black">
             Integrated Ecosystem of Life
           </span>
-          <h1 className="text-5xl lg:text-7xl font-black text-[#00263f] leading-[1.1] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] leading-[1.1] tracking-tight">
             Architecting{' '}
             <span
               className="bg-clip-text text-transparent"

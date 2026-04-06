@@ -15,7 +15,7 @@ export default function AboutHero() {
           <span className="inline-block px-4 py-1.5 bg-[#8d4f00] text-white text-xs font-black tracking-widest rounded-full mb-6 uppercase">
             Building the Future
           </span>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.9]">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-6 leading-[0.9]">
             About UIPL
           </h1>
           <p className="text-xl md:text-2xl font-light leading-relaxed text-slate-200 max-w-2xl">

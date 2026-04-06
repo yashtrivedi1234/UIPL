@@ -19,7 +19,7 @@ export default function RealEstateHero() {
           <span className="inline-block px-4 py-1.5 bg-[#fe9824] text-[#663800] rounded-full text-xs font-black tracking-widest uppercase">
             The Pinnacle of Living
           </span>
-          <h1 className="text-white text-6xl md:text-8xl font-black leading-[1.1] tracking-tighter">
+          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tighter">
             Architecting <br />
             <span
               className="bg-clip-text text-transparent"

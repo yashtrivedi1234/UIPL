@@ -6,8 +6,8 @@ export default function SectorsHero() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#0b3c5d]/10 text-[#00263f] font-black text-xs uppercase tracking-widest mb-6">
             World Class Standards
           </span>
-          <h1 className="text-5xl md:text-7xl font-black text-[#00263f] tracking-tighter leading-tight mb-8">
-            Our Sectors of <br />
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] tracking-tighter leading-tight mb-8">
+            Our Sectors of {""}
             <span className="text-[#fe9824]">Excellence</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed">

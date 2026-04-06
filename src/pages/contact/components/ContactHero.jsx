@@ -11,7 +11,7 @@ export default function ContactHero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <h1 className="text-white font-black text-5xl md:text-7xl max-w-4xl tracking-tight leading-[1.1]">
+        <h1 className="text-white font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-4xl tracking-tight leading-[1.1]">
           Contact Us:{' '}
           <span className="text-[#fe9824]">Shaping the Future Together</span>
         </h1>
