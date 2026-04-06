@@ -1,43 +1,45 @@
+import sbiLogo from '../../../assets/partners/sbi.png'
+
 export default function PartnersInvestors() {
   const partners = [
     {
       name: 'HDFC Bank',
-      logo: 'https://via.placeholder.com/150x60?text=HDFC+Bank',
+      logo: sbiLogo,
       category: 'Financial Partner'
     },
     {
       name: 'ICICI Bank',
-      logo: 'https://via.placeholder.com/150x60?text=ICICI+Bank',
+      logo: sbiLogo,
       category: 'Financial Partner'
     },
     {
       name: 'State Bank of India',
-      logo: 'https://via.placeholder.com/150x60?text=SBI',
+      logo: sbiLogo,
       category: 'Financial Partner'
     },
     {
       name: 'Axis Bank',
-      logo: 'https://via.placeholder.com/150x60?text=Axis+Bank',
+      logo: sbiLogo,
       category: 'Financial Partner'
     },
     {
       name: 'Microsoft',
-      logo: 'https://via.placeholder.com/150x60?text=Microsoft',
+      logo: sbiLogo,
       category: 'Corporate Partner'
     },
     {
       name: 'Google',
-      logo: 'https://via.placeholder.com/150x60?text=Google',
+      logo: sbiLogo,
       category: 'Corporate Partner'
     },
     {
       name: 'Amazon',
-      logo: 'https://via.placeholder.com/150x60?text=Amazon',
+      logo: sbiLogo,
       category: 'Corporate Partner'
     },
     {
       name: 'TCS',
-      logo: 'https://via.placeholder.com/150x60?text=TCS',
+      logo: sbiLogo,
       category: 'Corporate Partner'
     }
   ]
@@ -46,7 +48,7 @@ export default function PartnersInvestors() {
   const duplicatedPartners = [...partners, ...partners]
 
   return (
-    <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-slate-50 to-white">
+    <section className="py-8 sm:py-10 lg:py-12 bg-linear-to-b from-slate-50 to-white">
       <style>{`
         @keyframes marquee {
           0% {
@@ -84,9 +86,9 @@ export default function PartnersInvestors() {
             {duplicatedPartners.map((partner, index) => (
               <div
                 key={index}
-                className="bg-white border border-slate-200 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center hover:shadow-lg hover:border-orange-300 transition-all group cursor-pointer min-h-[120px] sm:min-h-[140px] flex-shrink-0 w-[140px] sm:w-[160px] lg:w-[180px]"
+                className="bg-white border border-slate-200 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center hover:shadow-lg hover:border-orange-300 transition-all group cursor-pointer min-h-30 sm:min-h-35 shrink-0 w-35 sm:w-40 lg:w-45"
               >
-                <div className="w-20 sm:w-24 lg:w-28 h-10 sm:h-12 flex items-center justify-center bg-slate-100 rounded group-hover:bg-slate-200 transition-colors">
+                <div className="w-20 sm:w-24 lg:w-28 h-10 sm:h-12 flex items-center justify-center rounded transition-colors mb-2">
                   <img
                     src={partner.logo}
                     alt={partner.name}
