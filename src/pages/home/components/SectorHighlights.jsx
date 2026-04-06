@@ -36,7 +36,7 @@ export default function SectorHighlights() {
   }
 
   return (
-    <section id="amenities" className="py-16 sm:py-20 lg:py-24 bg-white">
+    <section id="amenities" className="py-8 sm:py-10 lg:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header row — stacks on mobile, side-by-side on sm+ */}

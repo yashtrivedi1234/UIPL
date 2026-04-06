@@ -36,7 +36,7 @@ export default function AmenitiesSection() {
   const navigate = useNavigate()
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white">
+    <section className="py-8 sm:py-10 lg:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-10 sm:gap-12 lg:gap-16 items-center">
 

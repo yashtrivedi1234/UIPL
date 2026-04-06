@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#eff4ff]" id="about">
+    <section className="py-8 sm:py-10 lg:py-12 bg-[#eff4ff]" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
 

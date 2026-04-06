@@ -29,7 +29,7 @@ const nodes = [
 
 export default function EcosystemFlow() {
   return (
-    <section id="sectors" className="py-16 sm:py-20 lg:py-24 bg-white overflow-hidden">
+    <section id="sectors" className="py-8 sm:py-10 lg:py-12 bg-white overflow-hidden">
       {/* Keyframe fix — translate must stay inside the animation so it doesn't get overridden */}
       <style>{`
         @keyframes orbit-spin {

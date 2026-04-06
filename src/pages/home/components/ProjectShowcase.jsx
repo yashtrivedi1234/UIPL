@@ -40,7 +40,7 @@ function Overlay({ title, location }) {
 
 export default function ProjectShowcase() {
   return (
-    <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-[#00263f] text-white relative overflow-hidden">
+    <section id="projects" className="py-8 sm:py-10 lg:py-12 bg-[#00263f] text-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/2 sm:w-1/3 h-1/3 bg-orange-400/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

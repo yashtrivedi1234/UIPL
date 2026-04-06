@@ -29,38 +29,40 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#eff4ff] overflow-hidden">
+    <section className="py-8 sm:py-10 lg:py-12 bg-[#eff4ff] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-center mb-10 sm:mb-12 lg:mb-14 text-[#00263f]">
           Voices of the Ecosystem
         </h2>
 
-        {/* ── MOBILE: plain stack, no scale tricks ── */}
-        <div className="flex flex-col gap-4 sm:gap-5 md:hidden">
-          {testimonials.map(({ quote, name, role, img, featured }) => (
-            <div
-              key={name}
-              className={`rounded-2xl p-6 shadow-lg border ${
-                featured
-                  ? 'bg-white border-white shadow-xl'
-                  : 'bg-white/70 backdrop-blur border-white/50'
-              }`}
-            >
-              <Quote size={24} className="text-orange-400 mb-3" />
-              <p className="text-slate-600 italic text-sm leading-relaxed mb-5">"{quote}"</p>
-              <div className="flex items-center gap-3">
-                <img
-                  src={img}
-                  alt={name}
-                  className="w-11 h-11 rounded-full object-cover border-2 border-slate-100 flex-shrink-0"
-                />
-                <div>
-                  <h5 className="font-black text-[#00263f] text-sm">{name}</h5>
-                  <p className="text-xs text-slate-500">{role}</p>
+        {/* ── MOBILE: swipe carousel ── */}
+        <div className="md:hidden">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {testimonials.map(({ quote, name, role, img, featured }) => (
+              <div
+                key={name}
+                className={`min-w-[86%] snap-center rounded-2xl p-6 shadow-lg border ${
+                  featured
+                    ? 'bg-white border-white shadow-xl'
+                    : 'bg-white/70 backdrop-blur border-white/50'
+                }`}
+              >
+                <Quote size={24} className="text-orange-400 mb-3" />
+                <p className="text-slate-600 italic text-sm leading-relaxed mb-5">"{quote}"</p>
+                <div className="flex items-center gap-3">
+                  <img
+                    src={img}
+                    alt={name}
+                    className="w-11 h-11 rounded-full object-cover border-2 border-slate-100 shrink-0"
+                  />
+                  <div>
+                    <h5 className="font-black text-[#00263f] text-sm">{name}</h5>
+                    <p className="text-xs text-slate-500">{role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* ── DESKTOP: 3-column with featured card scaled up ── */}
@@ -80,7 +82,7 @@ export default function Testimonials() {
                 <img
                   src={img}
                   alt={name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-slate-100 flex-shrink-0"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-slate-100 shrink-0"
                 />
                 <div>
                   <h5 className="font-black text-[#00263f] text-sm">{name}</h5>
