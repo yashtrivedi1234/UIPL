@@ -1,6 +1,7 @@
 import { Globe, Mail, Share2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo/Logo.jpeg'
+import ccLogo from '../assets/logo/cc-logo.png'
 
 const footerLinks = {
   Company: [
@@ -56,7 +57,7 @@ export default function Footer() {
                   href={href}
                   className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#fe9824] transition-colors"
                 >
-                  <Icon size={15} className="sm:w-4 sm:h-4" />
+                  {Icon && <Icon size={15} className="sm:w-4 sm:h-4" />}
                 </a>
               ))}
             </div>
@@ -89,18 +90,15 @@ export default function Footer() {
           <p className="text-slate-500 text-xs sm:text-sm text-center sm:text-left">
             © {new Date().getFullYear()} United Infracity Private Limited. All rights reserved.
           </p>
-          <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm text-slate-500">
-            {['Lucknow', 'Noida', 'Delhi'].map((city) => (
-              <a
-                key={city}
-                href="https://www.google.com/maps/place/Gomti+Nagar,+Lucknow"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                {city}
-              </a>
-            ))}
+          <div className="group inline-flex items-center gap-3 rounded-full border border-[#fe9824]/25 bg-white/5 px-4 py-2 text-xs sm:text-sm text-slate-300 shadow-[0_0_0_1px_rgba(254,152,36,0.08)] transition-all duration-300 hover:border-[#fe9824]/60 hover:bg-white/10 hover:shadow-[0_0_24px_rgba(254,152,36,0.18)]">
+            <span className="uppercase tracking-[0.22em] text-[10px] sm:text-[11px] text-[#fe9824]">
+              Designed and developed by
+            </span>
+            <img
+              src={ccLogo}
+              alt="Code Crafter"
+              className="h-7 sm:h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_10px_rgba(254,152,36,0.45)]"
+            />
           </div>
         </div>
       </div>
