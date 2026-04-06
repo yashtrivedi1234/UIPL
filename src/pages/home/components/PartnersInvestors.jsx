@@ -46,7 +46,7 @@ export default function PartnersInvestors() {
   const duplicatedPartners = [...partners, ...partners]
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-slate-50 to-white">
       <style>{`
         @keyframes marquee {
           0% {
