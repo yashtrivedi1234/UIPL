@@ -7,6 +7,8 @@ import ProjectsPage from "./pages/projects/ProjectsPage";
 import AmenitiesPage from "./pages/amenities/AmenitiesPage";
 import ContactPage from "./pages/contact/ContactPage";
 import RealEstatePage from "./pages/real-estate/RealEstatePage";
+import CorporatePage from "./pages/corporate/CorporatePage";
+import EducationPage from "./pages/education/EducationPage";
 export default function App() {
   return (
     <BrowserRouter>
@@ -18,7 +20,9 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/amenities" element={<AmenitiesPage />} />
           <Route path="/contact" element={<ContactPage />} />
-           <Route path="/real-estate" element={<RealEstatePage />} />
+          <Route path="/real-estate" element={<RealEstatePage />} />
+          <Route path="/corporate" element={<CorporatePage />} />
+          <Route path="/education"   element={<EducationPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
