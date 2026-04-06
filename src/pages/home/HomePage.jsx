@@ -1,36 +1,36 @@
 import HeroSection from './components/HeroSection'
-import EcosystemFlow from './components/EcosystemFlow'
 import WhyChooseUs from './components/WhyChooseUs'
 import SectorHighlights from './components/SectorHighlights'
+import EcosystemFlow from './components/EcosystemFlow'
 import ProjectShowcase from './components/ProjectShowcase'
-import InvestmentOpportunities from './components/InvestmentOpportunities'
-import LatestNews from './components/LatestNews'
-import PartnersInvestors from './components/PartnersInvestors'
 import AmenitiesSection from './components/AmenitiesSection'
-import Testimonials from './components/Testimonials'
+import InvestmentOpportunities from './components/InvestmentOpportunities'
 import SustainabilityGreen from './components/SustainabilityGreen'
 import AwardsRecognition from './components/AwardsRecognition'
-import FAQSection from './components/FAQSection'
+import Testimonials from './components/Testimonials'
+import PartnersInvestors from './components/PartnersInvestors'
+import LatestNews from './components/LatestNews'
 import LocationSection from './components/LocationSection'
+import FAQSection from './components/FAQSection'
 import CTABanner from './components/CTABanner'
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <EcosystemFlow />
       <WhyChooseUs />
       <SectorHighlights />
+      <EcosystemFlow />
       <ProjectShowcase />
-      <InvestmentOpportunities />
-      <LatestNews />
-      <PartnersInvestors />
       <AmenitiesSection />
-      <Testimonials />
+      <InvestmentOpportunities />
       <SustainabilityGreen />
       <AwardsRecognition />
-      <FAQSection />
+      <Testimonials />
+      <PartnersInvestors />
+      <LatestNews />
       <LocationSection />
+      <FAQSection />
       <CTABanner />
     </>
   )
