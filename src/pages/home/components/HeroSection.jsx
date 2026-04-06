@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-20 sm:pt-24 lg:pt-28 overflow-hidden bg-[#eff4ff]"
+      className="relative pb-10 overflow-hidden bg-[#eff4ff] mt-19"
     >
       {/* Decorative blobs */}
       <div className="absolute -top-20 -right-20 sm:-top-32 sm:-right-32 w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-orange-200 rounded-full opacity-20 blur-3xl pointer-events-none" />
@@ -75,7 +75,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Image */}
-        <div className="flex-1 relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-none mx-auto">
+        <div className="flex-1 relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-none mx-auto mt-6 sm:mt-10">
           <div className="w-full aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative z-10 group">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCps-69B2oCfRfGL1eJNN5zr3q5dgel8ZuF8h-uhnKDVEOajkTxLCaQwl-cpuvNTacmRI9q0SSeuDU6dRacbf8oaeVM5n2C61iZJRnzvOpL58Bq9g8VR-pe0WCKRXto4wwUKle_iZjegdNlkauqRQJoo1gP7VTiKcPozZCovG8R0ioIaB42E0ueoeSV-F6UUREUKQ8TNLg6kMt5nUTrm2RgCOloTDjy_hEmm5KUgd_AzQt4OAhwFsQOMU8GJpXxk7sqsciLK5dx8h8"
