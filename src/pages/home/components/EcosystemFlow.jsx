@@ -51,7 +51,7 @@ export default function EcosystemFlow() {
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14 lg:mb-16">
-        <h2 className="text-3xl sm:text-4xl font-black text-[#00263f] mb-4">The UIPL Synthesis</h2>
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#00263f] mb-4">The UIPL Synthesis</h2>
         <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
           Our holistic approach ensures every project contributes to a balanced, sustainable,
           and high-quality lifestyle for residents and partners.

@@ -45,7 +45,7 @@ export default function AmenitiesSection() {
             <span className="text-xs font-black uppercase text-[#8d4f00] tracking-widest block mb-3 sm:mb-4">
               Life at UIPL
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#00263f] mb-5 sm:mb-7 leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#00263f] mb-5 sm:mb-7 leading-tight">
               Elevating Every Aspect of Your Lifestyle
             </h2>
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">

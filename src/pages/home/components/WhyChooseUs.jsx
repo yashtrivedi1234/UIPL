@@ -9,7 +9,7 @@ export default function WhyChooseUs() {
 
           {/* Main Feature Card — full width on mobile, spans 2 cols on lg */}
           <div className="col-span-1 sm:col-span-2 bg-white p-6 sm:p-8 lg:p-10 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#00263f] mb-4 sm:mb-5 leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#00263f] mb-4 sm:mb-5 leading-tight">
               Built on Foundations of Trust and Innovation
             </h2>
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-lg">

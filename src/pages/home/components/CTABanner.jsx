@@ -18,7 +18,7 @@ export default function CTABanner() {
           Your Future Starts Here
         </span>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-5 sm:mb-7 leading-tight">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-5 sm:mb-7 leading-tight">
           Join the Future with UIPL
         </h2>
 

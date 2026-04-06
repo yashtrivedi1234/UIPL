@@ -20,7 +20,7 @@ export default function LocationSection() {
         {/* Overlay card — centred on mobile, left-aligned on lg+ */}
         <div className="absolute inset-0 flex items-center justify-center lg:justify-start lg:items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-6 sm:p-8 lg:p-9 rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-sm border border-slate-100">
-            <h3 className="text-xl sm:text-2xl font-black text-[#00263f] mb-2 sm:mb-3">
+            <h3 className=" font-black text-[#00263f] mb-2 sm:mb-3">
               Visit Our Headquarters
             </h3>
             <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">

@@ -35,7 +35,7 @@ export default function ProjectShowcase() {
 
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black mb-3 sm:mb-4">
             Pioneering Lucknow's Skyline
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">

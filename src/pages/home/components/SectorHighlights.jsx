@@ -42,7 +42,7 @@ export default function SectorHighlights() {
         {/* Header row — stacks on mobile, side-by-side on sm+ */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 sm:gap-6 mb-10 sm:mb-12 lg:mb-14">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#00263f]">Sectors of Excellence</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#00263f]">Sectors of Excellence</h2>
             <p className="text-slate-500 mt-2 text-sm sm:text-base">Delivering specialized infrastructure solutions.</p>
           </div>
           <button
