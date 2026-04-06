@@ -175,7 +175,7 @@ export default function AwardsRecognition() {
 
         {/* Certifications Section */}
         <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-2xl p-8 sm:p-10 lg:p-12 ">
-          <h3 className="text-2xl sm:text-3xl font-black text-[#00263f] mb-8 sm:mb-10 text-center">
+          <h3 className="text-2xl sm:text-3xl font-black text-[#00263f] mb-4 sm:mb-5 text-center">
             Quality & Compliance Certifications
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
