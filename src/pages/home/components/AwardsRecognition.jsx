@@ -121,24 +121,6 @@ export default function AwardsRecognition() {
             ))}
           </div>
         </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 pt-12 border-t border-slate-200">
-          {[
-            { number: '15+', label: 'Major Awards' },
-            { number: '50+', label: 'Recognitions' },
-            { number: '4', label: 'Key Certifications' }
-          ].map((stat, idx) => (
-            <div key={idx} className="text-center">
-              <div className="text-3xl sm:text-4xl font-black text-orange-600 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-slate-600 text-sm sm:text-base font-semibold">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )

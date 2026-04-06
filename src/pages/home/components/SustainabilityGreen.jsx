@@ -51,7 +51,7 @@ export default function SustainabilityGreen() {
         </div>
 
         {/* Initiatives Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {initiatives.map((init, index) => {
             const IconComponent = init.icon
             return (
@@ -71,47 +71,6 @@ export default function SustainabilityGreen() {
               </div>
             )
           })}
-        </div>
-
-        {/* Impact Stats */}
-        <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 sm:p-10 lg:p-12 mb-12 sm:mb-16">
-          <h3 className="text-xl sm:text-2xl font-black text-white mb-8 text-center">
-            Our Environmental Impact
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { number: '50k+', label: 'Trees Planted' },
-              { number: '40%', label: 'Water Saved' },
-              { number: '60%', label: 'Energy Reduced' },
-              { number: '100%', label: 'Waste Recycled' }
-            ].map((impact, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-3xl sm:text-4xl font-black text-white mb-2">
-                  {impact.number}
-                </div>
-                <div className="text-green-100 text-sm sm:text-base font-semibold">
-                  {impact.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <div className="text-center">
-          <h3 className="text-lg sm:text-xl font-bold text-[#00263f] mb-6 sm:mb-8">
-            Industry Certifications & Recognition
-          </h3>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            {['LEED Certified', 'ISO 14001', 'Green Building', 'Carbon Neutral', 'Net Zero Energy'].map((cert, idx) => (
-              <div
-                key={idx}
-                className="bg-green-100 text-green-700 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wide border border-green-300"
-              >
-                {cert}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
