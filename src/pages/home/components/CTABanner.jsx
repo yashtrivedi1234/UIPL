@@ -38,7 +38,7 @@ export default function CTABanner() {
             onClick={() => navigate('/projects')}
             className="border-2 border-white/30 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold hover:bg-white/10 transition-colors text-sm sm:text-base w-full xs:w-auto"
           >
-            Download App
+            Explore Projects
           </button>
         </div>
       </div>
