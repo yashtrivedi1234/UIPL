@@ -85,12 +85,52 @@ export default function LatestNews() {
             Latest News & Updates
           </h2>
           <p className="text-slate-500 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
-            Hover over cards to flip and discover more details
+            Stay informed about our latest projects, achievements, and exciting developments.
           </p>
         </div>
 
-        {/* 3D Flip Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-10">
+        {/* MOBILE: swipe carousel like testimonials */}
+        <div className="md:hidden mb-10">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {news.map((item, index) => (
+              <article
+                key={index}
+                className="min-w-[86%] snap-center rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg"
+              >
+                <div className="relative h-48 overflow-hidden bg-slate-200">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 left-3 bg-orange-500 text-white text-[10px] px-3 py-1.5 rounded-full font-bold uppercase tracking-wide">
+                    {item.category}
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <div className="flex items-center gap-2 text-slate-400 text-xs mb-3">
+                    <Calendar size={14} />
+                    {item.date}
+                  </div>
+                  <h3 className="text-base font-black text-[#00263f] mb-2 line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm line-clamp-2 mb-4">
+                    {item.description}
+                  </p>
+                  <button className="text-orange-600 font-bold text-sm flex items-center gap-2">
+                    Read More
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* DESKTOP: 3D Flip Cards Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-10">
           {news.map((item, index) => (
             <div
               key={index}
@@ -107,7 +147,7 @@ export default function LatestNews() {
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                       
                       {/* Title at bottom */}
                       <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
