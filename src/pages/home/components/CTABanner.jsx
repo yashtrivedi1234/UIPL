@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function CTABanner() {
+  const navigate = useNavigate()
+
   return (
     <section
       className="py-16 sm:py-20 lg:py-24 relative overflow-hidden"
@@ -24,10 +28,16 @@ export default function CTABanner() {
         </p>
 
         <div className="flex flex-col xs:flex-row justify-center gap-3 sm:gap-4">
-          <button className="bg-[#fe9824] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-black text-sm sm:text-base hover:scale-105 transition-transform shadow-lg w-full xs:w-auto">
+          <button
+            onClick={() => navigate('/contact')}
+            className="bg-[#fe9824] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-black text-sm sm:text-base hover:scale-105 transition-transform shadow-lg w-full xs:w-auto"
+          >
             Inquire Now
           </button>
-          <button className="border-2 border-white/30 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold hover:bg-white/10 transition-colors text-sm sm:text-base w-full xs:w-auto">
+          <button
+            onClick={() => navigate('/projects')}
+            className="border-2 border-white/30 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold hover:bg-white/10 transition-colors text-sm sm:text-base w-full xs:w-auto"
+          >
             Download App
           </button>
         </div>

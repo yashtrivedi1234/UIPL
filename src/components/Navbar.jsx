@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import logo from '../assets/logo/Logo.jpeg'
 
@@ -16,6 +16,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -74,7 +75,10 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <button className="hidden lg:block bg-[#0b3c5d] text-white px-5 xl:px-6 py-2.5 rounded-lg font-bold text-sm hover:scale-105 transition-transform duration-200 shadow-md whitespace-nowrap">
+          <button
+            onClick={() => navigate('/contact')}
+            className="hidden lg:block bg-[#0b3c5d] text-white px-5 xl:px-6 py-2.5 rounded-lg font-bold text-sm hover:scale-105 transition-transform duration-200 shadow-md whitespace-nowrap"
+          >
             Get Started
           </button>
 
@@ -113,7 +117,13 @@ export default function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <button className="mt-3 bg-[#0b3c5d] text-white px-6 py-3 rounded-lg font-bold text-sm w-full hover:bg-[#0f4d78] transition-colors">
+            <button
+              onClick={() => {
+                setMobileOpen(false)
+                navigate('/contact')
+              }}
+              className="mt-3 bg-[#0b3c5d] text-white px-6 py-3 rounded-lg font-bold text-sm w-full hover:bg-[#0f4d78] transition-colors"
+            >
               Get Started
             </button>
           </div>

@@ -1,4 +1,5 @@
 import { ShieldCheck, TrendingUp, Lightbulb, Leaf, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function WhyChooseUs() {
   return (
@@ -38,9 +39,9 @@ export default function WhyChooseUs() {
               Every brick laid by UIPL carries a promise of transparency and structural integrity
               that lasts generations.
             </p>
-            <a href="#" className="inline-flex items-center gap-2 text-white font-bold text-sm hover:gap-4 transition-all">
+            <Link to="/about" className="inline-flex items-center gap-2 text-white font-bold text-sm hover:gap-4 transition-all">
               Learn More <ArrowRight size={16} />
-            </a>
+            </Link>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl pointer-events-none" />
           </div>
 

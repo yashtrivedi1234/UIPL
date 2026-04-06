@@ -1,4 +1,5 @@
 import { Shield, Waves, Dumbbell, TreePine } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const amenities = [
   {
@@ -32,6 +33,8 @@ const amenities = [
 ]
 
 export default function AmenitiesSection() {
+  const navigate = useNavigate()
+
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,7 +53,10 @@ export default function AmenitiesSection() {
               developments feature cutting-edge amenities that prioritize your physical safety
               and mental well-being.
             </p>
-            <button className="bg-[#00263f] text-white px-7 sm:px-10 py-3.5 sm:py-4 rounded-xl font-black shadow-xl hover:-translate-y-1 transition-transform text-sm sm:text-base w-full sm:w-auto">
+            <button
+              onClick={() => navigate('/amenities')}
+              className="bg-[#00263f] text-white px-7 sm:px-10 py-3.5 sm:py-4 rounded-xl font-black shadow-xl hover:-translate-y-1 transition-transform text-sm sm:text-base w-full sm:w-auto"
+            >
               Download Lifestyle Brochure
             </button>
           </div>

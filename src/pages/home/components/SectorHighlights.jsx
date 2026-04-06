@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 const sectors = [
   {
     tag: 'Academic Excellence',
@@ -26,6 +28,13 @@ const sectors = [
 ]
 
 export default function SectorHighlights() {
+  const navigate = useNavigate()
+  const sectorRouteMap = {
+    Education: '/education',
+    Healthcare: '/sectors',
+    'Real Estate': '/real-estate',
+  }
+
   return (
     <section id="amenities" className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,7 +45,10 @@ export default function SectorHighlights() {
             <h2 className="text-3xl sm:text-4xl font-black text-[#00263f]">Sectors of Excellence</h2>
             <p className="text-slate-500 mt-2 text-sm sm:text-base">Delivering specialized infrastructure solutions.</p>
           </div>
-          <button className="self-start sm:self-auto text-[#00263f] font-bold border-b-2 border-[#00263f] pb-0.5 hover:border-orange-500 hover:text-orange-600 transition-colors text-sm whitespace-nowrap">
+          <button
+            onClick={() => navigate('/sectors')}
+            className="self-start sm:self-auto text-[#00263f] font-bold border-b-2 border-[#00263f] pb-0.5 hover:border-orange-500 hover:text-orange-600 transition-colors text-sm whitespace-nowrap"
+          >
             View All Sectors →
           </button>
         </div>
@@ -64,7 +76,10 @@ export default function SectorHighlights() {
               <div className="p-5 sm:p-6 lg:p-7 flex flex-col flex-1">
                 <h3 className="text-xl sm:text-2xl font-black text-[#00263f] mb-2 sm:mb-3">{title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-5 sm:mb-6 flex-1">{desc}</p>
-                <button className="w-full py-2.5 sm:py-3 rounded-lg border-2 border-[#0b3c5d] text-[#0b3c5d] font-bold text-sm hover:bg-[#0b3c5d] hover:text-white transition-all duration-300">
+                <button
+                  onClick={() => navigate(sectorRouteMap[title] || '/sectors')}
+                  className="w-full py-2.5 sm:py-3 rounded-lg border-2 border-[#0b3c5d] text-[#0b3c5d] font-bold text-sm hover:bg-[#0b3c5d] hover:text-white transition-all duration-300"
+                >
                   {cta}
                 </button>
               </div>
