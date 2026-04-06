@@ -7,7 +7,6 @@ const nodes = [
     desc: 'Premium residential & commercial hubs designed for modern life.',
     color: 'bg-[#0b3c5d]',
     textColor: 'text-[#0b3c5d]',
-    // Desktop orbital offset (applied only on lg+)
     desktopPosition: '-translate-y-20',
   },
   {
@@ -31,6 +30,25 @@ const nodes = [
 export default function EcosystemFlow() {
   return (
     <section id="sectors" className="py-16 sm:py-20 lg:py-24 bg-white overflow-hidden">
+      {/* Keyframe fix — translate must stay inside the animation so it doesn't get overridden */}
+      <style>{`
+        @keyframes orbit-spin {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to   { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .orbit-ring {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 480px;
+          height: 480px;
+          border-radius: 9999px;
+          border: 3px dashed #cbd5e1;
+          animation: orbit-spin 30s linear infinite;
+          pointer-events: none;
+        }
+      `}</style>
+
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14 lg:mb-16">
         <h2 className="text-3xl sm:text-4xl font-black text-[#00263f] mb-4">The UIPL Synthesis</h2>
@@ -48,7 +66,13 @@ export default function EcosystemFlow() {
         </div>
 
         {/* Vertical connector line */}
-        <div className="w-0.5 h-6 bg-dashed bg-slate-200" style={{ background: 'repeating-linear-gradient(to bottom, #cbd5e1 0px, #cbd5e1 6px, transparent 6px, transparent 12px)' }} />
+        <div
+          className="w-0.5 h-6"
+          style={{
+            background:
+              'repeating-linear-gradient(to bottom, #cbd5e1 0px, #cbd5e1 6px, transparent 6px, transparent 12px)',
+          }}
+        />
 
         {/* Cards stacked vertically */}
         <div className="flex flex-col items-center gap-0 w-full">
@@ -63,20 +87,23 @@ export default function EcosystemFlow() {
               </div>
               {/* connector between cards */}
               {i < nodes.length - 1 && (
-                <div className="w-0.5 h-5 sm:h-6" style={{ background: 'repeating-linear-gradient(to bottom, #cbd5e1 0px, #cbd5e1 6px, transparent 6px, transparent 12px)' }} />
+                <div
+                  className="w-0.5 h-5 sm:h-6"
+                  style={{
+                    background:
+                      'repeating-linear-gradient(to bottom, #cbd5e1 0px, #cbd5e1 6px, transparent 6px, transparent 12px)',
+                  }}
+                />
               )}
             </div>
           ))}
         </div>
       </div>
 
-      {/* ── DESKTOP: original orbital layout ── */}
+      {/* ── DESKTOP: orbital layout with fixed spinning ring ── */}
       <div className="hidden lg:flex relative justify-center items-center py-16">
-        {/* Orbiting ring */}
-        <div
-          className="absolute w-[480px] h-[480px] rounded-full border-4 border-dashed border-slate-200 animate-spin"
-          style={{ animationDuration: '30s' }}
-        />
+        {/* Orbiting ring — uses custom keyframe so translate(-50%,-50%) is preserved */}
+        <div className="orbit-ring" />
 
         {/* Center Core */}
         <div className="z-20 w-36 h-36 bg-white rounded-full shadow-2xl flex items-center justify-center border-8 border-[#eff4ff]">

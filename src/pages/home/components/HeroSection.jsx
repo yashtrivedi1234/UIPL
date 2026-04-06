@@ -22,7 +22,7 @@ export default function HeroSection() {
             Integrated Ecosystem of Life
           </span>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#00263f] leading-[1.05] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] leading-[1.05] tracking-tight">
             Architecting{' '}
             <span
               className="bg-clip-text text-transparent"
