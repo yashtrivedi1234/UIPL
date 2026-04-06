@@ -1,6 +1,9 @@
 import { ArrowRight, Play } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export default function HeroSection() {
+  const navigate = useNavigate()
+
   return (
     <section id="home" className="relative min-h-screen pt-28 pb-20 overflow-hidden bg-[#eff4ff]">
       {/* Decorative blobs */}
@@ -34,10 +37,16 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="bg-[#00263f] text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-lg flex items-center gap-2">
+            <button
+              onClick={() => navigate('/projects')}
+              className="bg-[#00263f] text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-lg flex items-center gap-2"
+            >
               Explore Projects <ArrowRight size={18} />
             </button>
-            <button className="border-2 border-slate-200 px-8 py-4 rounded-xl text-[#00263f] font-bold hover:bg-white transition-all flex items-center gap-2">
+            <button
+              onClick={() => navigate('/about')}
+              className="border-2 border-slate-200 px-8 py-4 rounded-xl text-[#00263f] font-bold hover:bg-white transition-all flex items-center gap-2"
+            >
               <Play size={18} className="text-orange-500 fill-orange-500" /> Watch Story
             </button>
           </div>
