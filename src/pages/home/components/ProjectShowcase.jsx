@@ -26,6 +26,18 @@ const projects = [
   },
 ]
 
+function Overlay({ title, location }) {
+  return (
+    <>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#00263f]/90 via-transparent to-transparent" />
+      <div className="absolute bottom-0 left-0 p-5">
+        <h4 className="text-lg font-black">{title}</h4>
+        <p className="text-xs text-slate-300 mt-1">{location}</p>
+      </div>
+    </>
+  )
+}
+
 export default function ProjectShowcase() {
   return (
     <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-[#00263f] text-white relative overflow-hidden">
@@ -62,26 +74,50 @@ export default function ProjectShowcase() {
           ))}
         </div>
 
-        {/* ── DESKTOP: masonry columns layout ── */}
-        <div className="hidden md:block columns-2 gap-6 space-y-6">
-          {projects.map(({ title, location, img, desktopAspect }) => (
-            <div
-              key={title}
-              className={`relative rounded-2xl overflow-hidden group ${desktopAspect} break-inside-avoid`}
-            >
-              <img
-                src={img}
-                alt={title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#00263f]/90 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-5 lg:p-7 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <h4 className="text-lg lg:text-xl font-black">{title}</h4>
-                <p className="text-xs sm:text-sm text-slate-300 mt-1">{location}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+       {/* ── DESKTOP: custom asymmetric layout ── */}
+<div className="hidden md:grid grid-cols-3 gap-6 auto-rows-[200px]">
+
+  {/* Image 1 (BIG - left) */}
+  <div className="col-span-1 row-span-2 relative rounded-2xl overflow-hidden group">
+    <img
+      src={projects[0].img}
+      alt={projects[0].title}
+      className="w-full h-full object-cover"
+    />
+    <Overlay title={projects[0].title} location={projects[0].location} />
+  </div>
+
+  {/* Image 2 (top middle) */}
+  <div className="relative rounded-2xl overflow-hidden group">
+    <img
+      src={projects[1].img}
+      alt={projects[1].title}
+      className="w-full h-full object-cover"
+    />
+    <Overlay title={projects[1].title} location={projects[1].location} />
+  </div>
+
+  {/* Image 4 (top right) */}
+  <div className="row-span-2 relative rounded-2xl overflow-hidden group">
+    <img
+      src={projects[3].img}
+      alt={projects[3].title}
+      className="w-full h-full object-cover"
+    />
+    <Overlay title={projects[3].title} location={projects[3].location} />
+  </div>
+
+  {/* Image 3 (bottom middle) */}
+  <div className="relative rounded-2xl overflow-hidden group">
+    <img
+      src={projects[2].img}
+      alt={projects[2].title}
+      className="w-full h-full object-cover"
+    />
+    <Overlay title={projects[2].title} location={projects[2].location} />
+  </div>
+
+</div>
 
       </div>
     </section>

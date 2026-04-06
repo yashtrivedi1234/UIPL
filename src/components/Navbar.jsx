@@ -13,16 +13,9 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -38,11 +31,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled || mobileOpen
-            ? 'bg-white/90 backdrop-blur-xl shadow-md'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-xl shadow-md"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
           {/* Logo */}
