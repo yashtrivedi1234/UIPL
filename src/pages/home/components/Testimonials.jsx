@@ -31,7 +31,7 @@ export default function Testimonials() {
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#eff4ff] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-xl sm:text-2xl font-black text-center mb-10 sm:mb-12 lg:mb-14 text-[#00263f]">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-center mb-10 sm:mb-12 lg:mb-14 text-[#00263f]">
           Voices of the Ecosystem
         </h2>
 
