@@ -186,7 +186,7 @@ export default function AwardsRecognition() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
                 <div className="relative bg-white rounded-xl p-5 sm:p-6 text-center border-2 border-slate-200 group-hover:border-orange-400 transition-all hover:shadow-lg shadow-sm">
-                  <div className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-2">
+                  <div className="text-lg sm:text-2xl font-black bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-2">
                     {cert.name}
                   </div>
                   <p className="text-slate-600 text-xs sm:text-sm font-semibold">
