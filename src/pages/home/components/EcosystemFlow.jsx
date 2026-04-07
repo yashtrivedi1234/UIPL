@@ -184,7 +184,7 @@ import { Building2, GraduationCap, HeartPulse } from 'lucide-react'
 export default function EcosystemFlow() {
   return (
     <section id="sectors" className="py-8 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 text-center ">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-0">
         <h2 className="text-4xl font-black text-[#00263f] mb-4">The UIPL Synthesis</h2>
         <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">
           Our holistic approach ensures every project contributes to a balanced, sustainable,
@@ -192,26 +192,26 @@ export default function EcosystemFlow() {
         </p>
       </div>
 
-      <div className="relative flex justify-center items-center" style={{ height: '500px' }}>
+      <div className="relative flex justify-center items-center -mt-30" style={{ height: '560px' }}>
 
         {/* Static orbit ring */}
         <div
           className="absolute rounded-full border-2 border-dashed border-slate-200"
           style={{
-            width: '340px',
-            height: '340px',
+            width: '260px',
+            height: '260px',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
           }}
         />
 
-        {/* Revolving dot on the ring */}
+        {/* Revolving dot */}
         <div
           className="absolute"
           style={{
-            width: '340px',
-            height: '340px',
+            width: '260px',
+            height: '260px',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
@@ -250,7 +250,7 @@ export default function EcosystemFlow() {
         {/* Real Estate — top left */}
         <div
           className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10"
-          style={{ left: 'calc(50% - 310px)', top: 'calc(50% - 130px)' }}
+          style={{ left: 'calc(50% - 280px)', top: 'calc(50% - 110px)' }}
         >
           <div className="w-11 h-11 bg-[#0b3c5d] rounded-full flex items-center justify-center mx-auto mb-3">
             <Building2 size={20} className="text-white" />
@@ -264,7 +264,7 @@ export default function EcosystemFlow() {
         {/* Healthcare — top right */}
         <div
           className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10"
-          style={{ left: 'calc(50% + 136px)', top: 'calc(50% - 130px)' }}
+          style={{ left: 'calc(50% + 106px)', top: 'calc(50% - 110px)' }}
         >
           <div className="w-11 h-11 bg-[#002a05] rounded-full flex items-center justify-center mx-auto mb-3">
             <HeartPulse size={20} className="text-white" />
@@ -278,7 +278,7 @@ export default function EcosystemFlow() {
         {/* Education — bottom center */}
         <div
           className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10"
-          style={{ left: 'calc(50% - 86px)', top: 'calc(50% + 140px)' }}
+          style={{ left: 'calc(50% - 86px)', top: 'calc(50% + 110px)' }}
         >
           <div className="w-11 h-11 bg-[#8d4f00] rounded-full flex items-center justify-center mx-auto mb-3">
             <GraduationCap size={20} className="text-white" />
