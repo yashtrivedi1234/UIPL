@@ -178,32 +178,32 @@
 //     </section>
 //   )
 // }
-import { Building2, GraduationCap, HeartPulse } from 'lucide-react'
+import { Building2, GraduationCap, HeartPulse } from "lucide-react";
 
 export default function EcosystemFlow() {
   const sectors = [
     {
       icon: Building2,
-      label: 'Real Estate',
-      desc: 'Premium residential & commercial hubs designed for modern life.',
-      bg: '#0b3c5d',
-      text: '#0b3c5d',
+      label: "Real Estate",
+      desc: "Premium residential & commercial hubs designed for modern life.",
+      bg: "#0b3c5d",
+      text: "#0b3c5d",
     },
     {
       icon: HeartPulse,
-      label: 'Healthcare',
-      desc: 'Integrated medical facilities prioritizing wellness and access.',
-      bg: '#002a05',
-      text: '#002a05',
+      label: "Healthcare",
+      desc: "Integrated medical facilities prioritizing wellness and access.",
+      bg: "#002a05",
+      text: "#002a05",
     },
     {
       icon: GraduationCap,
-      label: 'Education',
-      desc: 'World-class institutions fostering the leaders of tomorrow.',
-      bg: '#8d4f00',
-      text: '#8d4f00',
+      label: "Education",
+      desc: "World-class institutions fostering the leaders of tomorrow.",
+      bg: "#8d4f00",
+      text: "#8d4f00",
     },
-  ]
+  ];
 
   return (
     <section id="sectors" className="py-16 bg-white overflow-hidden">
@@ -212,25 +212,25 @@ export default function EcosystemFlow() {
           The UIPL Synthesis
         </h2>
         <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-          Our holistic approach ensures every project contributes to a balanced, sustainable,
-          and high-quality lifestyle for residents and partners.
+          Our holistic approach ensures every project contributes to a balanced,
+          sustainable, and high-quality lifestyle for residents and partners.
         </p>
       </div>
 
       {/* ── Desktop: orbital layout ── */}
       <div
         className="relative justify-center items-center hidden md:flex -mt-30"
-        style={{ height: '520px' }}
+        style={{ height: "520px" }}
       >
         {/* Static orbit ring */}
         <div
           className="absolute rounded-full border-2 border-dashed border-slate-200"
           style={{
-            width: '260px',
-            height: '260px',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            width: "260px",
+            height: "260px",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
           }}
         />
 
@@ -238,25 +238,25 @@ export default function EcosystemFlow() {
         <div
           className="absolute"
           style={{
-            width: '260px',
-            height: '260px',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            animation: 'orbitSpin 6s linear infinite',
+            width: "260px",
+            height: "260px",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            animation: "orbitSpin 6s linear infinite",
           }}
         >
           <div
             style={{
-              position: 'absolute',
-              width: '12px',
-              height: '12px',
-              background: '#0b3c5d',
-              borderRadius: '50%',
-              top: '-6px',
-              left: '50%',
-              marginLeft: '-6px',
-              boxShadow: '0 0 6px 2px rgba(11,60,93,0.3)',
+              position: "absolute",
+              width: "12px",
+              height: "12px",
+              background: "#0b3c5d",
+              borderRadius: "50%",
+              top: "-6px",
+              left: "50%",
+              marginLeft: "-6px",
+              boxShadow: "0 0 6px 2px rgba(11,60,93,0.3)",
             }}
           />
         </div>
@@ -265,11 +265,11 @@ export default function EcosystemFlow() {
         <div
           className="absolute z-10 bg-white rounded-full flex items-center justify-center border-[6px] border-[#e8eef8]"
           style={{
-            width: '110px',
-            height: '110px',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            width: "110px",
+            height: "110px",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
           }}
         >
           <span className="text-xl font-black text-[#00263f]">UIPL</span>
@@ -277,13 +277,15 @@ export default function EcosystemFlow() {
 
         {/* Real Estate — top left */}
         <div
-          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10 shadow-sm"
-          style={{ left: 'calc(50% - 280px)', top: 'calc(50% - 110px)' }}
+          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-60 hover:scale-105 transition-transform duration-300 z-10 shadow-sm"
+          style={{ left: "calc(50% - 320px)", top: "calc(50% - 110px)" }}
         >
           <div className="w-11 h-11 bg-[#0b3c5d] rounded-full flex items-center justify-center mx-auto mb-3">
             <Building2 size={20} className="text-white" />
           </div>
-          <h3 className="font-black text-sm text-[#0b3c5d] mb-1">Real Estate</h3>
+          <h3 className="font-black text-sm text-[#0b3c5d] mb-1">
+            Real Estate
+          </h3>
           <p className="text-xs text-slate-500 leading-relaxed">
             Premium residential &amp; commercial hubs designed for modern life.
           </p>
@@ -291,8 +293,8 @@ export default function EcosystemFlow() {
 
         {/* Healthcare — top right */}
         <div
-          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10 shadow-sm"
-          style={{ left: 'calc(50% + 106px)', top: 'calc(50% - 110px)' }}
+          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-60 hover:scale-105 transition-transform duration-300 z-10 shadow-sm"
+          style={{ left: "calc(50% + 130px)", top: "calc(50% - 110px)" }}
         >
           <div className="w-11 h-11 bg-[#002a05] rounded-full flex items-center justify-center mx-auto mb-3">
             <HeartPulse size={20} className="text-white" />
@@ -305,8 +307,8 @@ export default function EcosystemFlow() {
 
         {/* Education — bottom center */}
         <div
-          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10 shadow-sm"
-          style={{ left: 'calc(50% - 86px)', top: 'calc(50% + 110px)' }}
+          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-60 hover:scale-105 transition-transform duration-300 z-10 shadow-sm"
+          style={{ left: "calc(50% - 120px)", top: "calc(50% + 110px)" }}
         >
           <div className="w-11 h-11 bg-[#8d4f00] rounded-full flex items-center justify-center mx-auto mb-3">
             <GraduationCap size={20} className="text-white" />
@@ -330,9 +332,12 @@ export default function EcosystemFlow() {
 
         {/* Sector cards stacked */}
         {sectors.map((s, i) => {
-          const Icon = s.icon
+          const Icon = s.icon;
           return (
-            <div key={s.label} className="flex flex-col items-center w-full max-w-xs">
+            <div
+              key={s.label}
+              className="flex flex-col items-center w-full max-w-xs"
+            >
               <div className="w-full bg-white border border-slate-100 rounded-2xl p-5 flex items-start gap-4 shadow-sm active:scale-95 transition-transform duration-200">
                 <div
                   className="w-11 h-11 rounded-full flex items-center justify-center shrink-0"
@@ -347,7 +352,9 @@ export default function EcosystemFlow() {
                   >
                     {s.label}
                   </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    {s.desc}
+                  </p>
                 </div>
               </div>
               {/* connector between cards, but not after last */}
@@ -355,7 +362,7 @@ export default function EcosystemFlow() {
                 <div className="w-px h-6 bg-slate-200" />
               )}
             </div>
-          )
+          );
         })}
       </div>
 
@@ -366,5 +373,5 @@ export default function EcosystemFlow() {
         }
       `}</style>
     </section>
-  )
+  );
 }

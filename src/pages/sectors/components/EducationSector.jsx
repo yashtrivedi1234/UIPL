@@ -11,7 +11,7 @@ export default function EducationSector() {
   const navigate = useNavigate()
 
   return (
-    <section className="py-24 px-6 bg-[#eff4ff] overflow-hidden relative">
+    <section className="py-8 px-6 bg-[#eff4ff] overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-16">
 
@@ -21,9 +21,9 @@ export default function EducationSector() {
               <div className="w-12 h-12 rounded-xl bg-[#00430d] flex items-center justify-center">
                 <GraduationCap size={22} className="text-[#a3f69c]" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-[#00263f]">Education</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#00263f]">Education</h2>
             </div>
-            <h3 className="text-2xl md:text-3xl font-black text-[#002a05] mb-6">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#002a05] mb-6">
               Pioneering Future Leaders
             </h3>
             <p className="text-slate-500 text-lg leading-relaxed mb-10">

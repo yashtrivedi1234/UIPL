@@ -12,7 +12,7 @@ export default function RealEstateSector() {
   const navigate = useNavigate()
 
   return (
-    <section className="py-24 px-6 bg-[#00263f] text-white overflow-hidden relative">
+    <section className="py-8 px-6 bg-[#00263f] text-white overflow-hidden relative">
 
       {/* Wave top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
@@ -31,9 +31,9 @@ export default function RealEstateSector() {
               <div className="w-12 h-12 rounded-xl bg-[#fe9824] flex items-center justify-center">
                 <Building2 size={22} className="text-[#00263f]" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-black">Real Estate</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black">Real Estate</h2>
             </div>
-            <h3 className="text-2xl md:text-3xl font-black text-[#ffdcc0] mb-6">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#ffdcc0] mb-6">
               Premium Urban Living
             </h3>
             <p className="text-slate-300 text-lg leading-relaxed mb-10">

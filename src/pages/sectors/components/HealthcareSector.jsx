@@ -11,7 +11,7 @@ export default function HealthcareSector() {
   const navigate = useNavigate()
 
   return (
-    <section className="py-24 px-6 bg-[#f8f9ff] overflow-hidden relative">
+    <section className="py-8 px-6 bg-[#f8f9ff] overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-16">
 
