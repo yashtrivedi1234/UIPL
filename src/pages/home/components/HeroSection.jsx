@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative pb-10 overflow-hidden bg-[#eff4ff] mt-19"
+      className="relative pb-10 pt-20 overflow-hidden bg-[#eff4ff]"
     >
       {/* Decorative blobs */}
       <div className="absolute -top-20 -right-20 sm:-top-32 sm:-right-32 w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-orange-200 rounded-full opacity-20 blur-3xl pointer-events-none" />
