@@ -77,7 +77,7 @@
 
 export default function CTABanner() {
   return (
-    <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #00263f 0%, #0b3c5d 100%)' }}>
+    <section className="py-8 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #00263f 0%, #0b3c5d 100%)' }}>
       {/* Decorative rings */}
       <div className="absolute -left-20 -bottom-20 w-80 h-80 border-4 border-white/5 rounded-full" />
       <div className="absolute right-10 top-10 w-40 h-40 bg-white/5 rounded-full blur-2xl" />
