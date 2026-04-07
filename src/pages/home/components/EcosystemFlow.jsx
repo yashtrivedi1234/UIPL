@@ -179,40 +179,12 @@
 //   )
 // }
 
-
 import { Building2, GraduationCap, HeartPulse } from 'lucide-react'
-
-const nodes = [
-  {
-    icon: Building2,
-    title: 'Real Estate',
-    desc: 'Premium residential & commercial hubs designed for modern life.',
-    color: 'bg-[#0b3c5d]',
-    textColor: 'text-[#0b3c5d]',
-    position: '-translate-y-20',
-  },
-  {
-    icon: GraduationCap,
-    title: 'Education',
-    desc: 'World-class institutions fostering the leaders of tomorrow.',
-    color: 'bg-[#8d4f00]',
-    textColor: 'text-[#8d4f00]',
-    position: 'translate-y-20',
-  },
-  {
-    icon: HeartPulse,
-    title: 'Healthcare',
-    desc: 'Integrated medical facilities prioritizing wellness and access.',
-    color: 'bg-[#002a05]',
-    textColor: 'text-[#002a05]',
-    position: '-translate-y-20',
-  },
-]
 
 export default function EcosystemFlow() {
   return (
-    <section id="sectors" className="py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+    <section id="sectors" className="py-8 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 text-center ">
         <h2 className="text-4xl font-black text-[#00263f] mb-4">The UIPL Synthesis</h2>
         <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">
           Our holistic approach ensures every project contributes to a balanced, sustainable,
@@ -220,31 +192,110 @@ export default function EcosystemFlow() {
         </p>
       </div>
 
-      <div className="relative flex justify-center items-center py-16">
-        {/* Orbiting ring */}
-        <div className="absolute w-[480px] h-[480px] rounded-full border-4 border-dashed border-slate-200 animate-spin" style={{ animationDuration: '30s' }} />
+      <div className="relative flex justify-center items-center" style={{ height: '500px' }}>
+
+        {/* Static orbit ring */}
+        <div
+          className="absolute rounded-full border-2 border-dashed border-slate-200"
+          style={{
+            width: '340px',
+            height: '340px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        />
+
+        {/* Revolving dot on the ring */}
+        <div
+          className="absolute"
+          style={{
+            width: '340px',
+            height: '340px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            animation: 'orbitSpin 6s linear infinite',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              width: '12px',
+              height: '12px',
+              background: '#0b3c5d',
+              borderRadius: '50%',
+              top: '-6px',
+              left: '50%',
+              marginLeft: '-6px',
+              boxShadow: '0 0 6px 2px rgba(11,60,93,0.3)',
+            }}
+          />
+        </div>
 
         {/* Center Core */}
-        <div className="z-20 w-36 h-36 bg-white rounded-full shadow-2xl flex items-center justify-center border-8 border-[#eff4ff]">
-          <span className="text-2xl font-black text-[#00263f]">UIPL</span>
+        <div
+          className="absolute z-10 bg-white rounded-full flex items-center justify-center border-[6px] border-[#e8eef8]"
+          style={{
+            width: '110px',
+            height: '110px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          <span className="text-xl font-black text-[#00263f]">UIPL</span>
         </div>
 
-        {/* Sector Nodes */}
-        <div className="absolute w-full max-w-4xl flex justify-between px-10">
-          {nodes.map(({ icon: Icon, title, desc, color, textColor, position }) => (
-            <div
-              key={title}
-              className={`bg-white/80 backdrop-blur p-6 rounded-2xl shadow-xl border border-slate-100 text-center w-56 ${position} hover:scale-105 transition-transform duration-300`}
-            >
-              <div className={`w-12 h-12 ${color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                <Icon size={22} className="text-white" />
-              </div>
-              <h3 className={`font-black text-lg mb-2 ${textColor}`}>{title}</h3>
-              <p className="text-xs text-slate-500 leading-relaxed">{desc}</p>
-            </div>
-          ))}
+        {/* Real Estate — top left */}
+        <div
+          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10"
+          style={{ left: 'calc(50% - 310px)', top: 'calc(50% - 130px)' }}
+        >
+          <div className="w-11 h-11 bg-[#0b3c5d] rounded-full flex items-center justify-center mx-auto mb-3">
+            <Building2 size={20} className="text-white" />
+          </div>
+          <h3 className="font-black text-sm text-[#0b3c5d] mb-1">Real Estate</h3>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Premium residential &amp; commercial hubs designed for modern life.
+          </p>
+        </div>
+
+        {/* Healthcare — top right */}
+        <div
+          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10"
+          style={{ left: 'calc(50% + 136px)', top: 'calc(50% - 130px)' }}
+        >
+          <div className="w-11 h-11 bg-[#002a05] rounded-full flex items-center justify-center mx-auto mb-3">
+            <HeartPulse size={20} className="text-white" />
+          </div>
+          <h3 className="font-black text-sm text-[#002a05] mb-1">Healthcare</h3>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Integrated medical facilities prioritizing wellness and access.
+          </p>
+        </div>
+
+        {/* Education — bottom center */}
+        <div
+          className="absolute bg-white border border-slate-100 rounded-2xl p-5 text-center w-44 hover:scale-105 transition-transform duration-300 z-10"
+          style={{ left: 'calc(50% - 86px)', top: 'calc(50% + 140px)' }}
+        >
+          <div className="w-11 h-11 bg-[#8d4f00] rounded-full flex items-center justify-center mx-auto mb-3">
+            <GraduationCap size={20} className="text-white" />
+          </div>
+          <h3 className="font-black text-sm text-[#8d4f00] mb-1">Education</h3>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            World-class institutions fostering the leaders of tomorrow.
+          </p>
         </div>
       </div>
+
+      <style>{`
+        @keyframes orbitSpin {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to   { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+      `}</style>
     </section>
   )
 }
