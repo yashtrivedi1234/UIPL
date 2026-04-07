@@ -12,7 +12,7 @@ export default function VisionMission() {
               <Eye size={24} className="text-[#8d4f00] sm:hidden" />
               <Eye size={28} className="text-[#8d4f00] hidden sm:block" />
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#00263f] mb-4 sm:mb-5">Our Vision</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#00263f] mb-4 sm:mb-5">Our Vision</h2>
             <p className="text-slate-500 leading-relaxed mb-5 sm:mb-7 text-sm sm:text-base">
               To be the bedrock upon which future generations build their dreams, crafting
               environments that harmonize technological advancement with ecological balance.
@@ -36,7 +36,7 @@ export default function VisionMission() {
               <Rocket size={24} className="text-[#002a05] sm:hidden" />
               <Rocket size={28} className="text-[#002a05] hidden sm:block" />
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#00263f] mb-4 sm:mb-5">Our Mission</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#00263f] mb-4 sm:mb-5">Our Mission</h2>
             <p className="text-slate-500 leading-relaxed mb-5 sm:mb-7 text-sm sm:text-base">
               Delivering high-precision infrastructure solutions that exceed global standards,
               utilizing cutting-edge materials and a legacy of engineering excellence.

@@ -11,7 +11,7 @@ export default function AchievementStats() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 text-center relative z-10">
         {stats.map(({ value, label, color }) => (
           <div key={label} className="flex flex-col items-center">
-            <div className={`text-5xl font-black mb-2 ${color}`}>{value}</div>
+            <div className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black mb-2 ${color}`}>{value}</div>
             <div className="text-xs font-bold uppercase tracking-widest text-[#7fa7cd]">{label}</div>
           </div>
         ))}

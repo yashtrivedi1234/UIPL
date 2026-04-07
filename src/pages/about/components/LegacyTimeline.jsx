@@ -25,7 +25,7 @@ export default function LegacyTimeline() {
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-12 sm:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] mb-4">Our Legacy</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#00263f] mb-4">Our Legacy</h2>
           <div className="w-20 h-1 bg-[#8d4f00] mx-auto rounded-full" />
         </div>
 

@@ -25,7 +25,7 @@ export default function LeadershipTeam() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] mb-4">The Vanguard</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#00263f] mb-4">The Vanguard</h2>
           <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
             Guided by a collective of visionary leaders committed to engineering the world's
             most resilient structures.
