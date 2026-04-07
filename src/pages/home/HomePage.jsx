@@ -23,14 +23,14 @@ export default function HomePage() {
       <EcosystemFlow />
       <ProjectShowcase />
       <AmenitiesSection />
-      <InvestmentOpportunities />
-      <SustainabilityGreen />
-      <AwardsRecognition />
+      {/* <InvestmentOpportunities /> */}
+      {/* <SustainabilityGreen /> */}
+      {/* <AwardsRecognition /> */}
       <Testimonials />
-      <PartnersInvestors />
-      <LatestNews />
+      {/* <PartnersInvestors /> */}
+      {/* <LatestNews /> */}
       <LocationSection />
-      <FAQSection />
+      {/* <FAQSection /> */}
       <CTABanner />
     </>
   )
