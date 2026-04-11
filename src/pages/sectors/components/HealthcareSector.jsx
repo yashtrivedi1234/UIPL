@@ -34,15 +34,14 @@ export default function HealthcareSector() {
 
           {/* Text */}
           <div className="w-full lg:w-1/2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-[#0b3c5d] flex items-center justify-center">
+            <div className="flex items-start gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-[#0b3c5d] flex items-center justify-center shrink-0 mt-1">
                 <HeartPulse size={22} className="text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-[#00263f]">Healthcare</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#00263f] leading-tight sm:whitespace-nowrap">
+                Healthcare <span className="text-[#0b3c5d]">Advanced Trust &amp; Care</span>
+              </h2>
             </div>
-            <h3 className="text-2xl md:text-3xl font-black text-[#0b3c5d] mb-6">
-              Advanced Trust &amp; Care
-            </h3>
             <p className="text-slate-500 text-lg leading-relaxed mb-10">
               In healthcare, structure meets soul. UIPL designs medical facilities that prioritize
               patient healing and clinical efficiency. Our hospitals are equipped with world-class

@@ -27,15 +27,14 @@ export default function RealEstateSector() {
 
           {/* Text */}
           <div className="w-full lg:w-1/2 order-2 lg:order-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-[#fe9824] flex items-center justify-center">
+            <div className="flex items-start gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-[#fe9824] flex items-center justify-center shrink-0 mt-1">
                 <Building2 size={22} className="text-[#00263f]" />
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black">Real Estate</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight sm:whitespace-nowrap">
+              <span className="text-[#ffdcc0]">Elevated City Living</span>
+              </h2>
             </div>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#ffdcc0] mb-6">
-              Premium Urban Living
-            </h3>
             <p className="text-slate-300 text-lg leading-relaxed mb-10">
               Redefining the skyline with residential and commercial developments that exude
               luxury and functionality. UIPL Real Estate ventures focus on prime locations,

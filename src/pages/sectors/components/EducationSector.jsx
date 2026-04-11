@@ -17,15 +17,14 @@ export default function EducationSector() {
 
           {/* Text */}
           <div className="w-full lg:w-1/2 order-2 lg:order-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-[#00430d] flex items-center justify-center">
+            <div className="flex items-start gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-[#00430d] flex items-center justify-center shrink-0 mt-1">
                 <GraduationCap size={22} className="text-[#a3f69c]" />
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#00263f]">Education</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#00263f] leading-tight sm:whitespace-nowrap">
+                Education <span className="text-[#002a05]">Pioneering</span>
+              </h2>
             </div>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-[#002a05] mb-6">
-              Pioneering Future Leaders
-            </h3>
             <p className="text-slate-500 text-lg leading-relaxed mb-10">
               Our educational campuses are designed as catalysts for growth. We integrate smart
               technology with adaptive spaces to create environments that foster curiosity,
