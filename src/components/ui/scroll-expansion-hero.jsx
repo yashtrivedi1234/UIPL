@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Children, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 function ScrollExpandMedia({
@@ -118,6 +118,9 @@ function ScrollExpandMedia({
 
   const firstWord = title ? title.split(' ')[0] : ''
   const restOfTitle = title ? title.split(' ').slice(1).join(' ') : ''
+  const hasChildren = Children.toArray(children).some(
+    (child) => typeof child !== 'string' || child.trim().length > 0
+  )
 
   const youtubeSrc = mediaSrc.includes('embed')
     ? `${mediaSrc}${mediaSrc.includes('?') ? '&' : '?'}autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1`
@@ -267,14 +270,16 @@ function ScrollExpandMedia({
               </div>
             </div>
 
-            <motion.section
-              className="flex flex-col w-full px-8 py-10 md:px-16 lg:py-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showContent ? 1 : 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              {children}
-            </motion.section>
+            {hasChildren && (
+              <motion.section
+                className="flex flex-col w-full px-8 py-10 md:px-16 lg:py-20"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: showContent ? 1 : 0 }}
+                transition={{ duration: 0.7 }}
+              >
+                {children}
+              </motion.section>
+            )}
           </div>
         </div>
       </section>
