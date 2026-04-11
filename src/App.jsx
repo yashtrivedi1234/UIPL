@@ -13,6 +13,7 @@ import EducationPage from "./pages/education/EducationPage";
 import HealthcarePage from "./pages/healthcare/HealthcarePage";
 import TimelinePage from "./pages/timeline/TimelinePage";
 import ScrollExpansionPage from "./pages/scroll-expansion/ScrollExpansionPage";
+import ZoomParallaxPage from "./pages/zoom-parallax/ZoomParallaxPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/healthcare" element={<HealthcarePage />} />
           <Route path="/timeline" element={<TimelinePage />} />
           <Route path="/scroll-expansion-demo" element={<ScrollExpansionPage />} />
+          <Route path="/zoom-parallax-demo" element={<ZoomParallaxPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
