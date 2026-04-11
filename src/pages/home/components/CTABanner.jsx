@@ -7,21 +7,33 @@ export default function CTABanner() {
       <div className="absolute right-40 bottom-0 w-60 h-60 bg-orange-400/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-        <span className="text-xs font-black uppercase text-orange-400 tracking-widest block mb-4">
+        <span
+          className="text-xs uppercase text-orange-400 tracking-widest block mb-4"
+          style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
+        >
           Your Future Starts Here
         </span>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-black text-white mb-7 leading-tight">
+
+        <h2 className="text-white mb-7 leading-tight">
           Join the Future with UIPL
         </h2>
-        <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+
+        <p className="text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
           Whether you are looking for a home, an investment, or a partnership in nation-building,
           UIPL is your trusted partner.
         </p>
+
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-[#fe9824] text-white px-10 py-5 rounded-xl font-black text-base hover:scale-105 transition-transform shadow-lg">
+          <button
+            className="bg-[#fe9824] text-white px-10 py-5 rounded-xl text-base hover:scale-105 transition-transform shadow-lg"
+            style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
+          >
             Inquire Now
           </button>
-          <button className="border-2 border-white/30 text-white px-10 py-5 rounded-xl font-bold hover:bg-white/10 transition-colors">
+          <button
+            className="border-2 border-white/30 text-white px-10 py-5 rounded-xl hover:bg-white/10 transition-colors"
+            style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+          >
             Download App
           </button>
         </div>

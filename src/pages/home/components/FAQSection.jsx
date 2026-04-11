@@ -34,15 +34,17 @@ export default function FAQSection() {
   return (
     <section className="py-8 sm:py-10 lg:py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-[10px] sm:text-xs font-black uppercase text-orange-500 tracking-widest block mb-3 sm:mb-4">
+          <span className="text-[10px] sm:text-xs font-black uppercase text-orange-500 tracking-widest block mb-3 sm:mb-4"
+            style={{ fontFamily: "'Noto Sans', sans-serif" }}>
             Got Questions?
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] mb-4 sm:mb-6">
+          <h2 className="text-[#00263f] mb-4 sm:mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 max-w-2xl mx-auto">
             Find answers to common questions about UIPL projects, investments, and our ecosystem.
           </p>
         </div>
@@ -50,14 +52,17 @@ export default function FAQSection() {
         {/* FAQ List */}
         <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:border-orange-300 transition-colors">
+            <div
+              key={index}
+              className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:border-orange-300 transition-colors"
+            >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                 className="w-full px-5 sm:px-7 py-4 sm:py-5 flex items-center justify-between hover:bg-slate-100 transition-colors text-left"
               >
-                <h3 className="font-bold text-sm sm:text-base text-[#00263f] pr-4">
+                <h5 className="text-[#00263f] pr-4 mb-0">
                   {faq.question}
-                </h3>
+                </h5>
                 <ChevronDown
                   size={20}
                   className={`text-orange-500 flex-shrink-0 transition-transform duration-300 ${
@@ -68,7 +73,7 @@ export default function FAQSection() {
 
               {openIndex === index && (
                 <div className="px-5 sm:px-7 py-4 sm:py-5 bg-slate-100/50 border-t border-slate-200">
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
@@ -79,13 +84,17 @@ export default function FAQSection() {
 
         {/* Contact CTA */}
         <div className="text-center mt-10 sm:mt-14 lg:mt-16">
-          <p className="text-slate-500 text-sm sm:text-base mb-4">
+          <p className="text-slate-500 mb-4">
             Can't find your answer?
           </p>
-          <button className="bg-[#fe9824] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold hover:scale-105 transition-transform text-sm sm:text-base">
+          <button
+            className="bg-[#fe9824] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:scale-105 transition-transform text-sm sm:text-base"
+            style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+          >
             Contact Our Team
           </button>
         </div>
+
       </div>
     </section>
   )

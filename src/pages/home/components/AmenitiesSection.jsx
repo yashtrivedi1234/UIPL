@@ -40,22 +40,26 @@ export default function AmenitiesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-10 sm:gap-12 lg:gap-16 items-center">
 
-          {/* Text Side — comes first on mobile for better reading flow */}
+          {/* Text Side */}
           <div className="lg:w-1/2 text-center lg:text-left order-1 lg:order-2">
-            <span className="text-xs font-black uppercase text-[#8d4f00] tracking-widest block mb-3 sm:mb-4">
+            <span
+              className="text-xs uppercase text-[#8d4f00] tracking-widest block mb-3 sm:mb-4"
+              style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
+            >
               Life at UIPL
             </span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#00263f] mb-5 sm:mb-7 leading-tight">
+            <h2 className="text-[#00263f] mb-5 sm:mb-7 leading-tight">
               Elevating Every Aspect of Your Lifestyle
             </h2>
-            <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-slate-500 leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
               We believe infrastructure should serve humanity, not just house it. Our
               developments feature cutting-edge amenities that prioritize your physical safety
               and mental well-being.
             </p>
             <button
               onClick={() => navigate('/amenities')}
-              className="bg-[#00263f] text-white px-7 sm:px-10 py-3.5 sm:py-4 rounded-xl font-black shadow-xl hover:-translate-y-1 transition-transform text-sm sm:text-base w-full sm:w-auto"
+              className="bg-[#00263f] text-white px-7 sm:px-10 py-3.5 sm:py-4 rounded-xl shadow-xl hover:-translate-y-1 transition-transform text-sm sm:text-base w-full sm:w-auto"
+              style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
             >
               Download Lifestyle Brochure
             </button>
@@ -69,8 +73,15 @@ export default function AmenitiesSection() {
                 className={`p-4 sm:p-5 lg:p-7 rounded-2xl bg-[#eff4ff] border border-slate-100 hover:shadow-md transition-shadow ${desktopOffset}`}
               >
                 <Icon size={24} className={`${color} mb-3 sm:mb-4 sm:w-8 sm:h-8`} />
-                <h4 className="font-black text-[#00263f] mb-1.5 sm:mb-2 text-sm sm:text-base">{title}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed">{desc}</p>
+                <h6 className="text-[#00263f] mb-1.5 sm:mb-2">
+                  {title}
+                </h6>
+                <span
+                  className="text-xs text-slate-500 leading-relaxed"
+                  style={{ fontFamily: "'Noto Sans', sans-serif" }}
+                >
+                  {desc}
+                </span>
               </div>
             ))}
           </div>

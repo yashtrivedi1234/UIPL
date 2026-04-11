@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import logo from '../assets/logo/Logo.jpeg'
 
@@ -14,26 +14,49 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [enquiryOpen, setEnquiryOpen] = useState(false)
+  const [enquirySubmitted, setEnquirySubmitted] = useState(false)
+  const [enquiryData, setEnquiryData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    message: '',
+  })
   const location = useLocation()
-  const navigate = useNavigate()
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false)
   }, [location.pathname])
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    document.body.style.overflow = mobileOpen || enquiryOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
-  }, [mobileOpen])
+  }, [mobileOpen, enquiryOpen])
+
+  const handleEnquiryChange = (event) => {
+    const { name, value } = event.target
+    setEnquiryData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const closeEnquiryModal = () => {
+    setEnquiryOpen(false)
+    setEnquirySubmitted(false)
+  }
+
+  const handleEnquirySubmit = (event) => {
+    event.preventDefault()
+    console.log('Basic enquiry submitted:', {
+      ...enquiryData,
+      submittedAt: new Date().toISOString(),
+    })
+    setEnquirySubmitted(true)
+  }
 
   return (
     <>
-      <nav
-        className="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-xl shadow-md"
-      >
+      <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-xl shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
+
           {/* Logo */}
           <Link to="/" aria-label="UIPL home" className="shrink-0">
             <img
@@ -51,12 +74,13 @@ export default function Navbar() {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `font-semibold text-sm tracking-wide transition-colors whitespace-nowrap ${
+                  `text-sm tracking-wide transition-colors whitespace-nowrap ${
                     isActive
                       ? 'text-sky-900 border-b-2 border-orange-500 pb-0.5'
                       : 'text-slate-600 hover:text-sky-800'
                   }`
                 }
+                style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 600 }}
               >
                 {link.label}
               </NavLink>
@@ -65,13 +89,14 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <button
-            onClick={() => navigate('/contact')}
-            className="hidden lg:block bg-[#0b3c5d] text-white px-5 xl:px-6 py-2.5 rounded-lg font-bold text-sm hover:scale-105 transition-transform duration-200 shadow-md whitespace-nowrap"
+            onClick={() => setEnquiryOpen(true)}
+            className="hidden lg:block bg-[#0b3c5d] text-white px-5 xl:px-6 py-2.5 rounded-lg text-sm hover:scale-105 transition-transform duration-200 shadow-md whitespace-nowrap"
+            style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
           >
             Get Started
           </button>
 
-          {/* Mobile / Tablet Hamburger */}
+          {/* Mobile Hamburger */}
           <button
             className="lg:hidden text-sky-900 p-1 rounded-md hover:bg-slate-100 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -82,7 +107,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile / Tablet Dropdown Menu */}
+        {/* Mobile Dropdown */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
@@ -96,12 +121,13 @@ export default function Navbar() {
                 end={link.to === '/'}
                 onClick={() => setMobileOpen(false)}
                 className={({ isActive }) =>
-                  `font-semibold text-sm py-3 px-3 rounded-lg transition-colors ${
+                  `text-sm py-3 px-3 rounded-lg transition-colors ${
                     isActive
                       ? 'text-sky-900 bg-sky-50 border-l-4 border-orange-500 pl-2'
                       : 'text-slate-700 hover:text-sky-800 hover:bg-slate-50'
                   }`
                 }
+                style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 600 }}
               >
                 {link.label}
               </NavLink>
@@ -109,9 +135,10 @@ export default function Navbar() {
             <button
               onClick={() => {
                 setMobileOpen(false)
-                navigate('/contact')
+                setEnquiryOpen(true)
               }}
-              className="mt-3 bg-[#0b3c5d] text-white px-6 py-3 rounded-lg font-bold text-sm w-full hover:bg-[#0f4d78] transition-colors"
+              className="mt-3 bg-[#0b3c5d] text-white px-6 py-3 rounded-lg text-sm w-full hover:bg-[#0f4d78] transition-colors"
+              style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
             >
               Get Started
             </button>
@@ -119,13 +146,111 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Backdrop overlay for mobile — closes menu on outside tap */}
+      {/* Backdrop */}
       {mobileOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/20 lg:hidden"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
+      )}
+
+      {enquiryOpen && (
+        <div className="fixed inset-0 z-60 flex items-center justify-center p-4">
+          <button
+            className="absolute inset-0 bg-black/45"
+            onClick={closeEnquiryModal}
+            aria-label="Close enquiry modal"
+          />
+          <div className="relative w-full max-w-lg rounded-2xl bg-white shadow-2xl p-6 sm:p-7">
+            <button
+              onClick={closeEnquiryModal}
+              className="absolute top-3 right-3 rounded-full p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition-colors"
+              aria-label="Close"
+            >
+              <X size={18} />
+            </button>
+
+            {!enquirySubmitted ? (
+              <>
+                <h3
+                  className="text-2xl text-sky-900"
+                  style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+                >
+                  Basic Enquiry
+                </h3>
+                <p className="mt-1 text-sm text-slate-600" style={{ fontFamily: "'Noto Sans', sans-serif" }}>
+                  Share your details and our team will connect with you shortly.
+                </p>
+
+                <form className="mt-5 grid gap-3" onSubmit={handleEnquirySubmit}>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={enquiryData.fullName}
+                    onChange={handleEnquiryChange}
+                    placeholder="Full Name"
+                    required
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700"
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={enquiryData.phone}
+                    onChange={handleEnquiryChange}
+                    placeholder="Phone Number"
+                    required
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={enquiryData.email}
+                    onChange={handleEnquiryChange}
+                    placeholder="Email Address"
+                    required
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700"
+                  />
+                  <textarea
+                    name="message"
+                    value={enquiryData.message}
+                    onChange={handleEnquiryChange}
+                    placeholder="Requirement (optional)"
+                    rows={4}
+                    className="w-full resize-none rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700"
+                  />
+
+                  <button
+                    type="submit"
+                    className="mt-1 rounded-lg bg-[#0b3c5d] text-white py-2.5 text-sm hover:bg-[#0f4d78] transition-colors"
+                    style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+                  >
+                    Submit Enquiry
+                  </button>
+                </form>
+              </>
+            ) : (
+              <div className="py-8 text-center">
+                <h3
+                  className="text-2xl text-sky-900"
+                  style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+                >
+                  Thank you!
+                </h3>
+                <p className="mt-2 text-sm text-slate-600" style={{ fontFamily: "'Noto Sans', sans-serif" }}>
+                  Your enquiry has been noted. We will contact you soon.
+                </p>
+                <button
+                  onClick={closeEnquiryModal}
+                  className="mt-5 rounded-lg bg-[#0b3c5d] text-white px-5 py-2.5 text-sm hover:bg-[#0f4d78] transition-colors"
+                  style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+                >
+                  Close
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       )}
     </>
   )

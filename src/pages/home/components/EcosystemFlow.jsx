@@ -38,16 +38,15 @@ export default function EcosystemFlow() {
   return (
     <section id="sectors" className="py-8 sm:py-10 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center mb-8 sm:mb-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] mb-4">
+        <h2 className="text-[#00263f] mb-4">
           The UIPL Synthesis
         </h2>
-        <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+        <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">
           Our holistic approach ensures every project contributes to a balanced, sustainable,
           and high-quality lifestyle for residents and partners.
         </p>
       </div>
 
-      {/* Timeline Section */}
       <RadialOrbitalTimeline timelineData={timelineData} />
     </section>
   );

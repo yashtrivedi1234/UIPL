@@ -3,7 +3,6 @@ const projects = [
     title: "UIPL Emerald Heights",
     location: "Gomti Nagar Extension, Lucknow",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCn6joYhDQO8oQMQI46DOeMqOkAxBuCFthI_rvZV0quh1AzkgaHXnydCHWldhVYyizNKFFt7b1PP9GWzePYypBPKKYQrOwIEyqdkUhymbJ-eTRf1y39Kda9k9PYBxQ3QZs6YicuBZ_QrI_-lW3FNrIHxkyuZ8s6SSEbq3mCGbBVDSCc7lGfesIJbk2keW-ks8STRgDTL3l-nh4iZL269aZ29iOtW_BrIwbyj42M5yq344qGgRWb0f1S54I36yKFbJl0bSbKuHJpa_A",
-    // Desktop aspect ratios for masonry variety
     desktopAspect: "md:aspect-[4/5]",
   },
   {
@@ -24,18 +23,25 @@ const projects = [
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDOrHhxqR0gmhsOEndjxJP4a9VwZdW2jz2RlyPYc2sUEMTg2NtfyYra_XLuadx88fau9DWtmWBt-6xl-R5H_NFUn4Aptd4DxOTaZZBd71qNeV_w_jVC3WbMrsBt8WAzJSwwDQqbmOPXv6QW1RXThiP7XkPDpmPQvYmmlvg_GMZcNpJ65xJMFhZ3ovs7sZXMGled5kXLho25Vp3MdH6JYVTarbZtvTzZabt_Deu9jYZ0_qwFi0h_9NtSIDATLmWjHjyAdfbf8mxRRCk",
     desktopAspect: "md:aspect-video",
   },
-];
+]
 
 function Overlay({ title, location }) {
   return (
     <>
-      <div className="absolute inset-0 bg-linear-to-t from-[#00263f]/90 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-95" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#00263f]/90 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-95" />
       <div className="absolute bottom-0 left-0 p-5 transition-transform duration-500 group-hover:-translate-y-1">
-        <h4 className="text-lg font-black transition-colors duration-500 group-hover:text-orange-200">{title}</h4>
-        <p className="text-xs text-slate-300 mt-1 transition-colors duration-500 group-hover:text-white">{location}</p>
+        <h4 className="transition-colors duration-500 group-hover:text-orange-200">
+          {title}
+        </h4>
+        <span
+          className="text-xs text-slate-300 mt-1 block transition-colors duration-500 group-hover:text-white"
+          style={{ fontFamily: "'Noto Sans', sans-serif" }}
+        >
+          {location}
+        </span>
       </div>
     </>
-  );
+  )
 }
 
 export default function ProjectShowcase() {
@@ -47,18 +53,22 @@ export default function ProjectShowcase() {
       <div className="absolute top-0 right-0 w-1/2 sm:w-1/3 h-1/3 bg-orange-400/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-14">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black mb-3 sm:mb-4">
+          <h2 className="mb-3 sm:mb-4">
             Pioneering Lucknow's Skyline
           </h2>
-          <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+          <p
+            className="text-slate-300 max-w-2xl mx-auto leading-relaxed"
+            style={{ fontFamily: "'Noto Sans', sans-serif", fontSize: 'clamp(0.9rem, 0.85rem + 0.15vw, 1rem)' }}
+          >
             Discover our landmark projects setting new benchmarks for luxury and
             sustainability in the heart of Uttar Pradesh.
           </p>
         </div>
 
-        {/* ── MOBILE: uniform card stack ── */}
+        {/* MOBILE: uniform card stack */}
         <div className="flex flex-col gap-4 md:hidden">
           {projects.map(({ title, location, img }) => (
             <div
@@ -70,75 +80,56 @@ export default function ProjectShowcase() {
                 alt={title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#00263f]/90 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-95" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#00263f]/90 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-95" />
               <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-orange-300/40 transition-all duration-500 rounded-2xl pointer-events-none" />
               <div className="absolute bottom-0 left-0 p-5 transition-transform duration-500 group-hover:-translate-y-1">
-                <h4 className="text-lg font-black transition-colors duration-500 group-hover:text-orange-200">{title}</h4>
-                <p className="text-xs text-slate-300 mt-1 transition-colors duration-500 group-hover:text-white">{location}</p>
+                <h4 className="transition-colors duration-500 group-hover:text-orange-200">
+                  {title}
+                </h4>
+                <span
+                  className="text-xs text-slate-300 mt-1 block transition-colors duration-500 group-hover:text-white"
+                  style={{ fontFamily: "'Noto Sans', sans-serif" }}
+                >
+                  {location}
+                </span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* ── DESKTOP: custom asymmetric layout ── */}
+        {/* DESKTOP: asymmetric layout */}
         <div className="hidden md:grid grid-cols-3 gap-6 auto-rows-[200px]">
-          {/* Image 1 (BIG - left) */}
+
+          {/* Image 1 — BIG left */}
           <div className="col-span-1 row-span-2 relative rounded-2xl overflow-hidden group">
-            <img
-              src={projects[0].img}
-              alt={projects[0].title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            <img src={projects[0].img} alt={projects[0].title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-orange-300/40 transition-all duration-500 rounded-2xl pointer-events-none" />
-            <Overlay
-              title={projects[0].title}
-              location={projects[0].location}
-            />
+            <Overlay title={projects[0].title} location={projects[0].location} />
           </div>
 
-          {/* Image 2 (top middle) */}
+          {/* Image 2 — top middle */}
           <div className="relative rounded-2xl overflow-hidden group">
-            <img
-              src={projects[1].img}
-              alt={projects[1].title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            <img src={projects[1].img} alt={projects[1].title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-orange-300/40 transition-all duration-500 rounded-2xl pointer-events-none" />
-            <Overlay
-              title={projects[1].title}
-              location={projects[1].location}
-            />
+            <Overlay title={projects[1].title} location={projects[1].location} />
           </div>
 
-          {/* Image 4 (top right) */}
+          {/* Image 4 — top right */}
           <div className="row-span-2 relative rounded-2xl overflow-hidden group">
-            <img
-              src={projects[3].img}
-              alt={projects[3].title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            <img src={projects[3].img} alt={projects[3].title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-orange-300/40 transition-all duration-500 rounded-2xl pointer-events-none" />
-            <Overlay
-              title={projects[3].title}
-              location={projects[3].location}
-            />
+            <Overlay title={projects[3].title} location={projects[3].location} />
           </div>
 
-          {/* Image 3 (bottom middle) */}
+          {/* Image 3 — bottom middle */}
           <div className="relative rounded-2xl overflow-hidden group">
-            <img
-              src={projects[2].img}
-              alt={projects[2].title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            <img src={projects[2].img} alt={projects[2].title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 ring-1 ring-white/0 group-hover:ring-orange-300/40 transition-all duration-500 rounded-2xl pointer-events-none" />
-            <Overlay
-              title={projects[2].title}
-              location={projects[2].location}
-            />
+            <Overlay title={projects[2].title} location={projects[2].location} />
           </div>
+
         </div>
       </div>
     </section>
-  );
+  )
 }

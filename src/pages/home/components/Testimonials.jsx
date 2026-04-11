@@ -31,11 +31,12 @@ export default function Testimonials() {
   return (
     <section className="py-8 sm:py-10 lg:py-12 bg-[#eff4ff] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-center mb-10 sm:mb-12 lg:mb-14 text-[#00263f]">
+
+        <h2 className="text-center mb-10 sm:mb-12 lg:mb-14 text-[#00263f]">
           Voices of the Ecosystem
         </h2>
 
-        {/* ── MOBILE: swipe carousel ── */}
+        {/* MOBILE: swipe carousel */}
         <div className="md:hidden">
           <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {testimonials.map(({ quote, name, role, img, featured }) => (
@@ -48,7 +49,7 @@ export default function Testimonials() {
                 }`}
               >
                 <Quote size={24} className="text-orange-400 mb-3" />
-                <p className="text-slate-600 italic text-sm leading-relaxed mb-5">"{quote}"</p>
+                <p className="text-slate-600 italic leading-relaxed mb-5">"{quote}"</p>
                 <div className="flex items-center gap-3">
                   <img
                     src={img}
@@ -56,8 +57,13 @@ export default function Testimonials() {
                     className="w-11 h-11 rounded-full object-cover border-2 border-slate-100 shrink-0"
                   />
                   <div>
-                    <h5 className="font-black text-[#00263f] text-sm">{name}</h5>
-                    <p className="text-xs text-slate-500">{role}</p>
+                    <h6 className="text-[#00263f]">{name}</h6>
+                    <span
+                      className="text-xs text-slate-500"
+                      style={{ fontFamily: "'Noto Sans', sans-serif" }}
+                    >
+                      {role}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -65,7 +71,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* ── DESKTOP: 3-column with featured card scaled up ── */}
+        {/* DESKTOP: 3-column with featured card scaled up */}
         <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 items-center">
           {testimonials.map(({ quote, name, role, img, featured }) => (
             <div
@@ -77,7 +83,7 @@ export default function Testimonials() {
               }`}
             >
               <Quote size={26} className="text-orange-400 mb-4 lg:w-7 lg:h-7" />
-              <p className="text-slate-600 italic text-sm leading-relaxed mb-6">"{quote}"</p>
+              <p className="text-slate-600 italic leading-relaxed mb-6">"{quote}"</p>
               <div className="flex items-center gap-4">
                 <img
                   src={img}
@@ -85,13 +91,19 @@ export default function Testimonials() {
                   className="w-12 h-12 rounded-full object-cover border-2 border-slate-100 shrink-0"
                 />
                 <div>
-                  <h5 className="font-black text-[#00263f] text-sm">{name}</h5>
-                  <p className="text-xs text-slate-500">{role}</p>
+                  <h6 className="text-[#00263f]">{name}</h6>
+                  <span
+                    className="text-xs text-slate-500"
+                    style={{ fontFamily: "'Noto Sans', sans-serif" }}
+                  >
+                    {role}
+                  </span>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   )

@@ -37,15 +37,19 @@ export default function SustainabilityGreen() {
   return (
     <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-br from-green-50 via-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-[10px] sm:text-xs font-black uppercase text-green-600 tracking-widest block mb-3 sm:mb-4">
+          <span
+            className="text-[10px] sm:text-xs uppercase text-green-600 tracking-widest block mb-3 sm:mb-4"
+            style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
+          >
             Environmental Commitment
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] mb-4 sm:mb-6">
+          <h2 className="text-[#00263f] mb-4 sm:mb-6">
             Sustainability & Green Initiatives
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 max-w-2xl mx-auto">
             Building sustainable communities that thrive today and protect our planet for tomorrow.
           </p>
         </div>
@@ -62,16 +66,17 @@ export default function SustainabilityGreen() {
                 <div className="bg-green-100 w-14 sm:w-16 h-14 sm:h-16 rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-green-200 transition-colors">
                   <IconComponent size={28} className="text-green-700 sm:w-[32px] sm:h-[32px]" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#00263f] mb-2 sm:mb-3">
+                <h5 className="text-[#00263f] mb-2 sm:mb-3">
                   {init.title}
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                </h5>
+                <p className="text-slate-600 leading-relaxed">
                   {init.description}
                 </p>
               </div>
             )
           })}
         </div>
+
       </div>
     </section>
   )
