@@ -1,17 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Link, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function RadialOrbitalTimeline({ timelineData }) {
   const [expandedItems, setExpandedItems] = useState({});
-  const [viewMode, setViewMode] = useState("orbital");
+  const [viewMode] = useState("orbital");
   const [rotationAngle, setRotationAngle] = useState(0);
   const [autoRotate, setAutoRotate] = useState(true);
-  const [pulseEffect, setPulseEffect] = useState({});
-  const [centerOffset, setCenterOffset] = useState({ x: 0, y: 0 });
-  const [activeNodeId, setActiveNodeId] = useState(null);
+  const [centerOffset] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
   const orbitRef = useRef(null);
   const nodeRefs = useRef({});
@@ -19,8 +16,6 @@ export default function RadialOrbitalTimeline({ timelineData }) {
   const handleContainerClick = (e) => {
     if (e.target === containerRef.current || e.target === orbitRef.current) {
       setExpandedItems({});
-      setActiveNodeId(null);
-      setPulseEffect({});
       setAutoRotate(true);
     }
   };
@@ -37,21 +32,11 @@ export default function RadialOrbitalTimeline({ timelineData }) {
       newState[id] = !prev[id];
 
       if (!prev[id]) {
-        setActiveNodeId(id);
         setAutoRotate(false);
-
-        const relatedItems = getRelatedItems(id);
-        const newPulseEffect = {};
-        relatedItems.forEach((relId) => {
-          newPulseEffect[relId] = true;
-        });
-        setPulseEffect(newPulseEffect);
 
         centerViewOnNode(id);
       } else {
-        setActiveNodeId(null);
         setAutoRotate(true);
-        setPulseEffect({});
       }
 
       return newState;
@@ -104,17 +89,6 @@ export default function RadialOrbitalTimeline({ timelineData }) {
     return { x, y, angle, zIndex, opacity };
   };
 
-  const getRelatedItems = (itemId) => {
-    const currentItem = timelineData.find((item) => item.id === itemId);
-    return currentItem ? currentItem.relatedIds : [];
-  };
-
-  const isRelatedToActive = (itemId) => {
-    if (!activeNodeId) return false;
-    const relatedItems = getRelatedItems(activeNodeId);
-    return relatedItems.includes(itemId);
-  };
-
   const getStatusStyles = (status) => {
     switch (status) {
       case "completed":
@@ -130,13 +104,52 @@ export default function RadialOrbitalTimeline({ timelineData }) {
 
   return (
     <div
-      className="w-full h-180 md:h-195 flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_35%,#f8fbff_0%,#eff4ff_48%,#f8f9ff_100%)]"
+      className="w-full overflow-hidden bg-[radial-gradient(circle_at_50%_35%,#f8fbff_0%,#eff4ff_48%,#f8f9ff_100%)]"
       ref={containerRef}
       onClick={handleContainerClick}
     >
-      <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
+      <div className="w-full md:hidden px-4 py-8">
+        <div className="max-w-xl mx-auto space-y-4">
+          {timelineData.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <Card
+                key={item.id}
+                className="border-[#0b3c5d]/15 bg-white/95 shadow-lg shadow-[#0b3c5d]/8"
+              >
+                <CardHeader className="pb-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-9 h-9 rounded-full bg-[#00263f] text-white flex items-center justify-center shrink-0">
+                        <Icon size={16} />
+                      </div>
+                      <CardTitle className="text-sm text-[#00263f] truncate">
+                        {item.title}
+                      </CardTitle>
+                    </div>
+                    <Badge className={`text-[10px] px-2 ${getStatusStyles(item.status)}`}>
+                      {item.status === "completed"
+                        ? "COMPLETE"
+                        : item.status === "in-progress"
+                        ? "IN PROGRESS"
+                        : "PENDING"}
+                    </Badge>
+                  </div>
+                  <div className="text-xs text-[#0b3c5d]/60 mt-1">{item.date}</div>
+                </CardHeader>
+                <CardContent className="text-xs text-[#0b3c5d]/85 space-y-3">
+                  <p>{item.content}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="relative w-full max-w-4xl h-130 lg:h-140 mx-auto items-center justify-center hidden md:flex">
         <div
-          className="absolute w-full h-full flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center"
           ref={orbitRef}
           style={{
             perspective: "1000px",
@@ -157,8 +170,6 @@ export default function RadialOrbitalTimeline({ timelineData }) {
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);
             const isExpanded = expandedItems[item.id];
-            const isRelated = isRelatedToActive(item.id);
-            const isPulsing = pulseEffect[item.id];
             const Icon = item.icon;
 
             const nodeStyle = {
@@ -180,14 +191,14 @@ export default function RadialOrbitalTimeline({ timelineData }) {
               >
                 <div
                   className={`absolute rounded-full -inset-1 ${
-                    isPulsing ? "animate-pulse duration-1000" : ""
+                    ""
                   }`}
                   style={{
-                    background: `radial-gradient(circle, rgba(11,60,93,0.16) 0%, rgba(11,60,93,0) 70%)`,
-                    width: `${item.energy * 0.5 + 40}px`,
-                    height: `${item.energy * 0.5 + 40}px`,
-                    left: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
-                    top: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
+                    background: `radial-gradient(circle, rgba(11,60,93,0.10) 0%, rgba(11,60,93,0) 70%)`,
+                    width: `56px`,
+                    height: `56px`,
+                    left: `-8px`,
+                    top: `-8px`,
                   }}
                 ></div>
 
@@ -197,16 +208,12 @@ export default function RadialOrbitalTimeline({ timelineData }) {
                   ${
                     isExpanded
                       ? "bg-[#00263f] text-white"
-                      : isRelated
-                      ? "bg-[#ffdcc0] text-[#0b3c5d]"
                       : "bg-white text-[#00263f]"
                   }
                   border-2 
                   ${
                     isExpanded
                       ? "border-[#00263f] shadow-lg shadow-[#00263f]/20"
-                      : isRelated
-                      ? "border-[#fe9824] animate-pulse"
                       : "border-[#0b3c5d]/25"
                   }
                   transition-all duration-300 transform
@@ -228,12 +235,12 @@ export default function RadialOrbitalTimeline({ timelineData }) {
                 </div>
 
                 {isExpanded && (
-                  <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 bg-white/95 backdrop-blur-lg border-[#0b3c5d]/20 shadow-xl shadow-[#0b3c5d]/10 overflow-visible">
+                  <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-60 bg-white/95 backdrop-blur-lg border-[#0b3c5d]/20 shadow-xl shadow-[#0b3c5d]/10 overflow-hidden max-h-75">
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-[#0b3c5d]/40"></div>
-                    <CardHeader className="pb-2">
-                      <div className="flex justify-between items-center">
+                    <CardHeader className="pb-2 px-4 pt-4">
+                      <div className="flex justify-between items-center gap-2">
                         <Badge
-                          className={`px-2 text-xs ${getStatusStyles(
+                          className={`px-2 text-[10px] ${getStatusStyles(
                             item.status
                           )}`}
                         >
@@ -243,68 +250,16 @@ export default function RadialOrbitalTimeline({ timelineData }) {
                             ? "IN PROGRESS"
                             : "PENDING"}
                         </Badge>
-                        <span className="text-xs font-mono text-[#0b3c5d]/55">
+                        <span className="text-[10px] font-mono text-[#0b3c5d]/55 whitespace-nowrap">
                           {item.date}
                         </span>
                       </div>
-                      <CardTitle className="text-sm mt-2 text-[#00263f]">
+                      <CardTitle className="text-[18px] leading-tight mt-2 text-[#00263f]">
                         {item.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-xs text-[#0b3c5d]/85">
+                    <CardContent className="text-[11px] text-[#0b3c5d]/85 px-4 pb-4 overflow-y-auto max-h-52.5">
                       <p>{item.content}</p>
-
-                      <div className="mt-4 pt-3 border-t border-[#0b3c5d]/10">
-                        <div className="flex justify-between items-center text-xs mb-1">
-                          <span className="flex items-center text-[#0b3c5d]">
-                            <Zap size={10} className="mr-1 text-[#fe9824]" />
-                            Energy Level
-                          </span>
-                          <span className="font-mono text-[#00263f]">{item.energy}%</span>
-                        </div>
-                        <div className="w-full h-1 bg-[#0b3c5d]/10 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-linear-to-r from-[#0b3c5d] to-[#fe9824]"
-                            style={{ width: `${item.energy}%` }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {item.relatedIds.length > 0 && (
-                        <div className="mt-4 pt-3 border-t border-[#0b3c5d]/10">
-                          <div className="flex items-center mb-2">
-                            <Link size={10} className="text-[#0b3c5d]/70 mr-1" />
-                            <h4 className="text-xs uppercase tracking-wider font-medium text-[#0b3c5d]/70">
-                              Connected Nodes
-                            </h4>
-                          </div>
-                          <div className="flex flex-wrap gap-1">
-                            {item.relatedIds.map((relatedId) => {
-                              const relatedItem = timelineData.find(
-                                (i) => i.id === relatedId
-                              );
-                              return (
-                                <Button
-                                  key={relatedId}
-                                  variant="outline"
-                                  size="sm"
-                                  className="flex items-center h-6 px-2 py-0 text-xs rounded-none border-[#0b3c5d]/25 bg-[#eff4ff] hover:bg-[#dce8ff] text-[#0b3c5d] hover:text-[#00263f] transition-all"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleItem(relatedId);
-                                  }}
-                                >
-                                  {relatedItem?.title}
-                                  <ArrowRight
-                                    size={8}
-                                    className="ml-1 text-[#0b3c5d]/60"
-                                  />
-                                </Button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
                     </CardContent>
                   </Card>
                 )}

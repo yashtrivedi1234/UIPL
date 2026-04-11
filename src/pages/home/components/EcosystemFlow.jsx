@@ -42,7 +42,7 @@ const timelineData = [
 ];
 
   return (
-    <section id="sectors" className="py-16 bg-white overflow-hidden">
+    <section id="sectors" className="py-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 text-center mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] mb-4">
           The UIPL Synthesis
