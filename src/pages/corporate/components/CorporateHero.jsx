@@ -16,8 +16,7 @@ export default function CorporateHero() {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#00263f] leading-[1.1] tracking-tight">
             Architecting{' '}
             <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(120deg, #0B3C5D 0%, #1E6FB8 40%, #2E7D32 75%, #F7931E 100%)' }}
+              className="bg-[linear-gradient(120deg,_#0B3C5D_0%,_#1E6FB8_40%,_#2E7D32_75%,_#F7931E_100%)] bg-clip-text text-transparent"
             >
               Future-Ready
             </span>{' '}

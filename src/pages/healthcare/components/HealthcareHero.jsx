@@ -24,8 +24,7 @@ export default function HealthcareHero() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight">
           Building The Future Of{' '}
           <span
-            className="bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(120deg, #9ad9ff 0%, #86efac 45%, #fcd34d 100%)' }}
+            className="bg-[linear-gradient(120deg,_#9ad9ff_0%,_#86efac_45%,_#fcd34d_100%)] bg-clip-text text-transparent"
           >
             Human Care.
           </span>

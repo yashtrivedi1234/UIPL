@@ -38,8 +38,7 @@ export default function CorporateEcosystem() {
       <div className="relative flex justify-center items-center py-20">
         {/* Orbiting ring */}
         <div
-          className="absolute w-[500px] h-[500px] rounded-full border-4 border-dashed border-slate-200 animate-spin pointer-events-none"
-          style={{ animationDuration: '30s' }}
+          className="absolute w-[500px] h-[500px] rounded-full border-4 border-dashed border-slate-200 animate-spin [animation-duration:30s] pointer-events-none"
         />
 
         {/* Center core */}

@@ -27,8 +27,7 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer
-      className="w-full pt-14 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 text-white"
-      style={{ background: 'linear-gradient(135deg, #00263f 0%, #0a2540 100%)' }}
+      className="w-full pt-14 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 text-white bg-[linear-gradient(135deg,_#00263f_0%,_#0a2540_100%)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

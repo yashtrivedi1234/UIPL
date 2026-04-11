@@ -6,14 +6,7 @@ export default function ProjectsHero() {
 
   return (
     <header
-      className="relative pt-40 pb-32 px-6 overflow-hidden min-h-screen flex items-center"
-      style={{
-        backgroundImage:
-          'url(https://lh3.googleusercontent.com/aida-public/AB6AXuCXJxhvxPCqvWWo3_3DWDX9FkPO7ZFzIH9_LS5bdVNKUvzt3NnMuIXrE2V26QOK0zkWCTcD2ODUD3-j2nBGecLRyHtX7ufKS6g_buwCnz04Ue_5B16NJaP3ap7zCbk6iuFOpxU8AUh13SeB_qCO4aHHlStQNmPNE2HxPjiGTgEkDaf4vq9C5quSJKD1-IEjOVVCEuWWckT1gFchRsDyKKnj9OU8kiw0D3LhBfNyvZMSHiR6P5dhdBlGEvuAMhV-vMlZiZVaM77uNI4)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
+      className="relative pt-40 pb-32 px-6 overflow-hidden min-h-screen flex items-center bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXJxhvxPCqvWWo3_3DWDX9FkPO7ZFzIH9_LS5bdVNKUvzt3NnMuIXrE2V26QOK0zkWCTcD2ODUD3-j2nBGecLRyHtX7ufKS6g_buwCnz04Ue_5B16NJaP3ap7zCbk6iuFOpxU8AUh13SeB_qCO4aHHlStQNmPNE2HxPjiGTgEkDaf4vq9C5quSJKD1-IEjOVVCEuWWckT1gFchRsDyKKnj9OU8kiw0D3LhBfNyvZMSHiR6P5dhdBlGEvuAMhV-vMlZiZVaM77uNI4')] bg-cover bg-center bg-no-repeat"
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-[#00263f]/65 z-0" />
@@ -31,8 +24,7 @@ export default function ProjectsHero() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-white tracking-tight">
           Our Projects: <br />
           <span
-            className="bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(120deg, #90c8f8 0%, #67e8c0 50%, #F7931E 100%)' }}
+            className="bg-[linear-gradient(120deg,_#90c8f8_0%,_#67e8c0_50%,_#F7931E_100%)] bg-clip-text text-transparent"
           >
             Shaping Lucknow's Future
           </span>

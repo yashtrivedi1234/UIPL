@@ -32,8 +32,7 @@ export default function EducationOverview() {
               <span className="text-[#8d4f00]">Classroom Walls</span>
             </h2>
             <div
-              className="w-20 h-1.5 rounded-full"
-              style={{ background: 'linear-gradient(120deg, #0B3C5D 0%, #1E6FB8 40%, #2E7D32 75%, #F7931E 100%)' }}
+              className="w-20 h-1.5 rounded-full bg-[linear-gradient(120deg,_#0B3C5D_0%,_#1E6FB8_40%,_#2E7D32_75%,_#F7931E_100%)]"
             />
             <p className="text-lg text-slate-500 leading-relaxed">
               UIPL views education as the cornerstone of societal advancement. Our approach

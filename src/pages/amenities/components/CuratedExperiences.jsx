@@ -21,8 +21,7 @@ export default function CuratedExperiences() {
             </p>
           </div>
           <div
-            className="h-1 w-24 rounded-full flex-shrink-0"
-            style={{ background: 'linear-gradient(120deg, #0B3C5D 0%, #1E6FB8 40%, #2E7D32 75%, #F7931E 100%)' }}
+            className="h-1 w-24 rounded-full flex-shrink-0 bg-[linear-gradient(120deg,_#0B3C5D_0%,_#1E6FB8_40%,_#2E7D32_75%,_#F7931E_100%)]"
           />
         </div>
 

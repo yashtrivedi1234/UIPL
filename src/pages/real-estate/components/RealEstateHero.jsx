@@ -25,8 +25,7 @@ export default function RealEstateHero() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight">
           Architecting{' '}
           <span
-            className="bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(120deg, #90c8f8 0%, #67e8c0 50%, #F7931E 100%)' }}
+            className="bg-[linear-gradient(120deg,_#90c8f8_0%,_#67e8c0_50%,_#F7931E_100%)] bg-clip-text text-transparent"
           >
             The Future.
           </span>

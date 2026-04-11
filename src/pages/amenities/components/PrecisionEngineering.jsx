@@ -59,8 +59,7 @@ export default function PrecisionEngineering() {
     <section className="py-24 bg-[#00263f] text-white relative overflow-hidden">
       {/* Background glow */}
       <div
-        className="absolute top-0 right-0 w-1/3 h-full opacity-10 blur-[120px] pointer-events-none"
-        style={{ background: 'linear-gradient(120deg, #0B3C5D 0%, #1E6FB8 40%, #2E7D32 75%, #F7931E 100%)' }}
+        className="absolute top-0 right-0 w-1/3 h-full opacity-10 blur-[120px] pointer-events-none bg-[linear-gradient(120deg,_#0B3C5D_0%,_#1E6FB8_40%,_#2E7D32_75%,_#F7931E_100%)]"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

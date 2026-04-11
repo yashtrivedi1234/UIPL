@@ -5,8 +5,7 @@ export default function CorporateCTA() {
 
   return (
     <section
-      className="py-24 relative overflow-hidden"
-      style={{ background: 'linear-gradient(to right, #00263f, #0b3c5d)' }}
+      className="py-24 relative overflow-hidden bg-[linear-gradient(to_right,_#00263f,_#0b3c5d)]"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <h2 className="text-4xl lg:text-6xl font-black text-white mb-8">

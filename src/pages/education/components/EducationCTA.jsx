@@ -7,8 +7,7 @@ export default function EducationCTA() {
     <section className="py-24 relative overflow-hidden bg-[#00263f]">
       {/* Gradient overlay */}
       <div
-        className="absolute inset-0 opacity-10"
-        style={{ background: 'linear-gradient(120deg, #0B3C5D 0%, #1E6FB8 40%, #2E7D32 75%, #F7931E 100%)' }}
+        className="absolute inset-0 opacity-10 bg-[linear-gradient(120deg,_#0B3C5D_0%,_#1E6FB8_40%,_#2E7D32_75%,_#F7931E_100%)]"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

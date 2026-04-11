@@ -9,8 +9,7 @@ export default function AmenitiesCTA() {
         <div className="relative overflow-hidden rounded-[2rem] p-12 md:p-20 text-center">
           {/* Gradient background */}
           <div
-            className="absolute inset-0 z-0 opacity-90"
-            style={{ background: 'linear-gradient(120deg, #0B3C5D 0%, #1E6FB8 40%, #2E7D32 75%, #F7931E 100%)' }}
+            className="absolute inset-0 z-0 opacity-90 bg-[linear-gradient(120deg,_#0B3C5D_0%,_#1E6FB8_40%,_#2E7D32_75%,_#F7931E_100%)]"
           />
           {/* Subtle texture overlay */}
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
