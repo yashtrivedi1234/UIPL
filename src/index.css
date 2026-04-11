@@ -1,54 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 :root {
-	--font-heading: "Montserrat", "Segoe UI", sans-serif;
+	--font-heading: "Germania One", system-ui;
 	--font-body: "Poppins", "Segoe UI", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: var(--font-heading);
-	letter-spacing: 0.01em;
+@layer base {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: "Germania One", system-ui;
+		font-weight: 400;
+		font-style: normal;
+		letter-spacing: 0.02em;
+	}
 }
 
 h1 {
 	font-size: clamp(1.7rem, 1.3rem + 1.8vw, 3rem);
-	font-weight: 800;
 }
 
 h2 {
 	font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.5rem);
-	font-weight: 700;
 }
 
 h3 {
 	font-size: clamp(1.3rem, 1.1rem + 1vw, 2rem);
-	font-weight: 700;
 }
 
 h4 {
 	font-size: clamp(1.15rem, 1rem + 0.7vw, 1.6rem);
-	font-weight: 600;
 }
 
 h5 {
 	font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem);
-	font-weight: 600;
 }
 
 h6 {
 	font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
-	font-weight: 600;
+}
+
+.germania-one-regular {
+	font-family: "Germania One", system-ui;
+	font-weight: 400;
+	font-style: normal;
+    letter-spacing: 0.1em;
 }
 
 p {
-	font-family: var(--font-body);
+	font-family: "Noto Sans", sans-serif;
+	font-optical-sizing: auto;
 	font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
 	font-weight: 400;
+	font-style: normal;
+	font-variation-settings: "wdth" 100;
 	letter-spacing: 0.005em;
 }
 
