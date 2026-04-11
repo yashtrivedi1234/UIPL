@@ -11,6 +11,7 @@ import RealEstatePage from "./pages/real-estate/RealEstatePage";
 import CorporatePage from "./pages/corporate/CorporatePage";
 import EducationPage from "./pages/education/EducationPage";
 import HealthcarePage from "./pages/healthcare/HealthcarePage";
+import TimelinePage from "./pages/timeline/TimelinePage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/corporate" element={<CorporatePage />} />
           <Route path="/education"   element={<EducationPage />} />
           <Route path="/healthcare" element={<HealthcarePage />} />
+          <Route path="/timeline" element={<TimelinePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

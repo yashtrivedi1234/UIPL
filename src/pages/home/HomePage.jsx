@@ -20,7 +20,7 @@ export default function HomePage() {
       <HeroSection />
       <WhyChooseUs />
       <SectorHighlights />
-      {/* <EcosystemFlow /> */}
+      <EcosystemFlow />
       <ProjectShowcase />
       <AmenitiesSection />
       {/* <InvestmentOpportunities /> */}
