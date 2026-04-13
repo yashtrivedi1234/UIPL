@@ -66,7 +66,9 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Desktop Nav Links */}
+          {/* Desktop Nav Links
+              font-family comes from Noto Sans — already imported in index.css
+              <p> tag sets it globally; nav links inherit or we use [font-family:var(--font-body)] */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <NavLink
@@ -74,24 +76,22 @@ export default function Navbar() {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `text-sm tracking-wide transition-colors whitespace-nowrap ${
+                  `text-sm tracking-wide transition-colors whitespace-nowrap font-semibold [font-family:var(--font-body)] ${
                     isActive
                       ? 'text-sky-900 border-b-2 border-orange-500 pb-0.5'
                       : 'text-slate-600 hover:text-sky-800'
                   }`
                 }
-                style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 600 }}
               >
                 {link.label}
               </NavLink>
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA — Noto Sans via --font-body */}
           <button
             onClick={() => setEnquiryOpen(true)}
-            className="hidden lg:block bg-[#0b3c5d] text-white px-5 xl:px-6 py-2.5 rounded-lg text-sm hover:scale-105 transition-transform duration-200 shadow-md whitespace-nowrap"
-            style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+            className="hidden lg:block bg-[#0b3c5d] text-white px-5 xl:px-6 py-2.5 rounded-lg text-sm font-bold hover:scale-105 transition-transform duration-200 shadow-md whitespace-nowrap [font-family:var(--font-body)]"
           >
             Get Started
           </button>
@@ -121,13 +121,12 @@ export default function Navbar() {
                 end={link.to === '/'}
                 onClick={() => setMobileOpen(false)}
                 className={({ isActive }) =>
-                  `text-sm py-3 px-3 rounded-lg transition-colors ${
+                  `text-sm py-3 px-3 rounded-lg transition-colors font-semibold [font-family:var(--font-body)] ${
                     isActive
                       ? 'text-sky-900 bg-sky-50 border-l-4 border-orange-500 pl-2'
                       : 'text-slate-700 hover:text-sky-800 hover:bg-slate-50'
                   }`
                 }
-                style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 600 }}
               >
                 {link.label}
               </NavLink>
@@ -137,8 +136,7 @@ export default function Navbar() {
                 setMobileOpen(false)
                 setEnquiryOpen(true)
               }}
-              className="mt-3 bg-[#0b3c5d] text-white px-6 py-3 rounded-lg text-sm w-full hover:bg-[#0f4d78] transition-colors"
-              style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+              className="mt-3 bg-[#0b3c5d] text-white px-6 py-3 rounded-lg text-sm w-full font-bold hover:bg-[#0f4d78] transition-colors [font-family:var(--font-body)]"
             >
               Get Started
             </button>
@@ -155,6 +153,7 @@ export default function Navbar() {
         />
       )}
 
+      {/* Enquiry Modal */}
       {enquiryOpen && (
         <div className="fixed inset-0 z-60 flex items-center justify-center p-4">
           <button
@@ -173,13 +172,14 @@ export default function Navbar() {
 
             {!enquirySubmitted ? (
               <>
-                <h3
-                  className="text-2xl text-sky-900"
-                  style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
-                >
+                {/* Modal heading — Germania One via --font-heading
+                    h3 tag already gets it from @layer base in index.css */}
+                <h3 className="text-2xl text-sky-900">
                   Basic Enquiry
                 </h3>
-                <p className="mt-1 text-sm text-slate-600" style={{ fontFamily: "'Noto Sans', sans-serif" }}>
+
+                {/* Subtitle — Noto Sans via <p> global rule in index.css */}
+                <p className="mt-1 text-sm text-slate-600">
                   Share your details and our team will connect with you shortly.
                 </p>
 
@@ -191,7 +191,7 @@ export default function Navbar() {
                     onChange={handleEnquiryChange}
                     placeholder="Full Name"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700"
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700 [font-family:var(--font-body)]"
                   />
                   <input
                     type="tel"
@@ -200,7 +200,7 @@ export default function Navbar() {
                     onChange={handleEnquiryChange}
                     placeholder="Phone Number"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700"
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700 [font-family:var(--font-body)]"
                   />
                   <input
                     type="email"
@@ -209,7 +209,7 @@ export default function Navbar() {
                     onChange={handleEnquiryChange}
                     placeholder="Email Address"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700"
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700 [font-family:var(--font-body)]"
                   />
                   <textarea
                     name="message"
@@ -217,13 +217,12 @@ export default function Navbar() {
                     onChange={handleEnquiryChange}
                     placeholder="Requirement (optional)"
                     rows={4}
-                    className="w-full resize-none rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700"
+                    className="w-full resize-none rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-sky-700 [font-family:var(--font-body)]"
                   />
 
                   <button
                     type="submit"
-                    className="mt-1 rounded-lg bg-[#0b3c5d] text-white py-2.5 text-sm hover:bg-[#0f4d78] transition-colors"
-                    style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+                    className="mt-1 rounded-lg bg-[#0b3c5d] text-white py-2.5 text-sm font-bold hover:bg-[#0f4d78] transition-colors [font-family:var(--font-body)]"
                   >
                     Submit Enquiry
                   </button>
@@ -231,19 +230,19 @@ export default function Navbar() {
               </>
             ) : (
               <div className="py-8 text-center">
-                <h3
-                  className="text-2xl text-sky-900"
-                  style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
-                >
+                {/* h3 → Germania One from @layer base */}
+                <h3 className="text-2xl text-sky-900">
                   Thank you!
                 </h3>
-                <p className="mt-2 text-sm text-slate-600" style={{ fontFamily: "'Noto Sans', sans-serif" }}>
+
+                {/* p → Noto Sans from global p rule */}
+                <p className="mt-2 text-sm text-slate-600">
                   Your enquiry has been noted. We will contact you soon.
                 </p>
+
                 <button
                   onClick={closeEnquiryModal}
-                  className="mt-5 rounded-lg bg-[#0b3c5d] text-white px-5 py-2.5 text-sm hover:bg-[#0f4d78] transition-colors"
-                  style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
+                  className="mt-5 rounded-lg bg-[#0b3c5d] text-white px-5 py-2.5 text-sm font-bold hover:bg-[#0f4d78] transition-colors [font-family:var(--font-body)]"
                 >
                   Close
                 </button>
