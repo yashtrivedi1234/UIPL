@@ -24,9 +24,9 @@ export default function HomePage() {
       <EcosystemFlow />
       <ProjectShowcase />
       <AmenitiesSection />
-      <InvestmentOpportunities />
-      <SustainabilityGreen />
       <AwardsRecognition />
+      <SustainabilityGreen />
+      <InvestmentOpportunities />
       <TeamShowcaseSection />
       <Testimonials />
       <PartnersInvestors />
