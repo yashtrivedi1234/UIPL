@@ -29,7 +29,7 @@ export default function HomePage() {
       <Testimonials />
       <PartnersInvestors />
       <LatestNews />
-      <LocationSection />
+      {/* <LocationSection /> */}
       <FAQSection />
       <CTABanner />
     </>

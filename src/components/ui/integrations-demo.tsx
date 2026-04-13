@@ -1,5 +1,5 @@
-import IntegrationsSection from "@/components/ui/integrations-section";
+import BrandCollaborations from "@/components/ui/integrations-section";
 
-export default function DemoOne() {
-  return <IntegrationsSection />;
+export default function BrandCollaborationsDemo() {
+  return <BrandCollaborations />;
 }

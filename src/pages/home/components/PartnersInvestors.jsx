@@ -1,82 +1,97 @@
-import sbiLogo from '../../../assets/partners/sbi.png'
+import { Button } from "@/components/ui/button";
+import sbi from "@/assets/partners/sbi.png";
+import unnamed1 from "@/assets/project/unnamed.png";
+import unnamed2 from "@/assets/project/unnamed (1).png";
+import unnamed3 from "@/assets/project/unnamed (2).png";
+import unnamed4 from "@/assets/project/unnamed (3).png";
+import unnamed5 from "@/assets/project/unnamed (4).png";
+import unnamed6 from "@/assets/project/unnamed (5).png";
+import unnamed7 from "@/assets/project/unnamed (6).png";
+import ccLogo from "@/assets/logo/cc-logo.png";
+import logoJpeg from "@/assets/logo/Logo.jpeg";
+import hero from "@/assets/hero.png";
+import home from "@/assets/home.png";
+import hospital from "@/assets/hospital.png";
+
+const partners = [
+  sbi,
+  unnamed1,
+  unnamed2,
+  unnamed3,
+  unnamed4,
+  unnamed5,
+  unnamed6,
+  unnamed7,
+  ccLogo,
+  logoJpeg,
+  hero,
+  home,
+  hospital,
+  sbi,
+  unnamed1,
+  unnamed2,
+  unnamed3,
+  unnamed4,
+];
 
 export default function PartnersInvestors() {
-  const partners = [
-    { name: 'HDFC Bank', logo: sbiLogo, category: 'Financial Partner' },
-    { name: 'ICICI Bank', logo: sbiLogo, category: 'Financial Partner' },
-    { name: 'State Bank of India', logo: sbiLogo, category: 'Financial Partner' },
-    { name: 'Axis Bank', logo: sbiLogo, category: 'Financial Partner' },
-    { name: 'Microsoft', logo: sbiLogo, category: 'Corporate Partner' },
-    { name: 'Google', logo: sbiLogo, category: 'Corporate Partner' },
-    { name: 'Amazon', logo: sbiLogo, category: 'Corporate Partner' },
-    { name: 'TCS', logo: sbiLogo, category: 'Corporate Partner' }
-  ]
-
-  const duplicatedPartners = [...partners, ...partners]
+  const handleImageError = (e) => {
+    e.target.style.display = "none";
+  };
 
   return (
-    <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-slate-50 to-white">
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .marquee-container {
-          animation: marquee 30s linear infinite;
-        }
-        .marquee-container:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
+    <section className="bg-white dark:bg-slate-900 py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Side */}
+          <div className="space-y-6">
+            <div>
+              <p className="uppercase text-xs sm:text-sm font-bold text-orange-600 dark:text-orange-400 tracking-wider mb-3">
+                Our Network
+              </p>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
+                Strategic Brand Collaborations
+              </h2>
+            </div>
+            
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              We partner with leading brands and institutions to create world-class communities. Our collaborations ensure excellence in every aspect of development.
+            </p>
+            
+            <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
+              <a href="/contact">
+                <Button className="bg-orange-600 hover:bg-orange-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-colors">
+                  Get in Touch
+                </Button>
+              </a>
+              <a href="/about">
+                <Button variant="outline" className="border-2 border-orange-400 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-950 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-colors">
+                  Learn More
+                </Button>
+              </a>
+            </div>
+          </div>
 
-        {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <span
-            className="text-[10px] sm:text-xs uppercase text-orange-500 tracking-widest block mb-3 sm:mb-4"
-            style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
-          >
-            Trusted Partnerships
-          </span>
-          <h2 className="text-[#00263f] mb-4 sm:mb-6">
-            Partners & Investors
-          </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">
-            Collaborating with industry leaders to create exceptional value and sustainable communities.
-          </p>
-        </div>
-
-        {/* Marquee */}
-        <div className="overflow-hidden">
-          <div className="marquee-container flex gap-6 sm:gap-8 lg:gap-10">
-            {duplicatedPartners.map((partner, index) => (
-              <div
-                key={index}
-                className="bg-white border border-slate-200 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center hover:shadow-lg hover:border-orange-300 transition-all cursor-pointer shrink-0 w-35 sm:w-40 lg:w-45 min-h-30 sm:min-h-35"
-              >
-                <div className="w-20 sm:w-24 lg:w-28 h-10 sm:h-12 flex items-center justify-center rounded mb-2">
+          {/* Right Side - Partners Grid */}
+          <div className="w-full">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 sm:gap-4">
+              {partners.map((partner, idx) => (
+                <div
+                  key={idx}
+                  className="aspect-square bg-white dark:bg-slate-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 p-3 sm:p-4 flex items-center justify-center overflow-hidden hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                >
                   <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-w-full max-h-full object-contain"
+                    src={partner}
+                    alt={`partner-${idx}`}
+                    onError={handleImageError}
+                    className="w-full h-full object-contain"
                   />
                 </div>
-                <h6 className="text-center text-[#00263f] mb-1 line-clamp-1">
-                  {partner.name}
-                </h6>
-                <span
-                  className="text-center text-[8px] sm:text-xs text-slate-500 uppercase tracking-wide"
-                  style={{ fontFamily: "'Noto Sans', sans-serif" }}
-                >
-                  {partner.category}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-
       </div>
     </section>
-  )
+  );
 }

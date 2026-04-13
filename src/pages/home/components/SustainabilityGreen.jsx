@@ -73,7 +73,7 @@ const uiplFeatures = [
   },
 ];
 
-export default function FeatureCarouselDemo() {
+export default function SustainabilityGreen() {
   const handleFeatureChange = (featureId) => {
     console.log("Current feature:", featureId);
   };
@@ -104,29 +104,7 @@ export default function FeatureCarouselDemo() {
           autoPlayInterval={4000}
           statusText="Ecosystem Live"
           onFeatureChange={handleFeatureChange}
-        />
-
-        {/* Features Info Section */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-          <div className="p-6 rounded-2xl bg-[#eff4ff] border border-slate-100">
-            <h3 className="text-[#00263f] font-bold mb-2">Interactive Design</h3>
-            <p className="text-slate-500 text-sm">
-              Click on any feature chip to explore. Hover to pause auto-rotation.
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl bg-[#eff4ff] border border-slate-100">
-            <h3 className="text-[#00263f] font-bold mb-2">Customizable</h3>
-            <p className="text-slate-500 text-sm">
-              Easily adapt colors, timing, and data to match your brand.
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl bg-[#eff4ff] border border-slate-100">
-            <h3 className="text-[#00263f] font-bold mb-2">Responsive</h3>
-            <p className="text-slate-500 text-sm">
-              Seamlessly adapts across mobile, tablet, and desktop devices.
-            </p>
-          </div>
-        </div>
+        />  
       </div>
     </div>
   );

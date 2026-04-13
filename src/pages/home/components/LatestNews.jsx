@@ -90,7 +90,7 @@ export default function LatestNews() {
 
         {/* MOBILE: swipe carousel */}
         <div className="md:hidden mb-10">
-          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 [scrollbar-width:none]">
             {news.map((item, index) => (
               <article
                 key={index}
@@ -102,8 +102,8 @@ export default function LatestNews() {
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />
-                  <div
-                    className="absolute top-3 left-3 bg-orange-500 text-white text-[10px] px-3 py-1.5 rounded-full uppercase tracking-wide"
+                    <div
+                    className="absolute top-3 left-3 bg-orange-500 text-white text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wide"
                     style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
                   >
                     {item.category}
@@ -153,13 +153,15 @@ export default function LatestNews() {
                         className="w-full h-full object-cover transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                      <div className="absolute top-3 left-3">
                         <div
-                          className="absolute top-3 left-3 bg-orange-500 text-white text-[10px] sm:text-xs px-3 py-1.5 rounded-full uppercase tracking-wide"
+                          className="bg-orange-500 text-white text-[10px] sm:text-xs px-2.5 py-1 rounded-full uppercase tracking-wide"
                           style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
                         >
                           {item.category}
                         </div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
                         <h5 className="text-white line-clamp-2">
                           {item.title}
                         </h5>
@@ -171,7 +173,7 @@ export default function LatestNews() {
                   <div className="flip-card-back rounded-xl overflow-hidden border border-orange-400 p-5 sm:p-6 flex flex-col justify-between shadow-lg">
                     <div className="text-left">
                       <div
-                        className="inline-block bg-orange-500 text-white text-[10px] sm:text-xs px-3 py-1.5 rounded-full uppercase tracking-wide mb-4"
+                        className="inline-block bg-orange-500 text-white text-[10px] sm:text-xs px-2.5 py-1 rounded-full uppercase tracking-wide mb-4"
                         style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
                       >
                         {item.category}

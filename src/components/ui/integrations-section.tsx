@@ -1,81 +1,96 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import sbi from "@/assets/partners/sbi.png";
+import unnamed1 from "@/assets/project/unnamed.png";
+import unnamed2 from "@/assets/project/unnamed (1).png";
+import unnamed3 from "@/assets/project/unnamed (2).png";
+import unnamed4 from "@/assets/project/unnamed (3).png";
+import unnamed5 from "@/assets/project/unnamed (4).png";
+import unnamed6 from "@/assets/project/unnamed (5).png";
+import unnamed7 from "@/assets/project/unnamed (6).png";
+import ccLogo from "@/assets/logo/cc-logo.png";
+import logoJpeg from "@/assets/logo/Logo.jpeg";
+import hero from "@/assets/hero.png";
+import home from "@/assets/home.png";
+import hospital from "@/assets/hospital.png";
 
-const integrations = [
-  "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=200&q=80", // Google
-  "https://images.unsplash.com/photo-1565033521193-a5db86d33d15?w=200&q=80", // LinkedIn
-  "https://images.unsplash.com/photo-1580522156550-146e88ab74f7?w=200&q=80", // Slack
-  "https://images.unsplash.com/photo-1565033521193-a5db86d33d15?w=200&q=80", // Spotify
-  "https://images.unsplash.com/photo-1516534775068-bb57314e0531?w=200&q=80", // Facebook
-  "https://images.unsplash.com/photo-1580522156550-146e88ab74f7?w=200&q=80", // Stripe
-  "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=200&q=80", // Instagram
-  "https://images.unsplash.com/photo-1555099962-4199f1a408d0?w=200&q=80", // Dropbox
-  "https://images.unsplash.com/photo-1571358971343-b08b2c90a167?w=200&q=80", // Jira
-  "https://images.unsplash.com/photo-1516534775068-bb57314e0531?w=200&q=80", // Tech
-  "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=200&q=80", // Netflix
-  "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=200&q=80", // Square
-  "https://images.unsplash.com/photo-1599023449644-cb7e5ca1e550?w=200&q=80", // Shopify
-  "https://images.unsplash.com/photo-1502159881517-b62e130a1f2e?w=200&q=80", // Zapier
-  "https://images.unsplash.com/photo-1516534775068-bb57314e0531?w=200&q=80", // Google Drive
-  "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=200&q=80", // YouTube
-  "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=200&q=80", // Airtable
-  "https://images.unsplash.com/photo-1565033521193-a5db86d33d15?w=200&q=80", // Discord
+const partners = [
+  sbi,
+  unnamed1,
+  unnamed2,
+  unnamed3,
+  unnamed4,
+  unnamed5,
+  unnamed6,
+  unnamed7,
+  ccLogo,
+  logoJpeg,
+  hero,
+  home,
+  hospital,
+  sbi,
+  unnamed1,
+  unnamed2,
+  unnamed3,
+  unnamed4,
 ];
 
-export default function IntegrationsSection() {
-  return (
-    <section className="max-w-7xl mx-auto my-20 px-6 grid md:grid-cols-2 gap-10 items-center border border-gray-200 dark:border-gray-700 p-6 rounded-3xl">
-      {/* Left Side */}
-      <div>
-        <p className="uppercase text-sm font-semibold text-gray-500 dark:text-gray-400">
-          Components
-        </p>
-        <h2 className="text-7xl font-bold mt-2 mb-4">
-          Supercharge your workflow
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-6">
-          Build sleek, responsive interfaces in record time with our carefully crafted React and Tailwind CSS components.
-        </p>
-        <div className="flex gap-4">
-          <a
-            href="https://ruixen.com/components"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="bg-black text-white px-5 py-2 rounded-lg font-medium hover:bg-gray-800">
-              Browse Components
-            </Button>
-          </a>
-          <a
-            href="https://ruixen.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="outline" className="border border-gray-300 dark:border-gray-600 px-5 py-2 rounded-lg font-medium">
-              View Documentation →
-            </Button>
-          </a>
-        </div>
-      </div>
+export default function BrandCollaborations() {
+  const handleImageError = (e) => {
+    e.target.style.display = "none";
+  };
 
-      {/* Right Side */}
-      <div className="grid grid-cols-6 gap-4">
-        {integrations.map((url, idx) => (
-          <div
-            key={idx}
-            className="relative w-16 h-16 p-2 bg-white dark:bg-gray-800 shadow-sm border-2 border-gray-200 dark:border-gray-700 overflow-hidden"
-            style={{
-              clipPath:
-                "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
-            }}
-          >
-            <img
-              src={url}
-              alt={`integration-${idx}`}
-              className="w-full h-full object-contain p-1.5"
-            />
+  return (
+    <section className="bg-white dark:bg-slate-900 py-16 sm:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Side */}
+          <div className="space-y-6">
+            <div>
+              <p className="uppercase text-xs sm:text-sm font-bold text-orange-600 dark:text-orange-400 tracking-wider mb-3">
+                Our Network
+              </p>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
+                Strategic Brand Collaborations
+              </h2>
+            </div>
+            
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              We partner with leading brands and institutions to create world-class communities. Our collaborations ensure excellence in every aspect of development.
+            </p>
+            
+            <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
+              <a href="/contact">
+                <Button className="bg-orange-600 hover:bg-orange-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-colors">
+                  Get in Touch
+                </Button>
+              </a>
+              <a href="/about">
+                <Button variant="outline" className="border-2 border-orange-400 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-950 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-colors">
+                  Learn More
+                </Button>
+              </a>
+            </div>
           </div>
-        ))}
+
+          {/* Right Side - Partners Grid */}
+          <div className="w-full mt-8 lg:mt-0">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 sm:gap-4">
+              {partners.map((partner, idx) => (
+                <div
+                  key={idx}
+                  className="aspect-square bg-white dark:bg-slate-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 p-3 sm:p-4 flex items-center justify-center overflow-hidden hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  <img
+                    src={partner}
+                    alt={`partner-${idx}`}
+                    onError={handleImageError}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
