@@ -71,6 +71,13 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.book-center > div {
+  pointer-events: auto;
+  z-index: 10;
 }
 
 /* ────────────────────────────────────────────
@@ -82,15 +89,16 @@
   color: #aaa;
   margin: 0;
   letter-spacing: 0.02em;
+  cursor: default;
 }
 
-/* ────────────────────────────────────────────
-   FLIPBOOK PAGES
-──────────────────────────────────────────── */
+/* Ensure flipbook is interactive */
 .page {
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .page-content {
@@ -101,6 +109,17 @@
   justify-content: center;
   padding: 2rem;
   box-sizing: border-box;
+  pointer-events: auto;
+}
+
+/* Enable drag and interactive zones */
+.page,
+.page-content,
+.testimonial-container {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 /* ────────────────────────────────────────────

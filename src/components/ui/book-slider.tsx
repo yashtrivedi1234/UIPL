@@ -87,6 +87,8 @@ function Component({ testimonials = defaultTestimonials }: BookSliderProps) {
           drawShadow={true}
           showCover={true}
           size="fixed"
+          useMouseEvents={true}
+          flipped={false}
         >
           {/* Cover Page */}
           <div className="page">

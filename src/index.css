@@ -137,3 +137,74 @@ p {
 .scale-150 {
 	transform: scale(1.5);
 }
+
+/* Cursor pointer for all clickable elements */
+button {
+	cursor: pointer;
+}
+
+a {
+	cursor: pointer;
+}
+
+[role="button"] {
+	cursor: pointer;
+}
+
+[role="link"] {
+	cursor: pointer;
+}
+
+/* Clickable cards and interactive elements */
+[onclick] {
+	cursor: pointer;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+/* Navigation and menu items */
+nav a,
+nav button {
+	cursor: pointer;
+}
+
+/* Form interactions */
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"],
+select,
+textarea {
+	cursor: pointer;
+}
+
+/* Carousels, sliders, and interactive components */
+[class*="carousel"],
+[class*="slider"],
+[class*="toggle"],
+[class*="dropdown"],
+[class*="modal"],
+[class*="tab"],
+[class*="accordion"] {
+	cursor: pointer;
+}
+
+/* Hover states for better UX */
+button:hover,
+a:hover,
+[role="button"]:hover,
+[onclick]:hover {
+	cursor: pointer;
+}
+
+/* FAQ and expandable elements */
+.faq-item,
+.expandable,
+[class*="expand"],
+[class*="collapse"] {
+	cursor: pointer;
+}
