@@ -16,7 +16,7 @@ import ScrollExpansionPage from "./pages/scroll-expansion/ScrollExpansionPage";
 import ZoomParallaxPage from "./pages/zoom-parallax/ZoomParallaxPage";
 import FeatureCarouselPage from "./pages/feature-carousel/FeatureCarouselPage";
 import IntegrationsDemoPage from "./pages/integrations/IntegrationsDemoPage";
-
+import TeamShowcasePage from "./pages/team-showcase/TeamShowcasePage";
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -48,6 +48,7 @@ export default function App() {
           <Route path="/zoom-parallax-demo" element={<ZoomParallaxPage />} />
           <Route path="/feature-carousel-demo" element={<FeatureCarouselPage />} />
           <Route path="/integrations-demo" element={<IntegrationsDemoPage />} />
+          <Route path="/team-showcase-demo" element={<TeamShowcasePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

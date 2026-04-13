@@ -7,6 +7,7 @@ import AmenitiesSection from './components/AmenitiesSection'
 import InvestmentOpportunities from './components/InvestmentOpportunities'
 import SustainabilityGreen from './components/SustainabilityGreen'
 import AwardsRecognition from './components/AwardsRecognition'
+import TeamShowcaseSection from './components/TeamShowcaseSection'
 import Testimonials from './components/Testimonials'
 import PartnersInvestors from './components/PartnersInvestors'
 import LatestNews from './components/LatestNews'
@@ -26,6 +27,7 @@ export default function HomePage() {
       <InvestmentOpportunities />
       <SustainabilityGreen />
       <AwardsRecognition />
+      <TeamShowcaseSection />
       <Testimonials />
       <PartnersInvestors />
       <LatestNews />
