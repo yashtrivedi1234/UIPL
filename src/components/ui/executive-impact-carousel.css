@@ -1,3 +1,11 @@
+/* ════════════════════════════════════════════════════════
+   CASE STUDIES STYLES
+   Uses fonts/variables already defined in index.css:
+     --font-heading  → "Germania One"
+     --font-body     → "Poppins" / "Segoe UI"
+     Noto Sans       → for body paragraphs (p tag)
+   ════════════════════════════════════════════════════════ */
+
 /* ── Section Heading Styles ── */
 .case-study-section-heading {
   text-align: center;
@@ -7,22 +15,27 @@
 
 .case-study-eyebrow {
   display: block;
-  font-size: 0.9rem;
+  /* clamp from index.css h6 scale as reference for small labels */
+  font-size: clamp(0.8rem, 0.75rem + 0.15vw, 0.9rem);
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #ff6b35;
   margin-bottom: 0.8rem;
-  font-family: 'Montserrat', sans-serif;
+  /* Uses --font-heading var defined in index.css :root */
+  font-family: var(--font-heading);
 }
 
 .case-study-heading-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
+  /* Matches index.css h2 clamp: clamp(1.5rem, 1.2rem + 1.4vw, 2.5rem)
+     Slightly larger range for hero heading — aligns with h1 scale */
+  font-size: clamp(2rem, 1.3rem + 1.8vw, 3rem);
+  font-weight: 400; /* Germania One is already bold by design at 400 */
   color: #1a1a1a;
   margin: 0 0 1rem 0;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: -0.5px;
+  /* --font-heading resolves to "Germania One" from index.css */
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em; /* matches @layer base rule in index.css */
 }
 
 .dark .case-study-heading-title {
@@ -30,22 +43,29 @@
 }
 
 .case-study-heading-subtitle {
-  font-size: 1.05rem;
+  /* Uses Noto Sans — already imported & set on <p> in index.css */
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1.05rem);
+  font-weight: 400;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: 0.005em;
   color: #666;
   margin: 0 auto;
   max-width: 600px;
   line-height: 1.6;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .dark .case-study-heading-subtitle {
   color: #aaa;
 }
 
+/* ── Carousel Container ── */
 .case-study-carousel {
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   color: #1a1a1a;
-  font-family: 'Montserrat', sans-serif;
+  /* --font-body var defined in index.css :root → "Poppins", "Segoe UI" */
+  font-family: var(--font-body);
   margin: 0;
   overflow: hidden;
 }
@@ -55,26 +75,17 @@
   color: #f4f1ea;
 }
 
-/* 
- * KEY FIX: 
- * The outer container uses overflow:hidden so columns can
- * visually extend beyond bounds during parallax without
- * creating scrollbars.
- *
- * Height is set tall enough to accommodate all items + parallax travel.
- * Each column independently translates on scroll via GSAP.
- */
+/* ── Parallax Scroll Grid ── */
 .col-scroll {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  align-items: start;         /* columns start at their own tops */
+  align-items: start;
   gap: 0 2vw;
   width: 100%;
-  /* tall enough: ~5 cards × ~450px + extra for parallax offset */
   min-height: 300vh;
   padding: 0 4vw;
   box-sizing: border-box;
-  overflow: hidden;           /* hide overflow from parallax travel */
+  overflow: hidden;
   position: relative;
 }
 
@@ -90,36 +101,15 @@
   }
 }
 
-/* 
- * KEY FIX:
- * Each column box is a simple flex column.
- * NO height:100vh, NO flex-direction:column-reverse,
- * NO pinning. Just a normal stacking column.
- *
- * The visual "offset" (col1 starts lower, col3 starts lower)
- * is done with padding-top — matching the reference screenshot.
- * The parallax speed difference is handled purely by GSAP y animation.
- */
 .col-scroll__box {
   display: flex;
   flex-direction: column;
-  will-change: transform;     /* GPU compositing hint */
+  will-change: transform;
 }
 
-/* Col 1: starts ~15vh lower than col 2 */
-.col-scroll__box--col1 {
-  padding-top: 15vh;
-}
-
-/* Col 2: starts at top (reference position) */
-.col-scroll__box--col2 {
-  padding-top: 0vh;
-}
-
-/* Col 3: starts ~10vh lower than col 2 */
-.col-scroll__box--col3 {
-  padding-top: 10vh;
-}
+.col-scroll__box--col1 { padding-top: 15vh; }
+.col-scroll__box--col2 { padding-top: 0vh; }
+.col-scroll__box--col3 { padding-top: 10vh; }
 
 @media (max-width: 768px) {
   .col-scroll__box--col1,
@@ -141,7 +131,7 @@
   }
 }
 
-/* Product card */
+/* ── Product Card ── */
 .case-study-card {
   display: flex;
   flex-direction: column;
@@ -198,26 +188,16 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.product-img {
-  z-index: 1;
-  opacity: 1;
-}
-
-.model-img {
-  z-index: 2;
-  opacity: 0;
-}
+.product-img { z-index: 1; opacity: 1; }
+.model-img   { z-index: 2; opacity: 0; }
 
 .case-study-card:hover .product-img,
-.case-study-card:active .product-img {
-  opacity: 0;
-}
+.case-study-card:active .product-img { opacity: 0; }
 
 .case-study-card:hover .model-img,
-.case-study-card:active .model-img {
-  opacity: 1;
-}
+.case-study-card:active .model-img   { opacity: 1; }
 
+/* ── Card Info Overlay ── */
 .case-study-card__info {
   position: absolute;
   bottom: 1.5rem;
@@ -225,7 +205,6 @@
   width: 100%;
   text-align: center;
   z-index: 3;
-  padding: 0 1rem;
   box-sizing: border-box;
   transition: opacity 0.4s ease, transform 0.4s ease;
   background: rgba(255, 255, 255, 0.95);
@@ -244,23 +223,26 @@
   transform: translateY(10px);
 }
 
+/* Card title → Germania One via --font-heading, matches index.css h4 scale */
 .case-study-card__title {
   margin: 0 0 0.3rem;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: clamp(1rem, 1.3vw, 1.4rem);
+  font-family: var(--font-heading);
+  font-weight: 400;        /* Germania One looks best at 400 */
+  font-size: clamp(1.15rem, 1rem + 0.7vw, 1.6rem); /* index.css h4 scale */
+  letter-spacing: 0.02em;  /* matches @layer base in index.css */
   line-height: 1.2;
   color: #1a1a1a;
-  text-shadow: none;
 }
 
 .dark .case-study-card__title {
   color: #f4f1ea;
-  text-shadow: none;
 }
 
+/* Company label → Noto Sans like <p> in index.css */
 .case-study-card__company {
-  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: clamp(0.75rem, 0.7rem + 0.1vw, 0.85rem);
   font-weight: 600;
   color: #666;
   margin-bottom: 0.5rem;
@@ -272,9 +254,14 @@
   color: #999;
 }
 
+/* Impact text → Noto Sans, mirrors <p> definition in index.css */
 .case-study-card__impact {
-  font-size: clamp(0.8rem, 0.95vw, 1rem);
-  font-weight: 500;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
+  font-weight: 400;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: 0.005em;
   color: #1a1a1a;
   margin: 0;
 }
@@ -283,6 +270,7 @@
   color: #f4f1ea;
 }
 
+/* ── CTA Button ── */
 .case-study-card__btn {
   position: absolute;
   bottom: 1.5rem;
@@ -293,7 +281,8 @@
   background: #1a1a1a;
   border: 2px solid #1a1a1a;
   padding: 0.8rem 1.8rem;
-  font-family: 'Montserrat', sans-serif;
+  /* Button label → --font-body from index.css */
+  font-family: var(--font-body);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: clamp(0.65rem, 0.85vw, 0.85rem);

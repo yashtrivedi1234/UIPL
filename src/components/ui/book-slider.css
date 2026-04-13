@@ -1,5 +1,13 @@
+/* ════════════════════════════════════════════════════════
+   FLIPBOOK / TESTIMONIAL STYLES
+   Uses fonts/variables already defined in index.css:
+     --font-heading  → "Germania One"
+     --font-body     → "Poppins" / "Segoe UI"
+     Noto Sans       → for body paragraphs (p tag)
+   ════════════════════════════════════════════════════════ */
+
 /* ────────────────────────────────────────────
-   SECTION WRAPPER — centers everything
+   SECTION WRAPPER
 ──────────────────────────────────────────── */
 .book-section-wrapper {
   width: 100%;
@@ -19,27 +27,37 @@
   max-width: 560px;
 }
 
+/* Eyebrow → --font-heading (Germania One) at small label scale */
 .book-eyebrow {
   display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-weight: 400;           /* Germania One bold by design at 400 */
+  font-size: clamp(0.75rem, 0.7rem + 0.1vw, 0.85rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #c0622a;
   margin-bottom: 10px;
 }
 
+/* Main title → --font-heading, matches index.css h2 clamp */
 .book-main-title {
-  font-size: 2.4rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.5rem); /* index.css h2 */
+  letter-spacing: 0.02em;     /* matches @layer base in index.css */
   color: #1a1a2e;
   margin: 0 0 12px;
   line-height: 1.2;
-  font-family: Georgia, 'Times New Roman', serif;
 }
 
+/* Subtitle → Noto Sans, mirrors <p> in index.css */
 .book-subtitle {
-  font-size: 15px;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
+  font-weight: 400;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: 0.005em;
   color: #666;
   line-height: 1.6;
   margin: 0;
@@ -56,9 +74,10 @@
 }
 
 /* ────────────────────────────────────────────
-   HINT TEXT
+   HINT TEXT → --font-body (Poppins/Segoe UI)
 ──────────────────────────────────────────── */
 .book-hint {
+  font-family: var(--font-body);
   font-size: 13px;
   color: #aaa;
   margin: 0;
@@ -97,21 +116,28 @@
   padding: 1rem;
 }
 
+/* Cover title → --font-heading (Germania One), h1 scale */
 .cover-title {
-  font-size: 1.7rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 1.3rem + 1.8vw, 3rem); /* index.css h1 */
+  letter-spacing: 0.02em;
   color: #ffffff;
-  font-family: Georgia, 'Times New Roman', serif;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   margin: 0 0 10px;
   line-height: 1.25;
 }
 
+/* Cover subtitle → Noto Sans like <p> */
 .cover-subtitle {
-  font-size: 14px;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
+  font-weight: 400;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.75);
   margin: 0;
-  letter-spacing: 0.04em;
 }
 
 /* ────────────────────────────────────────────
@@ -123,11 +149,14 @@
   justify-content: center;
 }
 
+/* Back cover text → --font-heading for editorial serif feel */
 .back-cover-text {
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem); /* index.css h6 scale */
+  letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.85);
   text-align: center;
-  font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
   line-height: 1.6;
   max-width: 260px;
@@ -152,8 +181,14 @@
   flex-shrink: 0;
 }
 
+/* Quote text → Noto Sans italic, mirrors <p> in index.css */
 .testimonial-quote {
-  font-size: 14.5px;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
+  font-weight: 400;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: 0.005em;
   line-height: 1.7;
   color: #333;
   margin: 0;
@@ -185,14 +220,19 @@
   gap: 3px;
 }
 
+/* Author name → --font-heading for character/style */
 .author-name {
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem); /* index.css h6 */
+  letter-spacing: 0.02em;
   color: #1a1a2e;
   margin: 0;
 }
 
+/* Author role → --font-body (Poppins/Segoe UI) for UI label feel */
 .author-role {
+  font-family: var(--font-body);
   font-size: 12px;
   color: #888;
   margin: 0;
