@@ -1,8 +1,8 @@
 import { ArrowRight, Play } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero'
-import homeImage from '@/assets/home.png'
-import hospitalImage from '@/assets/hospital.png'
+import homeImage from '@/assets/home.webp'
+import hospitalImage from '@/assets/hospital.webp'
 
 export default function HeroSection({
   heroHeading = 'Architecting Future-Ready Civilizations',

@@ -9,9 +9,9 @@ import unnamed6 from "@/assets/project/unnamed (5).png";
 import unnamed7 from "@/assets/project/unnamed (6).png";
 import ccLogo from "@/assets/logo/cc-logo.png";
 import logoJpeg from "@/assets/logo/Logo.jpeg";
-import hero from "@/assets/hero.png";
-import home from "@/assets/home.png";
-import hospital from "@/assets/hospital.png";
+import hero from "@/assets/hero.webp";
+import home from "@/assets/home.webp";
+import hospital from "@/assets/hospital.webp";
 
 const partners = [
   sbi,
