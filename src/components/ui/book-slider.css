@@ -1,0 +1,199 @@
+/* ────────────────────────────────────────────
+   SECTION WRAPPER — centers everything
+──────────────────────────────────────────── */
+.book-section-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1.5rem 3rem;
+  box-sizing: border-box;
+  gap: 2rem;
+}
+
+/* ────────────────────────────────────────────
+   SECTION HEADING
+──────────────────────────────────────────── */
+.book-section-heading {
+  text-align: center;
+  max-width: 560px;
+}
+
+.book-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c0622a;
+  margin-bottom: 10px;
+}
+
+.book-main-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.book-subtitle {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ────────────────────────────────────────────
+   BOOK CENTER CONTAINER
+──────────────────────────────────────────── */
+.book-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* ────────────────────────────────────────────
+   HINT TEXT
+──────────────────────────────────────────── */
+.book-hint {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* ────────────────────────────────────────────
+   FLIPBOOK PAGES
+──────────────────────────────────────────── */
+.page {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.page-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* ────────────────────────────────────────────
+   COVER PAGE
+──────────────────────────────────────────── */
+.cover {
+  background: linear-gradient(160deg, #1a2a4a 0%, #b44a24 100%);
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.testimonial-cover {
+  padding: 1rem;
+}
+
+.cover-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', serif;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.cover-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* ────────────────────────────────────────────
+   BACK COVER
+──────────────────────────────────────────── */
+.back-cover {
+  background: linear-gradient(160deg, #b44a24 0%, #1a2a4a 100%);
+  align-items: center;
+  justify-content: center;
+}
+
+.back-cover-text {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 260px;
+  margin: 0;
+}
+
+/* ────────────────────────────────────────────
+   TESTIMONIAL CARD (inner pages)
+──────────────────────────────────────────── */
+.testimonial-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.quote-icon {
+  color: #c0622a;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.testimonial-quote {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #333;
+  margin: 0;
+  font-style: italic;
+  flex: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 16px;
+  margin-top: auto;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f0ece8;
+  flex-shrink: 0;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.author-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.author-role {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}

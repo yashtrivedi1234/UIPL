@@ -14,6 +14,8 @@ import LatestNews from './components/LatestNews'
 import LocationSection from './components/LocationSection'
 import FAQSection from './components/FAQSection'
 import CTABanner from './components/CTABanner'
+import ExecutiveImpactCarouselDemo from '@/components/ui/executive-impact-carousel-demo'
+import BookSliderDemo from '@/components/ui/book-slider-demo'
 
 export default function HomePage() {
   return (
@@ -23,12 +25,15 @@ export default function HomePage() {
       <SectorHighlights />
       <EcosystemFlow />
       <ProjectShowcase />
+      <ExecutiveImpactCarouselDemo />
+     
       <AmenitiesSection />
       <AwardsRecognition />
       <SustainabilityGreen />
       <InvestmentOpportunities />
       <TeamShowcaseSection />
-      <Testimonials />
+       <BookSliderDemo />
+      {/* <Testimonials /> */}
       <PartnersInvestors />
       <LatestNews />
       {/* <LocationSection /> */}
