@@ -63,7 +63,7 @@ export default function AwardsRecognition() {
   ]
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-white">
+    <section className="py-8 sm:py-16 lg:py-20 bg-white">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
@@ -85,14 +85,14 @@ export default function AwardsRecognition() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-6 sm:mb-8">
           <span
-            className="text-[10px] sm:text-xs uppercase text-orange-500 tracking-widest block mb-3 sm:mb-4"
+            className="text-[10px] sm:text-xs uppercase text-orange-500 tracking-widest block"
             style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
           >
             Recognition & Achievements
           </span>
-          <h2 className="text-[#00263f] mb-4 sm:mb-6">
+          <h2 className="text-[#00263f] ">
             Awards & Recognition
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto">

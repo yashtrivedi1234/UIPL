@@ -75,11 +75,11 @@ export default function TeamShowcaseSection() {
       `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 team-showcase-section">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 sm:mb-20">
-          <p className="uppercase text-xs sm:text-sm font-bold text-orange-500 dark:text-orange-400 tracking-wider mb-3 sm:mb-4">
+        <div className="max-w-2xl mx-auto text-center ">
+          <p className="uppercase text-xs sm:text-sm font-bold text-orange-500 dark:text-orange-400 tracking-wider">
             Meet Our Team
           </p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Visionary Leaders & Experts
           </h2>
           <p className="text-lg sm:text-xl text-slate-300">

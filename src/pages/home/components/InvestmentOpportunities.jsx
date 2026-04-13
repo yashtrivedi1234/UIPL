@@ -66,14 +66,14 @@ export default function InvestmentOpportunities() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-10">
+        <div className="text-center mb-4 sm:mb-5">
           <span
-            className="text-[10px] sm:text-xs uppercase text-orange-500 tracking-widest block mb-3 sm:mb-4"
+            className="text-[10px] sm:text-xs uppercase text-orange-500 tracking-widest block"
             style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
           >
             Smart Investing
           </span>
-          <h2 className="text-[#00263f] mb-4 sm:mb-6">
+          <h2 className="text-[#00263f]">
             Investment Opportunities
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto">

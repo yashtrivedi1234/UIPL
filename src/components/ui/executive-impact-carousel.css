@@ -21,7 +21,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #ff6b35;
-  margin-bottom: 0.8rem;
+  
   /* Uses --font-heading var defined in index.css :root */
   font-family: var(--font-heading);
 }
