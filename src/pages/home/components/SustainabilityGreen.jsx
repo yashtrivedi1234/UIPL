@@ -1,83 +1,133 @@
-import { Leaf, Droplet, Sun, Zap, Trees, Wind } from 'lucide-react'
 
-export default function SustainabilityGreen() {
-  const initiatives = [
-    {
-      icon: Leaf,
-      title: 'Green Building Design',
-      description: 'LEED-certified construction with sustainable materials, energy-efficient systems, and eco-friendly practices.'
-    },
-    {
-      icon: Droplet,
-      title: 'Water Conservation',
-      description: 'Advanced rainwater harvesting, wastewater recycling, and smart irrigation systems to reduce water consumption by 40%.'
-    },
-    {
-      icon: Sun,
-      title: 'Renewable Energy',
-      description: 'Solar panel installations, solar water heaters, and renewable energy integration across all projects.'
-    },
-    {
-      icon: Zap,
-      title: 'Energy Efficiency',
-      description: 'LED lighting, smart building automation, and efficient HVAC systems reducing energy consumption significantly.'
-    },
-    {
-      icon: Trees,
-      title: 'Urban Forestry',
-      description: '50,000+ trees planted across UIPL communities creating green spaces and improving air quality.'
-    },
-    {
-      icon: Wind,
-      title: 'Air Quality Management',
-      description: 'Air purification systems, pollution monitoring, and green buffer zones for healthier living environments.'
-    }
-  ]
+import { FeatureCarousel } from "../../../components/ui/feature-carousel";
+import {
+  TreePine,
+  Shield,
+  Waves,
+  Dumbbell,
+  Globe,
+  Award,
+  Building2,
+  Users,
+  Droplets,
+  Sun,
+  Zap,
+  Wind,
+} from "lucide-react";
+import greenBuildingImg from "../../../assets/green-initiatives/ChatGPT Image Apr 13, 2026, 11_33_44 AM.png";
+import waterConservationImg from "../../../assets/green-initiatives/ChatGPT Image Apr 13, 2026, 11_35_05 AM.png";
+import renewableEnergyImg from "../../../assets/green-initiatives/Gemini_Generated_Image_d5e2cpd5e2cpd5e2.png";
+import energyEfficiencyImg from "../../../assets/green-initiatives/Gemini_Generated_Image_hh90cdhh90cdhh90.png";
+import urbanForestryImg from "../../../assets/green-initiatives/Gemini_Generated_Image_o58c26o58c26o58c.png";
+import airQualityImg from "../../../assets/green-initiatives/Gemini_Generated_Image_w619mw619mw619mw.png";
+
+// UIPL-themed features showcase
+const uiplFeatures = [
+  {
+    id: "green-building",
+    label: "Green Building",
+    icon: Building2,
+    image: greenBuildingImg,
+    description:
+      "LEED-certified construction with sustainable materials, energy-efficient systems, and eco-friendly practices.",
+  },
+  {
+    id: "water-conservation",
+    label: "Water Conservation",
+    icon: Droplets,
+    image: waterConservationImg,
+    description:
+      "Advanced rainwater harvesting, wastewater recycling, and smart irrigation systems to reduce water consumption by 40%.",
+  },
+  {
+    id: "renewable-energy",
+    label: "Renewable Energy",
+    icon: Sun,
+    image: renewableEnergyImg,
+    description:
+      "Solar panel installations, solar water heaters, and renewable energy integration across all projects.",
+  },
+  {
+    id: "energy-efficiency",
+    label: "Energy Efficiency",
+    icon: Zap,
+    image: energyEfficiencyImg,
+    description:
+      "LED lighting, smart building automation, and efficient HVAC systems reducing energy consumption significantly.",
+  },
+  {
+    id: "urban-forestry",
+    label: "Urban Forestry",
+    icon: TreePine,
+    image: urbanForestryImg,
+    description:
+      "50,000+ trees planted across UIPL communities creating green spaces and improving air quality.",
+  },
+  {
+    id: "air-quality",
+    label: "Air Quality",
+    icon: Wind,
+    image: airQualityImg,
+    description:
+      "Air purification systems, pollution monitoring, and green buffer zones for healthier living environments.",
+  },
+];
+
+export default function FeatureCarouselDemo() {
+  const handleFeatureChange = (featureId) => {
+    console.log("Current feature:", featureId);
+  };
 
   return (
-    <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-br from-green-50 via-blue-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
+    <div className="w-full min-h-screen bg-white py-8 md:py-16">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-12 px-4">
           <span
-            className="text-[10px] sm:text-xs uppercase text-green-600 tracking-widest block mb-3 sm:mb-4"
+            className="text-xs uppercase text-[#8d4f00] tracking-widest block mb-3"
             style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
           >
-            Environmental Commitment
+           Environmental Commitment
           </span>
-          <h2 className="text-[#00263f] mb-4 sm:mb-6">
+          <h2 className="text-4xl md:text-5xl text-[#00263f] font-bold mb-4">
             Sustainability & Green Initiatives
           </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">
-            Building sustainable communities that thrive today and protect our planet for tomorrow.
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+           Building sustainable communities that thrive today and protect our planet for tomorrow.
           </p>
         </div>
 
-        {/* Initiatives Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {initiatives.map((init, index) => {
-            const IconComponent = init.icon
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 sm:p-7 lg:p-8 border border-slate-200 hover:border-green-400 hover:shadow-lg transition-all group"
-              >
-                <div className="bg-green-100 w-14 sm:w-16 h-14 sm:h-16 rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-green-200 transition-colors">
-                  <IconComponent size={28} className="text-green-700 sm:w-[32px] sm:h-[32px]" />
-                </div>
-                <h5 className="text-[#00263f] mb-2 sm:mb-3">
-                  {init.title}
-                </h5>
-                <p className="text-slate-600 leading-relaxed">
-                  {init.description}
-                </p>
-              </div>
-            )
-          })}
-        </div>
+        {/* Feature Carousel - Website Theme */}
+        <FeatureCarousel
+          features={uiplFeatures}
+          primaryColor="#00263f"
+          autoPlayInterval={4000}
+          statusText="Ecosystem Live"
+          onFeatureChange={handleFeatureChange}
+        />
 
+        {/* Features Info Section */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+          <div className="p-6 rounded-2xl bg-[#eff4ff] border border-slate-100">
+            <h3 className="text-[#00263f] font-bold mb-2">Interactive Design</h3>
+            <p className="text-slate-500 text-sm">
+              Click on any feature chip to explore. Hover to pause auto-rotation.
+            </p>
+          </div>
+          <div className="p-6 rounded-2xl bg-[#eff4ff] border border-slate-100">
+            <h3 className="text-[#00263f] font-bold mb-2">Customizable</h3>
+            <p className="text-slate-500 text-sm">
+              Easily adapt colors, timing, and data to match your brand.
+            </p>
+          </div>
+          <div className="p-6 rounded-2xl bg-[#eff4ff] border border-slate-100">
+            <h3 className="text-[#00263f] font-bold mb-2">Responsive</h3>
+            <p className="text-slate-500 text-sm">
+              Seamlessly adapts across mobile, tablet, and desktop devices.
+            </p>
+          </div>
+        </div>
       </div>
-    </section>
-  )
+    </div>
+  );
 }
