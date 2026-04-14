@@ -56,7 +56,7 @@ const specs = [
 
 export default function PrecisionEngineering() {
   return (
-    <section className="py-24 bg-[#00263f] text-white relative overflow-hidden">
+    <section className="py-8 bg-[#00263f] text-white relative overflow-hidden">
       {/* Background glow */}
       <div
         className="absolute top-0 right-0 w-1/3 h-full opacity-10 blur-[120px] pointer-events-none bg-[linear-gradient(120deg,_#0B3C5D_0%,_#1E6FB8_40%,_#2E7D32_75%,_#F7931E_100%)]"

@@ -4,7 +4,7 @@ export default function AmenitiesCTA() {
   const navigate = useNavigate()
 
   return (
-    <section className="py-28 relative px-6">
+    <section className="py-8 relative px-6">
       <div className="max-w-5xl mx-auto">
         <div className="relative overflow-hidden rounded-[2rem] p-12 md:p-20 text-center">
           {/* Gradient background */}

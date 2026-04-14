@@ -8,7 +8,7 @@ const securityPoints = [
 
 export default function CuratedExperiences() {
   return (
-    <section className="py-24 bg-[#f8f9ff]" id="amenities">
+    <section className="py-8 bg-[#f8f9ff]" id="amenities">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}

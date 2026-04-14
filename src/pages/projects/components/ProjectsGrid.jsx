@@ -71,11 +71,11 @@ export default function ProjectsGrid() {
   const canLoadMore = visibleCount < filtered.length
 
   return (
-    <section className="py-24 px-6 bg-[#f8f9ff]">
+    <section className="py-8 px-6 bg-[#f8f9ff]">
       <div className="max-w-7xl mx-auto">
 
         {/* Header + Filters */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-8">
           <div>
             <h2 className="text-3xl font-black text-[#00263f] mb-2">Milestones of Excellence</h2>
             <p className="text-slate-500 text-sm">Filter our portfolio by sector to see how we impact the city.</p>
