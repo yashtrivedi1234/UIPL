@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './executive-impact-carousel.css'
@@ -168,15 +168,27 @@ const CASE_STUDIES: CaseStudy[] = [
     category: "Retail",
   },
 ];
+
 const COL_1_CASE_STUDIES = CASE_STUDIES.slice(0, 5);
 const COL_2_CASE_STUDIES = CASE_STUDIES.slice(5, 10);
 const COL_3_CASE_STUDIES = CASE_STUDIES.slice(10, 15);
+
+// Mobile: show a flat 2-column grid (no parallax), 6 cards
+const MOBILE_CASE_STUDIES = CASE_STUDIES.slice(0, 6);
 
 export default function ExecutiveImpactCarousel() {
   const col1Ref = useRef<HTMLDivElement>(null);
   const col2Ref = useRef<HTMLDivElement>(null);
   const col3Ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useLayoutEffect(() => {
     const mm = gsap.matchMedia();
@@ -204,7 +216,6 @@ export default function ExecutiveImpactCarousel() {
           }
         }
       });
-
       return () => ctx.revert();
     });
 
@@ -212,20 +223,25 @@ export default function ExecutiveImpactCarousel() {
   }, []);
 
   return (
-    <>
-      <main className="case-study-carousel">
-        {/* ── Section Heading ── */}
-        <div className="case-study-section-heading">
-          <span className="case-study-eyebrow">Success Stories</span>
-          <h2 className="case-study-heading-title">Case Studies</h2>
-          <p className="case-study-heading-subtitle">
-            Real impacts from innovative projects and transformative initiatives
-          </p>
+    <main className="case-study-carousel">
+      <div className="case-study-section-heading">
+        <span className="case-study-eyebrow">Success Stories</span>
+        <h2 className="case-study-heading-title">Case Studies</h2>
+        <p className="case-study-heading-subtitle">
+          Real impacts from innovative projects and transformative initiatives
+        </p>
+      </div>
+
+      {isMobile ? (
+        /* ── Mobile: flat 2-col grid, tap to reveal info ── */
+        <div className="col-scroll col-scroll--mobile">
+          {MOBILE_CASE_STUDIES.map((study) => (
+            <MobileCaseStudyCard key={study.id} caseStudy={study} />
+          ))}
         </div>
-
+      ) : (
+        /* ── Desktop: parallax 3-col grid ── */
         <div ref={containerRef} className="col-scroll">
-
-          {/* Column 1 — starts lower, moves fastest */}
           <div className="col-scroll__box col-scroll__box--col1" ref={col1Ref}>
             <div className="col-scroll__list">
               {COL_1_CASE_STUDIES.map((study) => (
@@ -234,7 +250,6 @@ export default function ExecutiveImpactCarousel() {
             </div>
           </div>
 
-          {/* Column 2 — center, baseline speed */}
           <div className="col-scroll__box col-scroll__box--col2" ref={col2Ref}>
             <div className="col-scroll__list">
               {COL_2_CASE_STUDIES.map((study) => (
@@ -243,7 +258,6 @@ export default function ExecutiveImpactCarousel() {
             </div>
           </div>
 
-          {/* Column 3 — starts slightly lower, medium speed */}
           <div className="col-scroll__box col-scroll__box--col3" ref={col3Ref}>
             <div className="col-scroll__list">
               {COL_3_CASE_STUDIES.map((study) => (
@@ -251,13 +265,13 @@ export default function ExecutiveImpactCarousel() {
               ))}
             </div>
           </div>
-
         </div>
-      </main>
-    </>
+      )}
+    </main>
   );
 }
 
+/* ── Desktop card (hover-based) ── */
 function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
   return (
     <figure className="case-study-card">
@@ -272,6 +286,42 @@ function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
         </div>
 
         <button className="case-study-card__btn">Learn More +</button>
+      </div>
+    </figure>
+  );
+}
+
+/* ── Mobile card (tap-toggle-based) ── */
+function MobileCaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <figure
+      className={`case-study-card case-study-card--mobile${flipped ? " is-tapped" : ""}`}
+      onClick={() => setFlipped((f) => !f)}
+    >
+      <div className="col-scroll__img-wrapper">
+        <img className="product-img" src={caseStudy.beforeImg} alt={caseStudy.title} />
+        <img className="model-img" src={caseStudy.afterImg} alt={`${caseStudy.title} - After`} />
+
+        {/* Always-visible label strip at bottom (collapses on tap) */}
+        <div className="case-study-card__info">
+          <h3 className="case-study-card__title">{caseStudy.title}</h3>
+          <p className="case-study-card__company">{caseStudy.company}</p>
+          <p className="case-study-card__impact">{caseStudy.impact}</p>
+        </div>
+
+        {/* Tap hint shown when not flipped */}
+        {!flipped && (
+          <span className="case-study-card__tap-hint">Tap to explore</span>
+        )}
+
+        <button
+          className="case-study-card__btn"
+          onClick={(e) => e.stopPropagation()}
+        >
+          Learn More +
+        </button>
       </div>
     </figure>
   );

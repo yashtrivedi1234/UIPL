@@ -1,70 +1,53 @@
 /* ════════════════════════════════════════════════════════
    CASE STUDIES STYLES
-   Uses fonts/variables already defined in index.css:
-     --font-heading  → "Germania One"
-     --font-body     → "Poppins" / "Segoe UI"
-     Noto Sans       → for body paragraphs (p tag)
    ════════════════════════════════════════════════════════ */
 
-/* ── Section Heading Styles ── */
+/* ── Section Heading ── */
 .case-study-section-heading {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 3rem 1.25rem 2rem;
   margin-bottom: 2rem;
 }
 
 .case-study-eyebrow {
   display: block;
-  /* clamp from index.css h6 scale as reference for small labels */
   font-size: clamp(0.8rem, 0.75rem + 0.15vw, 0.9rem);
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #ff6b35;
-  
-  /* Uses --font-heading var defined in index.css :root */
   font-family: var(--font-heading);
 }
 
 .case-study-heading-title {
-  /* Matches index.css h2 clamp: clamp(1.5rem, 1.2rem + 1.4vw, 2.5rem)
-     Slightly larger range for hero heading — aligns with h1 scale */
   font-size: clamp(2rem, 1.3rem + 1.8vw, 3rem);
-  font-weight: 400; /* Germania One is already bold by design at 400 */
+  font-weight: 400;
   color: #1a1a1a;
-  margin: 0 0 1rem 0;
-  /* --font-heading resolves to "Germania One" from index.css */
+  margin: 0.5rem 0 1rem;
   font-family: var(--font-heading);
-  letter-spacing: 0.02em; /* matches @layer base rule in index.css */
+  letter-spacing: 0.02em;
 }
 
-.dark .case-study-heading-title {
-  color: #f4f1ea;
-}
+.dark .case-study-heading-title { color: #f4f1ea; }
 
 .case-study-heading-subtitle {
-  /* Uses Noto Sans — already imported & set on <p> in index.css */
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
   font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1.05rem);
   font-weight: 400;
-  font-variation-settings: "wdth" 100;
-  letter-spacing: 0.005em;
   color: #666;
   margin: 0 auto;
   max-width: 600px;
   line-height: 1.6;
+  padding: 0 0.5rem;
 }
 
-.dark .case-study-heading-subtitle {
-  color: #aaa;
-}
+.dark .case-study-heading-subtitle { color: #aaa; }
 
-/* ── Carousel Container ── */
+/* ── Carousel wrapper ── */
 .case-study-carousel {
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   color: #1a1a1a;
-  /* --font-body var defined in index.css :root → "Poppins", "Segoe UI" */
   font-family: var(--font-body);
   margin: 0;
   overflow: hidden;
@@ -75,7 +58,9 @@
   color: #f4f1ea;
 }
 
-/* ── Parallax Scroll Grid ── */
+/* ════════════════════════════════
+   DESKTOP — parallax 3-col grid
+   ════════════════════════════════ */
 .col-scroll {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -89,18 +74,6 @@
   position: relative;
 }
 
-@media (max-width: 768px) {
-  .col-scroll {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 0 5vw;
-    gap: 5vh;
-    min-height: unset;
-    overflow: visible;
-  }
-}
-
 .col-scroll__box {
   display: flex;
   flex-direction: column;
@@ -111,27 +84,34 @@
 .col-scroll__box--col2 { padding-top: 0vh; }
 .col-scroll__box--col3 { padding-top: 10vh; }
 
-@media (max-width: 768px) {
-  .col-scroll__box--col1,
-  .col-scroll__box--col2,
-  .col-scroll__box--col3 {
-    padding-top: 0;
-  }
-}
-
 .col-scroll__list {
   display: flex;
   flex-direction: column;
   gap: 3vw;
 }
 
-@media (max-width: 768px) {
-  .col-scroll__list {
-    gap: 5vh;
+/* ════════════════════════════════
+   MOBILE — flat 2-col grid
+   ════════════════════════════════ */
+.col-scroll--mobile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3vw;
+  padding: 0 4vw 6vw;
+  min-height: unset;
+  overflow: visible;
+}
+
+/* Single-column on very small phones */
+@media (max-width: 380px) {
+  .col-scroll--mobile {
+    grid-template-columns: 1fr;
+    gap: 5vw;
+    padding: 0 5vw 8vw;
   }
 }
 
-/* ── Product Card ── */
+/* ── Product Card (shared) ── */
 .case-study-card {
   display: flex;
   flex-direction: column;
@@ -157,7 +137,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.4s ease;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Mobile card: slightly less padding so images fill better */
+.case-study-card--mobile .col-scroll__img-wrapper {
+  padding: 0.5rem;
+  border-radius: 10px;
 }
 
 .case-study-card:hover .col-scroll__img-wrapper {
@@ -176,31 +162,43 @@
   border-color: rgba(255, 255, 255, 0.12);
 }
 
+/* Images */
 .col-scroll__img-wrapper img {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  width: calc(100% - 1.5rem);
+  height: calc(100% - 1.5rem);
   object-fit: cover;
   transition: opacity 0.5s ease-in-out;
+}
+
+.case-study-card--mobile .col-scroll__img-wrapper img {
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: calc(100% - 1rem);
+  height: calc(100% - 1rem);
 }
 
 .product-img { z-index: 1; opacity: 1; }
 .model-img   { z-index: 2; opacity: 0; }
 
-.case-study-card:hover .product-img,
-.case-study-card:active .product-img { opacity: 0; }
+/* Desktop hover */
+.case-study-card:not(.case-study-card--mobile):hover .product-img { opacity: 0; }
+.case-study-card:not(.case-study-card--mobile):hover .model-img   { opacity: 1; }
 
-.case-study-card:hover .model-img,
-.case-study-card:active .model-img   { opacity: 1; }
+/* Mobile tap-toggle */
+.case-study-card--mobile.is-tapped .product-img { opacity: 0; }
+.case-study-card--mobile.is-tapped .model-img   { opacity: 1; }
 
 /* ── Card Info Overlay ── */
 .case-study-card__info {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 1rem;
   left: 0;
   width: 100%;
   text-align: center;
@@ -210,82 +208,97 @@
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0.75rem 0.5rem;
 }
 
 .dark .case-study-card__info {
   background: rgba(20, 20, 20, 0.95);
 }
 
-.case-study-card:hover .case-study-card__info,
-.case-study-card:active .case-study-card__info {
+/* Desktop: hide info on hover */
+.case-study-card:not(.case-study-card--mobile):hover .case-study-card__info,
+.case-study-card:not(.case-study-card--mobile):active .case-study-card__info {
   opacity: 0;
   transform: translateY(10px);
 }
 
-/* Card title → Germania One via --font-heading, matches index.css h4 scale */
+/* Mobile: hide info on tap */
+.case-study-card--mobile.is-tapped .case-study-card__info {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Card title */
 .case-study-card__title {
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.25rem;
   font-family: var(--font-heading);
-  font-weight: 400;        /* Germania One looks best at 400 */
-  font-size: clamp(1.15rem, 1rem + 0.7vw, 1.6rem); /* index.css h4 scale */
-  letter-spacing: 0.02em;  /* matches @layer base in index.css */
+  font-weight: 400;
+  font-size: clamp(0.85rem, 0.75rem + 0.6vw, 1.6rem);
+  letter-spacing: 0.02em;
   line-height: 1.2;
   color: #1a1a1a;
 }
 
-.dark .case-study-card__title {
-  color: #f4f1ea;
-}
+.dark .case-study-card__title { color: #f4f1ea; }
 
-/* Company label → Noto Sans like <p> in index.css */
+/* Company label */
 .case-study-card__company {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
-  font-size: clamp(0.75rem, 0.7rem + 0.1vw, 0.85rem);
+  font-size: clamp(0.65rem, 0.6rem + 0.2vw, 0.85rem);
   font-weight: 600;
   color: #666;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.dark .case-study-card__company {
-  color: #999;
-}
+.dark .case-study-card__company { color: #999; }
 
-/* Impact text → Noto Sans, mirrors <p> definition in index.css */
+/* Impact text */
 .case-study-card__impact {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
-  font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
+  font-size: clamp(0.75rem, 0.7rem + 0.2vw, 1rem);
   font-weight: 400;
-  font-variation-settings: "wdth" 100;
-  letter-spacing: 0.005em;
   color: #1a1a1a;
   margin: 0;
+  line-height: 1.4;
 }
 
-.dark .case-study-card__impact {
-  color: #f4f1ea;
+.dark .case-study-card__impact { color: #f4f1ea; }
+
+/* ── Tap hint (mobile only) ── */
+.case-study-card__tap-hint {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  pointer-events: none;
 }
 
 /* ── CTA Button ── */
 .case-study-card__btn {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
   z-index: 4;
   opacity: 0;
   background: #1a1a1a;
   border: 2px solid #1a1a1a;
-  padding: 0.8rem 1.8rem;
-  /* Button label → --font-body from index.css */
+  padding: 0.65rem 1.4rem;
   font-family: var(--font-body);
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: clamp(0.65rem, 0.85vw, 0.85rem);
+  font-size: clamp(0.6rem, 0.55rem + 0.3vw, 0.85rem);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.4s ease;
@@ -300,8 +313,15 @@
   color: #f4f1ea;
 }
 
-.case-study-card:hover .case-study-card__btn,
-.case-study-card:active .case-study-card__btn {
+/* Desktop hover reveals button */
+.case-study-card:not(.case-study-card--mobile):hover .case-study-card__btn,
+.case-study-card:not(.case-study-card--mobile):active .case-study-card__btn {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Mobile tap reveals button */
+.case-study-card--mobile.is-tapped .case-study-card__btn {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }

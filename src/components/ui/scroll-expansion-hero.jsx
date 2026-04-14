@@ -1,4 +1,4 @@
-import { Children, useEffect, useState } from 'react'
+import { Children, useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 function ScrollExpandMedia({
@@ -18,6 +18,8 @@ function ScrollExpandMedia({
   const [mediaFullyExpanded, setMediaFullyExpanded] = useState(false)
   const [touchStartY, setTouchStartY] = useState(0)
   const [isMobileState, setIsMobileState] = useState(false)
+  const [isTabletState, setIsTabletState] = useState(false)
+  const touchAccumRef = useRef(0)
 
   useEffect(() => {
     setScrollProgress(0)
@@ -47,6 +49,7 @@ function ScrollExpandMedia({
 
     const handleTouchStart = (e) => {
       setTouchStartY(e.touches[0].clientY)
+      touchAccumRef.current = 0
     }
 
     const handleTouchMove = (e) => {
@@ -55,12 +58,19 @@ function ScrollExpandMedia({
       const touchY = e.touches[0].clientY
       const deltaY = touchStartY - touchY
 
+      touchAccumRef.current += deltaY
+
       if (mediaFullyExpanded && deltaY < -20 && window.scrollY <= 5) {
         setMediaFullyExpanded(false)
         e.preventDefault()
       } else if (!mediaFullyExpanded) {
         e.preventDefault()
-        const scrollFactor = deltaY < 0 ? 0.008 : 0.005
+
+        // Tuned sensitivity for mobile: slower expansion on small screens
+        const scrollFactor = isMobileState
+          ? deltaY < 0 ? 0.004 : 0.003
+          : deltaY < 0 ? 0.008 : 0.005
+
         const scrollDelta = deltaY * scrollFactor
         const newProgress = Math.min(Math.max(scrollProgress + scrollDelta, 0), 1)
         setScrollProgress(newProgress)
@@ -78,6 +88,7 @@ function ScrollExpandMedia({
 
     const handleTouchEnd = () => {
       setTouchStartY(0)
+      touchAccumRef.current = 0
     }
 
     const handleScroll = () => {
@@ -99,24 +110,37 @@ function ScrollExpandMedia({
       window.removeEventListener('touchmove', handleTouchMove)
       window.removeEventListener('touchend', handleTouchEnd)
     }
-  }, [scrollProgress, mediaFullyExpanded, touchStartY])
+  }, [scrollProgress, mediaFullyExpanded, touchStartY, isMobileState])
 
   useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobileState(window.innerWidth < 768)
+    const checkViewport = () => {
+      const w = window.innerWidth
+      setIsMobileState(w < 640)
+      setIsTabletState(w >= 640 && w < 1024)
     }
 
-    checkIfMobile()
-    window.addEventListener('resize', checkIfMobile)
-
-    return () => window.removeEventListener('resize', checkIfMobile)
+    checkViewport()
+    window.addEventListener('resize', checkViewport)
+    return () => window.removeEventListener('resize', checkViewport)
   }, [])
 
-  const mediaWidth = 300 + scrollProgress * (isMobileState ? 650 : 1250)
-  const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400)
-  const textTranslateX = scrollProgress * (isMobileState ? 180 : 150)
+  // --- Responsive sizing ---
+  // Base sizes shrink on mobile so the card starts visibly smaller
+  const baseWidth  = isMobileState ? 220 : isTabletState ? 260 : 300
+  const baseHeight = isMobileState ? 280 : isTabletState ? 340 : 400
 
-  const firstWord = title ? title.split(' ')[0] : ''
+  // Max expansion: on mobile expand to nearly full viewport width
+  const expandWidth  = isMobileState ? 380 : isTabletState ? 800 : 1250
+  const expandHeight = isMobileState ? 300 : isTabletState ? 280 : 400
+
+  const mediaWidth  = baseWidth  + scrollProgress * expandWidth
+  const mediaHeight = baseHeight + scrollProgress * expandHeight
+
+  // Text slide distance: much shorter on mobile to avoid clipping off screen
+  const maxTranslate = isMobileState ? 60 : isTabletState ? 100 : 150
+  const textTranslateX = scrollProgress * maxTranslate
+
+  const firstWord   = title ? title.split(' ')[0] : ''
   const restOfTitle = title ? title.split(' ').slice(1).join(' ') : ''
   const hasChildren = Children.toArray(children).some(
     (child) => typeof child !== 'string' || child.trim().length > 0
@@ -130,6 +154,8 @@ function ScrollExpandMedia({
     <div className="transition-colors duration-700 ease-in-out overflow-x-hidden">
       <section className="relative flex flex-col items-center justify-start min-h-[100dvh]">
         <div className="relative w-full flex flex-col items-center min-h-[100dvh]">
+
+          {/* Background image */}
           <motion.div
             className="absolute inset-0 z-0 h-full"
             initial={{ opacity: 0 }}
@@ -145,15 +171,18 @@ function ScrollExpandMedia({
             <div className="absolute inset-0 bg-black/10" />
           </motion.div>
 
-          <div className="container mx-auto flex flex-col items-center justify-start relative z-10">
+          <div className="container mx-auto flex flex-col items-center justify-start relative z-10 px-4 sm:px-6">
             <div className="flex flex-col items-center justify-center w-full h-[100dvh] relative">
+
+              {/* Expanding media card */}
               <div
                 className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-none rounded-2xl"
                 style={{
                   width: `${mediaWidth}px`,
                   height: `${mediaHeight}px`,
-                  maxWidth: '95vw',
-                  maxHeight: '85vh',
+                  // Clamp tightly on mobile — never overflow viewport width
+                  maxWidth: isMobileState ? '92vw' : '95vw',
+                  maxHeight: isMobileState ? '75vh' : '85vh',
                   boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.3)',
                 }}
               >
@@ -171,7 +200,6 @@ function ScrollExpandMedia({
                         title={title || 'Embedded media'}
                       />
                       <div className="absolute inset-0 z-10 pointer-events-none" />
-
                       <motion.div
                         className="absolute inset-0 bg-black/30 rounded-xl"
                         initial={{ opacity: 0.7 }}
@@ -195,7 +223,6 @@ function ScrollExpandMedia({
                         disableRemotePlayback
                       />
                       <div className="absolute inset-0 z-10 pointer-events-none" />
-
                       <motion.div
                         className="absolute inset-0 bg-black/30 rounded-xl"
                         initial={{ opacity: 0.7 }}
@@ -212,7 +239,6 @@ function ScrollExpandMedia({
                       className="w-full h-full object-cover rounded-xl"
                       loading="lazy"
                     />
-
                     <motion.div
                       className="absolute inset-0 bg-black/50 rounded-xl"
                       initial={{ opacity: 0.7 }}
@@ -222,10 +248,11 @@ function ScrollExpandMedia({
                   </div>
                 )}
 
-                <div className="flex flex-col items-center text-center relative z-10 mt-4 transition-none">
+                {/* Date + hint labels */}
+                <div className="flex flex-col items-center text-center relative z-10 mt-3 sm:mt-4 transition-none">
                   {date && (
                     <p
-                      className="text-2xl text-white"
+                      className="text-base sm:text-xl md:text-2xl text-white"
                       style={{ transform: `translateX(-${textTranslateX}vw)` }}
                     >
                       {date}
@@ -233,7 +260,7 @@ function ScrollExpandMedia({
                   )}
                   {scrollToExpand && (
                     <p
-                      className="text-white font-medium text-center"
+                      className="text-xs sm:text-sm text-white font-medium text-center"
                       style={{ transform: `translateX(${textTranslateX}vw)` }}
                     >
                       {scrollToExpand}
@@ -242,26 +269,27 @@ function ScrollExpandMedia({
                 </div>
               </div>
 
+              {/* Title + paragraph overlay */}
               <div
-                className={`flex items-center justify-center text-center gap-4 w-full relative z-10 transition-none flex-col ${
+                className={`flex items-center justify-center text-center gap-2 sm:gap-4 w-full relative z-10 transition-none flex-col ${
                   textBlend ? 'mix-blend-difference' : 'mix-blend-normal'
                 }`}
               >
                 <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white transition-none"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white transition-none leading-tight"
                   style={{ transform: `translateX(-${textTranslateX}vw)` }}
                 >
                   {firstWord}
                 </motion.h2>
                 <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white transition-none"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white transition-none leading-tight"
                   style={{ transform: `translateX(${textTranslateX}vw)` }}
                 >
                   {restOfTitle}
                 </motion.h2>
                 {paragraph && (
                   <motion.p
-                    className="max-w-2xl px-4 text-sm md:text-base lg:text-lg text-white"
+                    className="max-w-xs sm:max-w-md md:max-w-2xl px-4 text-xs sm:text-sm md:text-base lg:text-lg text-white"
                     style={{ transform: `translateY(${textTranslateX * 0.08}vw)` }}
                   >
                     {paragraph}
@@ -270,9 +298,10 @@ function ScrollExpandMedia({
               </div>
             </div>
 
+            {/* Children content revealed after expansion */}
             {hasChildren && (
               <motion.section
-                className="flex flex-col w-full px-8 py-10 md:px-16 lg:py-20"
+                className="flex flex-col w-full px-4 sm:px-8 md:px-16 py-8 sm:py-10 lg:py-20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showContent ? 1 : 0 }}
                 transition={{ duration: 0.7 }}

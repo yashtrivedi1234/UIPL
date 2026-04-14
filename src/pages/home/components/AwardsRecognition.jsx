@@ -62,24 +62,57 @@ export default function AwardsRecognition() {
     { name: 'LEED Certified', desc: 'Green Building' }
   ]
 
+  const filtered = selectedYear && selectedYear !== 'All'
+    ? awards.filter(a => a.year === selectedYear)
+    : awards
+
   return (
     <section className="py-8 sm:py-16 lg:py-20 bg-white">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
+          50% { transform: translateY(-8px); }
         }
         @keyframes spin-slow {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
-        .award-card { animation: float 3s ease-in-out infinite; }
-        .award-card:nth-child(2) { animation-delay: 0.2s; }
-        .award-card:nth-child(3) { animation-delay: 0.4s; }
-        .award-card:nth-child(4) { animation-delay: 0.6s; }
-        .award-card:nth-child(5) { animation-delay: 0.8s; }
-        .award-card:nth-child(6) { animation-delay: 1s; }
+
+        /* Only float on devices that can handle it comfortably */
+        @media (min-width: 640px) and (prefers-reduced-motion: no-preference) {
+          .award-card { animation: float 3s ease-in-out infinite; }
+          .award-card:nth-child(2) { animation-delay: 0.2s; }
+          .award-card:nth-child(3) { animation-delay: 0.4s; }
+          .award-card:nth-child(4) { animation-delay: 0.6s; }
+          .award-card:nth-child(5) { animation-delay: 0.8s; }
+          .award-card:nth-child(6) { animation-delay: 1s; }
+        }
+
         .icon-spin:hover { animation: spin-slow 1s ease-in-out; }
+
+        /* Scrollable pill row on mobile — no wrapping */
+        .year-filter-scroll {
+          display: flex;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x mandatory;
+          gap: 0.5rem;
+          padding-bottom: 0.5rem;
+          /* hide scrollbar visually */
+          scrollbar-width: none;
+        }
+        .year-filter-scroll::-webkit-scrollbar { display: none; }
+        .year-filter-scroll button { scroll-snap-align: start; flex-shrink: 0; }
+
+        @media (min-width: 640px) {
+          .year-filter-scroll {
+            flex-wrap: wrap;
+            overflow-x: visible;
+            justify-content: center;
+            gap: 0.75rem;
+            padding-bottom: 0;
+          }
+        }
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -92,21 +125,21 @@ export default function AwardsRecognition() {
           >
             Recognition & Achievements
           </span>
-          <h2 className="text-[#00263f] ">
+          <h2 className="text-[#00263f]">
             Awards & Recognition
           </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">
+          <p className="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base">
             Industry recognition for our excellence in development, innovation, and customer satisfaction.
           </p>
         </div>
 
-        {/* Year Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
+        {/* Year Filter — horizontally scrollable on mobile, wrapping on sm+ */}
+        <div className="year-filter-scroll mb-8 sm:mb-12">
           {['All', '2025', '2024', '2023', '2022'].map((year) => (
             <button
               key={year}
               onClick={() => setSelectedYear(selectedYear === year && year !== 'All' ? null : year)}
-              className={`px-5 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm uppercase tracking-wide transition-all ${
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm uppercase tracking-wide transition-all ${
                 selectedYear === year || (!selectedYear && year === 'All')
                   ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg scale-105'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800 border border-slate-200'
@@ -118,24 +151,32 @@ export default function AwardsRecognition() {
           ))}
         </div>
 
-        {/* Awards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20">
-          {(selectedYear && selectedYear !== 'All'
-            ? awards.filter(a => a.year === selectedYear)
-            : awards).map((award, index) => {
+        {/* Awards Grid
+            - 1 col  on phones < 480px
+            - 2 cols on phones ≥ 480px (xs breakpoint via inline style trick + sm grid)
+            - 2 cols on md
+            - 3 cols on lg+
+        */}
+        <div
+          className="grid gap-5 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20"
+          style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))' }}
+        >
+          {filtered.map((award, index) => {
             const IconComponent = award.icon
             return (
               <div key={index} className="award-card group relative">
                 <div className={`absolute inset-0 bg-gradient-to-r ${award.color} rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
-                <div className="relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-slate-200 group-hover:border-orange-300 transition-all duration-300 h-full flex flex-col shadow-sm group-hover:shadow-lg">
+                <div className="relative bg-white rounded-2xl p-5 sm:p-7 border-2 border-slate-200 group-hover:border-orange-300 transition-all duration-300 h-full flex flex-col shadow-sm group-hover:shadow-lg">
 
                   {/* Top: Icon + Year */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className={`bg-gradient-to-br ${award.color} w-16 sm:w-20 h-16 sm:h-20 rounded-xl flex items-center justify-center shadow-md icon-spin text-white`}>
-                      <IconComponent size={32} className="sm:w-[40px] sm:h-[40px]" />
+                  <div className="flex items-start justify-between mb-5">
+                    <div className={`bg-gradient-to-br ${award.color} w-14 sm:w-18 h-14 sm:h-18 rounded-xl flex items-center justify-center shadow-md icon-spin text-white shrink-0`}
+                      style={{ width: 'clamp(3rem, 4vw + 2rem, 5rem)', height: 'clamp(3rem, 4vw + 2rem, 5rem)' }}
+                    >
+                      <IconComponent size={28} />
                     </div>
                     <div
-                      className={`bg-gradient-to-r ${award.color} text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm tracking-wider shadow-md`}
+                      className={`bg-gradient-to-r ${award.color} text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm tracking-wider shadow-md`}
                       style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 900 }}
                     >
                       {award.year}
@@ -143,20 +184,20 @@ export default function AwardsRecognition() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-[#00263f] mb-2 leading-tight">
+                  <h4 className="text-[#00263f] mb-2 leading-tight text-base sm:text-lg">
                     {award.title}
                   </h4>
 
                   {/* Issuer */}
                   <p
-                    className={`bg-gradient-to-r ${award.color} bg-clip-text text-transparent text-xs sm:text-sm uppercase tracking-wide mb-4`}
+                    className={`bg-gradient-to-r ${award.color} bg-clip-text text-transparent text-xs uppercase tracking-wide mb-3`}
                     style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
                   >
                     {award.issuer}
                   </p>
 
                   {/* Description */}
-                  <p className="text-slate-600 leading-relaxed flex-grow mb-4">
+                  <p className="text-slate-600 leading-relaxed flex-grow mb-4 text-sm sm:text-base">
                     {award.description}
                   </p>
 
@@ -169,18 +210,24 @@ export default function AwardsRecognition() {
         </div>
 
         {/* Certifications */}
-        <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-2xl p-8 sm:p-10 lg:p-12">
-          <h3 className="text-[#00263f] mb-4 sm:mb-5 text-center">
+        <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-2xl p-6 sm:p-10 lg:p-12">
+          <h3 className="text-[#00263f] mb-5 sm:mb-6 text-center text-lg sm:text-xl lg:text-2xl">
             Quality & Compliance Certifications
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+
+          {/* 1-col on tiny phones, 2-col on sm, 4-col on md+ */}
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
             {certifications.map((cert, idx) => (
               <div key={idx} className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                <div className="relative bg-white rounded-xl p-5 sm:p-6 text-center border-2 border-slate-200 group-hover:border-orange-400 transition-all hover:shadow-lg shadow-sm">
+                <div className="relative bg-white rounded-xl p-4 sm:p-5 text-center border-2 border-slate-200 group-hover:border-orange-400 transition-all hover:shadow-lg shadow-sm">
                   <div
-                    className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-2"
-                    style={{ fontFamily: "'Germania One', system-ui", fontSize: 'clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem)', fontWeight: 400 }}
+                    className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-1"
+                    style={{
+                      fontFamily: "'Germania One', system-ui",
+                      fontSize: 'clamp(1rem, 0.9rem + 0.5vw, 1.3rem)',
+                      fontWeight: 400
+                    }}
                   >
                     {cert.name}
                   </div>
