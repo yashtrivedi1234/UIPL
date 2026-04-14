@@ -151,15 +151,13 @@ export default function AwardsRecognition() {
           ))}
         </div>
 
-        {/* Awards Grid
-            - 1 col  on phones < 480px
-            - 2 cols on phones ≥ 480px (xs breakpoint via inline style trick + sm grid)
-            - 2 cols on md
+        {/* Awards Grid - 3x3 on desktop
+            - 1 col  on mobile
+            - 2 cols on sm
             - 3 cols on lg+
         */}
         <div
-          className="grid gap-5 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20"
-          style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))' }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20"
         >
           {filtered.map((award, index) => {
             const IconComponent = award.icon
