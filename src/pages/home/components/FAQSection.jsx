@@ -36,7 +36,7 @@ export default function FAQSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-8">
+        <div className="text-center">
           <span className="text-[10px] sm:text-xs font-black uppercase text-orange-500 tracking-widest block"
             style={{ fontFamily: "'Noto Sans', sans-serif" }}>
             Got Questions?
@@ -81,20 +81,6 @@ export default function FAQSection() {
             </div>
           ))}
         </div>
-
-        {/* Contact CTA */}
-        <div className="text-center mt-10 sm:mt-14 lg:mt-16">
-          <p className="text-slate-500 mb-4">
-            Can't find your answer?
-          </p>
-          <button
-            className="bg-[#fe9824] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:scale-105 transition-transform text-sm sm:text-base"
-            style={{ fontFamily: "'Noto Sans', sans-serif", fontWeight: 700 }}
-          >
-            Contact Our Team
-          </button>
-        </div>
-
       </div>
     </section>
   )

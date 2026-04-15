@@ -63,8 +63,8 @@ export default function PrecisionEngineering() {
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-black mb-4">Precision Engineering</h2>
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-black">Precision Engineering</h2>
           <p className="text-[#a3cbf2] text-lg max-w-2xl mx-auto">
             Behind the luxury lies a world of technical excellence and meticulous planning.
           </p>

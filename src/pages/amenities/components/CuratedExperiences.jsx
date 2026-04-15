@@ -12,9 +12,9 @@ export default function CuratedExperiences() {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-10">
           <div className="max-w-2xl">
-            <h2 className="text-4xl font-black text-[#00263f] mb-4">Curated Experiences</h2>
+            <h2 className="text-4xl font-black text-[#00263f]">Curated Experiences</h2>
             <p className="text-slate-500 text-lg leading-relaxed">
               Every detail is engineered to enhance your daily life, from advanced security
               protocols to world-class social hubs.
