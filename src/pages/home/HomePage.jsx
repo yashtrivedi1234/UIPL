@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import HeroSection from './components/HeroSection'
 import WhyChooseUs from './components/WhyChooseUs'
 import SectorHighlights from './components/SectorHighlights'
@@ -14,8 +15,9 @@ import LatestNews from './components/LatestNews'
 import LocationSection from './components/LocationSection'
 import FAQSection from './components/FAQSection'
 import CTABanner from './components/CTABanner'
-import ExecutiveImpactCarouselDemo from '@/components/ui/executive-impact-carousel-demo'
-import BookSliderDemo from '@/components/ui/book-slider-demo'
+
+const ExecutiveImpactCarouselDemo = lazy(() => import('@/components/ui/executive-impact-carousel-demo'))
+const BookSliderDemo = lazy(() => import('@/components/ui/book-slider-demo'))
 
 export default function HomePage() {
   return (
@@ -25,14 +27,18 @@ export default function HomePage() {
       <SectorHighlights />
       <EcosystemFlow />
       <ProjectShowcase />
-      <ExecutiveImpactCarouselDemo />
+      <Suspense fallback={<div className="min-h-64" />}>
+        <ExecutiveImpactCarouselDemo />
+      </Suspense>
      
       <AmenitiesSection />
       <AwardsRecognition />
       <SustainabilityGreen />
       <InvestmentOpportunities />
       <TeamShowcaseSection />
-       <BookSliderDemo />
+      <Suspense fallback={<div className="min-h-64" />}>
+        <BookSliderDemo />
+      </Suspense>
       {/* <Testimonials /> */}
       <PartnersInvestors />
       <LatestNews />
