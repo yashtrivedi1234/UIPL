@@ -115,7 +115,7 @@ export default function WellnessPrograms() {
                       <program.icon size={18} />
                     </div>
                     <div className="flex-1 text-left">
-                      <h4 className="font-bold text-[#00263f]">{program.title}</h4>
+                      <h4 className=" text-[#00263f]">{program.title}</h4>
                       <p className=" text-slate-500">{program.members} members</p>
                     </div>
                   </div>
