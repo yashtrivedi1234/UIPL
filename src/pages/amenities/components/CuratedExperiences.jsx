@@ -38,7 +38,7 @@ export default function CuratedExperiences() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#00263f]/90 via-[#00263f]/20 to-transparent" />
             <div className="absolute bottom-0 left-0 p-10 w-full">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-4xl">🏊</span>
+            
                 <h3 className="text-3xl font-black text-white">Elite Lifestyle</h3>
               </div>
               <p className="text-slate-200 max-w-lg mb-6 text-sm leading-relaxed">
