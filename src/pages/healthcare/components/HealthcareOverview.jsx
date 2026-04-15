@@ -25,11 +25,11 @@ const pillars = [
 
 export default function HealthcareOverview() {
   return (
-    <section className="py-24 px-6 bg-[#f8fbff]" id="overview">
+    <section className="py-8 px-6 bg-[#f8fbff]" id="overview">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-10">
           <p className="text-sm font-black tracking-[0.18em] uppercase text-[#0b3c5d] mb-3">Healthcare Vision</p>
-          <h2 className="text-4xl md:text-5xl font-black text-[#00263f] leading-tight mb-6">
+          <h2 className="text-4xl md:text-5xl text-[#00263f] leading-tight">
             Designed For Clinical Excellence,
             <span className="text-[#0b3c5d]"> Built For Communities</span>
           </h2>
@@ -45,7 +45,7 @@ export default function HealthcareOverview() {
               <div className="w-12 h-12 rounded-xl bg-[#eff6ff] text-[#0b3c5d] flex items-center justify-center mb-5">
                 <Icon size={22} />
               </div>
-              <h3 className="text-xl font-black text-[#00263f] mb-3">{title}</h3>
+              <h3 className="text-[#00263f] mb-3">{title}</h3>
               <p className="text-slate-600 leading-relaxed">{description}</p>
             </article>
           ))}

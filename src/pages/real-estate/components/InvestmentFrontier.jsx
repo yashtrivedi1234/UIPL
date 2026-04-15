@@ -17,7 +17,7 @@ const barColors  = ['bg-[#fe9824]', 'bg-[#fe9824]', 'bg-[#fe9824]', 'bg-orange-4
 
 export default function InvestmentFrontier() {
   return (
-    <section className="py-24 bg-[#00263f] text-white relative overflow-hidden">
+    <section className="py-8 bg-[#00263f] text-white relative overflow-hidden">
       {/* Background city image */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <img
@@ -35,7 +35,7 @@ export default function InvestmentFrontier() {
             <span className="text-[#fe9824] font-black tracking-widest text-sm uppercase">
               Growth Potential
             </span>
-            <h2 className="text-5xl font-black tracking-tighter">
+            <h2 className="text-5xl tracking-tighter">
               Lucknow: The Next{' '}
               <span className="text-[#fe9824]">Investment Frontier</span>
             </h2>
@@ -57,7 +57,7 @@ export default function InvestmentFrontier() {
 
           {/* Market snapshot card */}
           <div className="bg-[#0b3c5d] p-10 rounded-2xl shadow-2xl">
-            <h3 className="text-2xl font-black mb-8">Current Market Snapshot</h3>
+            <h3 className="mb-8">Current Market Snapshot</h3>
             <div className="space-y-5">
               {metrics.map(({ label, value }) => (
                 <div key={label} className="flex justify-between items-center pb-4 border-b border-white/10">

@@ -6,12 +6,12 @@ const stats = [
 
 export default function RealEstateOverview() {
   return (
-    <section className="py-24 bg-[#f8f9ff] relative overflow-hidden">
+    <section className="py-8 bg-[#f8f9ff] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
         {/* Text */}
         <div className="space-y-8">
-          <h2 className="text-5xl font-black tracking-tighter text-[#00263f]">
+          <h2 className="text-5xl tracking-tighter text-[#00263f]">
             Urban Innovation Meets{' '}
             <span className="text-[#8d4f00]">Mastery.</span>
           </h2>
@@ -29,7 +29,7 @@ export default function RealEstateOverview() {
           <div className="grid grid-cols-3 gap-8 pt-6 border-t border-slate-100">
             {stats.map(({ value, label, color }) => (
               <div key={label}>
-                <div className={`text-4xl font-black ${color}`}>{value}</div>
+                <div className={`text-4xl ${color}`}>{value}</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mt-1">{label}</div>
               </div>
             ))}

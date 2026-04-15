@@ -7,10 +7,10 @@ const metrics = [
 
 export default function ClinicalExcellence() {
   return (
-    <section className="py-24 px-6 bg-[#00263f] text-white">
+    <section className="py-8 px-6 bg-[#00263f] text-white">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-3xl mb-10">
-          <p className="text-cyan-300 text-sm font-black tracking-[0.18em] uppercase mb-3">Performance Backbone</p>
+          <p className="text-cyan-300 text-sm font-black tracking-[0.18em] uppercase ">Performance Backbone</p>
           <h3 className="text-4xl md:text-5xl leading-tight mb-4">
             Clinical Spaces Backed By Engineering Precision
           </h3>

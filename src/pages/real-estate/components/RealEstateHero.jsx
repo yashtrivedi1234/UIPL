@@ -22,7 +22,7 @@ export default function RealEstateHero() {
         <span className="inline-block px-4 py-1.5 bg-orange-500/20 text-orange-300 border border-orange-400/30 rounded-full text-xs font-black tracking-widest uppercase">
           The Pinnacle of Living
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight">
           Architecting{' '}
           <span
             className="bg-[linear-gradient(120deg,_#90c8f8_0%,_#67e8c0_50%,_#F7931E_100%)] bg-clip-text text-transparent"
@@ -37,13 +37,13 @@ export default function RealEstateHero() {
         <div className="flex flex-row gap-3 sm:gap-4 justify-center">
           <button
             onClick={() => navigate('/projects')}
-            className="bg-white text-[#00263f] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:scale-105 transition-all shadow-lg"
+            className="bg-white text-[#00263f] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:scale-105 duration-300 shadow-lg"
           >
             Explore Properties
           </button>
           <button
             onClick={() => navigate('/about')}
-            className="bg-white/10 backdrop-blur text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base border border-white/30 hover:bg-white/20 transition-colors"
+            className="bg-white/10 backdrop-blur text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base border border-white/30 hover:bg-white/20 duration-300"
           >
             Our Vision
           </button>

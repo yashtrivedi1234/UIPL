@@ -13,7 +13,7 @@ export default function HealthcarePage() {
       <HealthcareFacilities />
       <ClinicalExcellence />
       <WellnessEcosystem />
-      <HealthcareCTA />
+      {/* <HealthcareCTA /> */}
     </>
   )
 }
