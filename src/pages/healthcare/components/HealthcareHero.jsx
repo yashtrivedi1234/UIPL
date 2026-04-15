@@ -21,7 +21,7 @@ export default function HealthcareHero() {
         <span className="inline-block px-4 py-1.5 bg-cyan-500/20 text-cyan-200 border border-cyan-300/30 rounded-full text-xs font-black tracking-widest uppercase">
           Precision Care Infrastructure
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight">
           Building The Future Of{' '}
           <span
             className="bg-[linear-gradient(120deg,_#9ad9ff_0%,_#86efac_45%,_#fcd34d_100%)] bg-clip-text text-transparent"
@@ -36,13 +36,13 @@ export default function HealthcareHero() {
         <div className="flex flex-row gap-3 sm:gap-4 justify-center">
           <button
             onClick={() => navigate('/projects')}
-            className="bg-white text-[#00263f] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:scale-105 transition-all shadow-lg"
+            className="bg-white text-[#00263f] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:scale-105 duration-300 shadow-lg"
           >
             View Healthcare Projects
           </button>
           <button
             onClick={() => navigate('/contact')}
-            className="bg-white/10 backdrop-blur text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base border border-white/30 hover:bg-white/20 transition-colors"
+            className="bg-white/10 backdrop-blur text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base border border-white/30 hover:bg-white/20 duration-300"
           >
             Book Consultation
           </button>

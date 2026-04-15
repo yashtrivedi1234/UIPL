@@ -20,7 +20,7 @@ export default function EducationHero() {
         <span className="inline-block px-4 py-1.5 text-xs font-black tracking-[0.2em] text-orange-300 bg-orange-500/20 rounded-full border border-orange-400/30 uppercase">
           Architecting Knowledge
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight">
           Defining the{' '}
           <span
             className="bg-[linear-gradient(120deg,_#90c8f8_0%,_#67e8c0_50%,_#F7931E_100%)] bg-clip-text text-transparent"
@@ -36,13 +36,13 @@ export default function EducationHero() {
         <div className="flex flex-row gap-3 sm:gap-4 justify-center">
           <a
             href="#institutions"
-            className="bg-white text-[#00263f] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:scale-105 transition-all shadow-xl"
+            className="bg-white text-[#00263f] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:scale-105 duration-300 shadow-xl"
           >
             Explore Institutions
           </a>
           <a
             href="#overview"
-            className="bg-white/10 backdrop-blur text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:bg-white/20 transition-all border border-white/30"
+            className="bg-white/10 backdrop-blur text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-black text-sm sm:text-base hover:bg-white/20 duration-300 border border-white/30"
           >
             Learn Our Vision
           </a>

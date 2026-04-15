@@ -27,11 +27,11 @@ const galleryImages = [
 
 export default function EducationGallery() {
   return (
-    <section className="py-24 bg-[#eff4ff]">
+    <section className="py-8 bg-[#eff4ff]">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-black text-[#00263f] mb-4">Campus Life</h2>
+        <div className="text-center mb-10">
+          <h2 className="text-[#00263f] ">Campus Life</h2>
           <p className="text-slate-500">Moments of discovery, friendship, and achievement within our walls.</p>
         </div>
 

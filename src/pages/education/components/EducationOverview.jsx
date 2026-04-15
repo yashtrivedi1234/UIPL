@@ -2,7 +2,7 @@ import { Leaf, Bot } from 'lucide-react'
 
 export default function EducationOverview() {
   return (
-    <section className="py-24 bg-[#f8f9ff] relative overflow-hidden" id="overview">
+    <section className="py-8 bg-[#f8f9ff] relative overflow-hidden" id="overview">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-20 items-center">
 
@@ -18,7 +18,7 @@ export default function EducationOverview() {
             </div>
             {/* Stat badge */}
             <div className="absolute -bottom-8 -right-8 w-64 h-auto bg-white/70 backdrop-blur-xl border border-slate-100 p-8 rounded-2xl shadow-xl hidden md:block">
-              <div className="text-[#8d4f00] text-4xl font-black mb-2">15+</div>
+              <div className="text-[#8d4f00] text-4xl mb-2">15+</div>
               <div className="text-slate-500 text-xs font-black uppercase tracking-widest leading-tight">
                 State-of-the-art Institutions Globally
               </div>
@@ -27,7 +27,7 @@ export default function EducationOverview() {
 
           {/* Text side */}
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-black text-[#00263f] leading-tight">
+            <h2 className="text-4xl md:text-5xl text-[#00263f] leading-tight">
               A Vision Beyond <br />
               <span className="text-[#8d4f00]">Classroom Walls</span>
             </h2>

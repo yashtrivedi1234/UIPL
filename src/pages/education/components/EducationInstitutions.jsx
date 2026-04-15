@@ -32,12 +32,12 @@ export default function EducationInstitutions() {
   const navigate = useNavigate()
 
   return (
-    <section className="py-24 bg-[#f8f9ff]" id="institutions">
+    <section className="py-8 bg-[#f8f9ff]" id="institutions">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-8">
           <div className="max-w-2xl">
-            <h2 className="text-4xl font-black text-[#00263f] mb-4">Our Institutions</h2>
+            <h2 className="text-[#00263f]">Our Institutions</h2>
             <p className="text-slate-500 text-lg leading-relaxed">
               A diverse network of learning environments tailored to different stages of
               academic journeys.
@@ -45,9 +45,9 @@ export default function EducationInstitutions() {
           </div>
           <button
             onClick={() => navigate('/education')}
-            className="flex items-center gap-2 font-black text-[#8d4f00] group hover:gap-4 transition-all text-sm"
+            className="flex items-center gap-2 font-black text-[#8d4f00] group hover:gap-4 duration-300 text-sm"
           >
-            View All Branches <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            View All Branches <ArrowRight size={16} className="group-hover:translate-x-1 duration-300" />
           </button>
         </div>
 
@@ -68,7 +68,7 @@ export default function EducationInstitutions() {
                 </div>
               </div>
               <div className="p-8">
-                <h4 className="text-2xl font-black text-[#00263f] mb-3">{name}</h4>
+                <h4 className="text-[#00263f] mb-3">{name}</h4>
                 <p className="text-slate-500 mb-6 text-sm leading-relaxed">{desc}</p>
                 <div className="flex items-center gap-4 text-xs font-black text-[#00263f]/50 border-t border-slate-100 pt-6">
                   <span className="flex items-center gap-1">

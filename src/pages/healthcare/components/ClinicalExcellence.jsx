@@ -11,7 +11,7 @@ export default function ClinicalExcellence() {
       <div className="max-w-7xl mx-auto">
         <div className="max-w-3xl mb-10">
           <p className="text-cyan-300 text-sm font-black tracking-[0.18em] uppercase mb-3">Performance Backbone</p>
-          <h3 className="text-4xl md:text-5xl font-black leading-tight mb-4">
+          <h3 className="text-4xl md:text-5xl leading-tight mb-4">
             Clinical Spaces Backed By Engineering Precision
           </h3>
           <p className="text-slate-300 text-lg leading-relaxed">
@@ -23,7 +23,7 @@ export default function ClinicalExcellence() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {metrics.map((item) => (
             <div key={item.label} className="bg-white/5 border border-white/15 rounded-2xl p-6">
-              <p className="text-4xl font-black text-cyan-200 mb-2">{item.value}</p>
+              <p className="text-4xl text-cyan-200 mb-2">{item.value}</p>
               <p className="text-slate-300">{item.label}</p>
             </div>
           ))}
