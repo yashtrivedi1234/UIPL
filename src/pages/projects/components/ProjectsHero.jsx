@@ -21,7 +21,7 @@ export default function ProjectsHero() {
           UIPL Portfolio
         </span>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-white tracking-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-white tracking-tight">
           Our Projects: <br />
           <span
             className="bg-[linear-gradient(120deg,_#90c8f8_0%,_#67e8c0_50%,_#F7931E_100%)] bg-clip-text text-transparent"
@@ -37,7 +37,7 @@ export default function ProjectsHero() {
 
         <button
           onClick={() => navigate('/contact')}
-          className="bg-white text-[#00263f] px-8 py-4 rounded-xl font-black flex items-center gap-2 hover:scale-105 transition-all shadow-lg"
+          className="bg-white text-[#00263f] px-8 py-4 rounded-xl font-black flex items-center gap-2 hover:scale-105 duration-300 shadow-lg"
         >
           Explore Now <ArrowRight size={18} />
         </button>

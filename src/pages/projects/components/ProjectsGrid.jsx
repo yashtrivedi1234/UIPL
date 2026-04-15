@@ -77,7 +77,7 @@ export default function ProjectsGrid() {
         {/* Header + Filters */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-8">
           <div>
-            <h2 className="text-3xl font-black text-[#00263f] mb-2">Milestones of Excellence</h2>
+            <h2 className="text-[#00263f] mb-2">Milestones of Excellence</h2>
             <p className="text-slate-500 text-sm">Filter our portfolio by sector to see how we impact the city.</p>
           </div>
           <div className="flex flex-wrap gap-2 bg-[#eff4ff] p-1.5 rounded-xl border border-slate-200/50">
@@ -85,7 +85,7 @@ export default function ProjectsGrid() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className={`px-5 py-2.5 rounded-lg font-semibold text-sm transition-all ${
+                className={`px-5 py-2.5 rounded-lg font-semibold text-sm duration-300 ${
                   active === f
                     ? 'bg-[#0b3c5d] text-white shadow-md'
                     : 'text-slate-600 hover:bg-[#dce9ff]'
@@ -106,7 +106,7 @@ export default function ProjectsGrid() {
             return (
               <div
                 key={project.id}
-                className={`group relative rounded-2xl overflow-hidden bg-white/70 backdrop-blur border border-slate-100 hover:scale-[1.02] transition-all duration-500 shadow-sm hover:shadow-xl
+                className={`group relative rounded-2xl overflow-hidden bg-white/70 backdrop-blur border border-slate-100 hover:scale-[1.02] duration-500 shadow-sm hover:shadow-xl
                   ${isFeatured ? 'md:col-span-8' : isTall ? 'md:col-span-4' : 'md:col-span-4'}`}
               >
                 {/* Image */}
@@ -114,7 +114,7 @@ export default function ProjectsGrid() {
                   <img
                     src={project.img}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover duration-700 group-hover:scale-110"
                   />
                 </div>
 
@@ -133,7 +133,7 @@ export default function ProjectsGrid() {
                               {project.sector}
                             </span>
                           </div>
-                          <h3 className={`font-black mb-1 ${isFeatured ? 'text-3xl' : 'text-xl'}`}>{project.title}</h3>
+                          <h3 className={`mb-1 ${isFeatured ? 'text-3xl' : 'text-xl'}`}>{project.title}</h3>
                           <div className="flex items-center gap-1.5 opacity-75 text-sm">
                             <MapPin size={13} /> {project.location}
                           </div>
@@ -141,7 +141,7 @@ export default function ProjectsGrid() {
                         {isFeatured && (
                           <button
                             onClick={() => navigate('/contact')}
-                            className="w-11 h-11 rounded-full bg-white/20 backdrop-blur flex items-center justify-center hover:bg-white hover:text-[#00263f] transition-all"
+                            className="w-11 h-11 rounded-full bg-white/20 backdrop-blur flex items-center justify-center hover:bg-white hover:text-[#00263f] duration-300"
                           >
                             <ArrowUpRight size={18} />
                           </button>
@@ -158,7 +158,7 @@ export default function ProjectsGrid() {
                       <span className="text-[10px] font-black uppercase tracking-tight text-[#8d4f00]">{project.sector}</span>
                       <span className="px-2 py-0.5 border border-slate-200 rounded text-[10px] text-slate-500 font-bold">{project.status}</span>
                     </div>
-                    <h3 className="text-base font-black text-[#00263f] group-hover:text-[#8d4f00] transition-colors">{project.title}</h3>
+                    <h3 className="text-[#00263f] group-hover:text-[#8d4f00] duration-300">{project.title}</h3>
                     <p className="text-xs text-slate-400 mt-1">{project.location}</p>
                   </div>
                 )}
@@ -172,7 +172,7 @@ export default function ProjectsGrid() {
           {canLoadMore && (
             <button
               onClick={() => setVisibleCount((prev) => Math.min(prev + 3, filtered.length))}
-              className="px-10 py-4 border-2 border-[#00263f] text-[#00263f] font-black rounded-xl hover:bg-[#00263f] hover:text-white transition-all"
+              className="px-10 py-4 border-2 border-[#00263f] text-[#00263f] font-black rounded-xl hover:bg-[#00263f] hover:text-white duration-300"
             >
               Load More Projects
             </button>

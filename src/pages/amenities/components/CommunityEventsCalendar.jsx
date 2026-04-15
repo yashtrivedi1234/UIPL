@@ -170,34 +170,52 @@ export default function CommunityEventsCalendar() {
         </div>
 
         {/* Calendar View */}
-        <div className="bg-gradient-to-br from-[#f0f4f8] to-[#e8eef7] rounded-2xl p-8 border border-[#d0d0d0]">
-          <h3 className="text-[#00263f] mb-8">This Week's Schedule</h3>
-          <div className="grid grid-cols-1 md:grid-cols-7 gap-4">
-            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, idx) => (
-              <div key={day} className="bg-white rounded-lg p-4">
-                <p className="font-bold text-[#00263f] mb-3">{day}</p>
-                <div className="space-y-2">
-                  {events
-                    .filter(e => {
-                      if (e.date.includes(day)) return true
-                      if (e.date.includes('Every') && ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(day)) {
-                        return true
-                      }
-                      if (e.date.includes('Weekend') && ['Saturday', 'Sunday'].includes(day)) return true
-                      return false
-                    })
-                    .slice(0, 2)
-                    .map(e => (
-                      <div key={e.id} className="text-xs bg-[#f0f4f8] p-2 rounded">
-                        <p className="font-bold text-[#00263f]">{e.title.slice(0, 12)}...</p>
-                        <p className="text-slate-500 text-xs">{e.time.split('-')[0]}</p>
-                      </div>
-                    ))}
-                </div>
-              </div>
-            ))}
+        {/* Weekly Schedule - improved */}
+<div className="bg-gradient-to-br from-[#f0f4f8] to-[#e8eef7] rounded-2xl p-8 border border-[#d0d0d0]">
+  <h3 className="text-[#00263f] mb-4">This Week's Schedule</h3>
+
+  {/* Legend */}
+  <div className="flex flex-wrap gap-3 mb-6">
+    {[
+      { type: 'Fitness', color: 'bg-blue-500' },
+      { type: 'Recreation', color: 'bg-pink-500' },
+      { type: 'Water Sports', color: 'bg-cyan-500' },
+      { type: 'Social', color: 'bg-purple-500' },
+      { type: 'Family', color: 'bg-green-500' },
+    ].map(({ type, color }) => (
+      <div key={type} className="flex items-center gap-2 text-xs text-slate-600">
+        <span className={`w-2.5 h-2.5 rounded-full ${color}`} />
+        {type}
+      </div>
+    ))}
+  </div>
+
+  {/* Grid */}
+  <div className="grid grid-cols-7 gap-2">
+    {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => {
+      const dayEvents = events.filter(e => e.date.includes(day) || (e.date.includes('Every') && !['Sat','Sun'].includes(day)));
+      return (
+        <div key={day} className="flex flex-col gap-2">
+          {/* Day header */}
+          <div className="text-center bg-white rounded-lg py-2 px-1 border border-[#e0e0e0]">
+            <p className="text-xs font-bold text-[#00263f]">{day}</p>
           </div>
+          {/* Pills */}
+          {dayEvents.length === 0 ? (
+            <p className="text-center text-slate-400 text-xs py-2">—</p>
+          ) : (
+            dayEvents.slice(0, 3).map(e => (
+              <div key={e.id} className={`rounded-lg p-2 border-l-4 ${e.color.replace('bg-','border-')} bg-white`}>
+                <p className="text-[10px] font-bold text-[#00263f] leading-tight">{e.title}</p>
+                <p className="text-[10px] text-slate-400 mt-1">{e.time.split(' - ')[0]}</p>
+              </div>
+            ))
+          )}
         </div>
+      );
+    })}
+  </div>
+</div>
       </div>
     </section>
   )
