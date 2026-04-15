@@ -56,7 +56,7 @@ export default function AmenitiesFAQ() {
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className="text-[#00263f]">Frequently Asked Questions</h2>
-          <p className="text-slate-500 text-lg">
+          <p className="text-slate-500">
             Find answers to common questions about our amenities
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function AmenitiesFAQ() {
                 onClick={() => toggleFAQ(item.id)}
                 className="w-full px-8 py-6 flex items-center justify-between hover:bg-[#f8f9ff] duration-300"
               >
-                <h3 className="text-[#00263f] text-left">{item.question}</h3>
+                <h5 className="text-[#00263f] text-left">{item.question}</h5>
                 <ChevronDown
                   size={24}
                   className={`flex-shrink-0 text-[#fe9824] transition-transform duration-300 ${
