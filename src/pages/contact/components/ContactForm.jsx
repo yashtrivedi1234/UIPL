@@ -21,7 +21,7 @@ export default function ContactForm() {
   const labelClass = 'text-[10px] font-black uppercase tracking-wider text-slate-400 ml-1 block mb-1.5'
 
   return (
-    <div className="bg-white/70 backdrop-blur-xl rounded-2xl p-10 border border-slate-200/40 shadow-[0_20px_40px_rgba(0,28,55,0.06)]">
+    <div className="h-full bg-white/70 backdrop-blur-xl rounded-2xl p-10 border border-slate-200/40 shadow-[0_20px_40px_rgba(0,28,55,0.06)]">
       {submitted ? (
         <div className="flex flex-col items-center justify-center py-16 text-center gap-5">
           <CheckCircle size={56} className="text-[#002a05]" />
@@ -37,7 +37,7 @@ export default function ContactForm() {
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="flex h-full flex-col space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className={labelClass}>Full Name</label>
